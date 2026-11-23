@@ -1,0 +1,52 @@
+/** Persisted movie record (IndexedDB via Dexie). */
+export interface Movie {
+  id: string
+  tmdbId: number // 0 when the movie came from the OMDb fallback
+  imdbId: string
+  title: string
+  year: number
+  director: string
+  runtime: number // minutes
+  genres: string[]
+  /** TMDB poster path, e.g. "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg" (absent for OMDb-only posters) */
+  posterPath?: string
+  posterUrl: string
+  /** locally cached high-res poster for offline use */
+  posterBlob?: Blob
+  posterCachedAt?: number
+  myRating: number // 1–10, 0.5 steps
+  myReview: string
+  imdbRating?: number
+  rtScore?: number
+  metacritic?: number
+  /** 'pending' = OMDb failed / rate-limited, retried in the background */
+  scoresStatus?: 'pending' | 'done'
+  addedAt: number
+  updatedAt: number
+}
+
+/** Everything needed to create a Movie except my own fields and bookkeeping. */
+export type MovieInfo = Pick<
+  Movie,
+  'tmdbId' | 'imdbId' | 'title' | 'year' | 'director' | 'runtime' | 'genres' | 'posterPath' | 'posterUrl'
+>
+
+export interface Scores {
+  imdbRating?: number
+  rtScore?: number
+  metacritic?: number
+}
+
+/** A search hit, before details are fetched. */
+export interface Candidate {
+  source: 'tmdb' | 'omdb'
+  tmdbId?: number
+  imdbId?: string
+  title: string
+  originalTitle?: string
+  year?: number
+  thumb?: string
+  overview?: string
+}
+
+export type CaseStyle = 'cd' | 'dvd'

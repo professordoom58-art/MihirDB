@@ -1,0 +1,38 @@
+{
+  "name": "shelf",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:host": "vite --host",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host",
+    "typecheck": "tsc -b",
+    "icons": "node scripts/make-icons.mjs && capacitor-assets generate --ios --iconBackgroundColor \"#050506\" --iconBackgroundColorDark \"#050506\" --splashBackgroundColor \"#050506\" --splashBackgroundColorDark \"#050506\"",
+    "cap:sync": "npm run build && cap sync ios",
+    "cap:sync:live": "cross-env CAP_LIVE=1 cap sync ios"
+  },
+  "dependencies": {
+    "@capacitor/core": "^8.6.2",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/ios": "^8.6.2",
+    "@capacitor/share": "^8.0.3",
+    "dexie": "^4.4.7",
+    "framer-motion": "^14.14.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^4.0.0",
+    "@capacitor/cli": "^8.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "cross-env": "^10.1.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vite-plugin-pwa": "^2.0.0"
+  }
+}

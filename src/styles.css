@@ -1,0 +1,566 @@
+:root {
+  --bg: #050506;
+  --fg: rgba(255, 255, 255, 0.94);
+  --muted: rgba(255, 255, 255, 0.52);
+  --accent: hsl(36 60% 70%);
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', Inter, 'Segoe UI', Roboto, system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+input,
+textarea {
+  font-size: 16px; /* no iOS zoom on focus */
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+.app {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---------- backdrop ---------------------------------------------------- */
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--bg);
+}
+
+.backdrop__layer {
+  position: absolute;
+  inset: 0;
+  will-change: opacity;
+  overflow: hidden;
+}
+
+.backdrop__layer img {
+  position: absolute;
+  inset: -12%;
+  width: 124%;
+  height: 124%;
+  object-fit: cover;
+  /* A tiny source image blurred hard is cheap and looks the same as a big one. */
+  filter: blur(40px) saturate(1.7) brightness(0.8);
+  transform: translateZ(0) scale(1.05);
+}
+
+.backdrop__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 70% at 50% 42%, rgba(5, 5, 6, 0) 0%, rgba(5, 5, 6, 0.35) 55%, rgba(5, 5, 6, 0.86) 100%),
+    linear-gradient(180deg, rgba(5, 5, 6, 0.55) 0%, rgba(5, 5, 6, 0) 22%, rgba(5, 5, 6, 0) 62%, rgba(5, 5, 6, 0.9) 100%);
+}
+
+/* ---------- carousel ---------------------------------------------------- */
+
+.stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  touch-action: none;
+  cursor: grab;
+}
+
+.stage:active {
+  cursor: grabbing;
+}
+
+.item {
+  position: absolute;
+  left: 50%;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.item__press {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.18s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.item__press:active {
+  transform: scale(0.985);
+}
+
+.item__dim {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--case-r);
+  background: #000;
+  pointer-events: none;
+}
+
+/* Pre-blurred contact shadow: a gradient, not an animated box-shadow. */
+.item__shadow {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: -9%;
+  height: 16%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+/* ---------- jewel case -------------------------------------------------- */
+
+.case {
+  --case-r: 2.2%;
+  --spine: 8.5%;
+  position: absolute;
+  inset: 0;
+  border-radius: var(--case-r);
+  overflow: hidden;
+  background: #0b0b0d;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06),
+    0 18px 40px -18px rgba(0, 0, 0, 0.9),
+    0 40px 60px -30px rgba(0, 0, 0, 0.7);
+}
+
+.item__dim {
+  --case-r: 2.2%;
+}
+
+.case--dvd {
+  --case-r: 3.2%;
+  --spine: 5.5%;
+  background: #08080a;
+}
+
+.case__tray {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 30%),
+    #101013;
+}
+
+/* The printed insert, sitting under the clear lid, right of the hinge. */
+.case__insert {
+  position: absolute;
+  top: 1.4%;
+  bottom: 1.4%;
+  left: calc(var(--spine) + 0.6%);
+  right: 1.4%;
+  overflow: hidden;
+  background: #16161a;
+}
+
+.case--dvd .case__insert {
+  top: 1.8%;
+  bottom: 1.8%;
+  right: 1.8%;
+}
+
+.case__insert img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 16%; /* keep faces/titles near the top in the square crop */
+}
+
+.case--dvd .case__insert img {
+  object-position: 50% 50%;
+}
+
+.case__lqip {
+  filter: blur(10px);
+  transform: scale(1.08);
+}
+
+.case__poster {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.case__poster.is-loaded {
+  opacity: 1;
+}
+
+.case__fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 12%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.7);
+  background: radial-gradient(circle at 30% 20%, #2a2a33, #0e0e12 70%);
+}
+
+/* Hinge spine on the left edge: ridged dark plastic with hinge knuckles. */
+.case__spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--spine);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 8%,
+      rgba(0, 0, 0, 0.35) 22%,
+      rgba(255, 255, 255, 0.07) 30%,
+      rgba(0, 0, 0, 0) 38%,
+      rgba(0, 0, 0, 0.4) 56%,
+      rgba(255, 255, 255, 0.09) 64%,
+      rgba(0, 0, 0, 0.25) 78%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    linear-gradient(180deg, #232328, #141417 50%, #1d1d22);
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.07);
+}
+
+.case__spine::before,
+.case__spine::after {
+  content: '';
+  position: absolute;
+  left: 18%;
+  right: 22%;
+  height: 7%;
+  border-radius: 1px;
+  background: linear-gradient(90deg, #2b2b31, #3a3a42 45%, #1a1a1e);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.case__spine::before {
+  top: 2.5%;
+}
+
+.case__spine::after {
+  bottom: 2.5%;
+}
+
+.case--dvd .case__spine {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(180deg, #1b1b1f, #0f0f12);
+}
+
+.case--dvd .case__spine::before,
+.case--dvd .case__spine::after {
+  display: none;
+}
+
+/* Clear lid: bevelled edge, a faint permanent sheen, an inner moulding line. */
+.case__plastic {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--case-r);
+  pointer-events: none;
+  background:
+    linear-gradient(
+      125deg,
+      rgba(255, 255, 255, 0.13) 0%,
+      rgba(255, 255, 255, 0.03) 22%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0) 72%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.13),
+    inset 1.5px 1.5px 0 rgba(255, 255, 255, 0.16),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.55),
+    inset 0 0 18px rgba(0, 0, 0, 0.35);
+}
+
+.case__plastic::after {
+  content: '';
+  position: absolute;
+  top: 2.6%;
+  bottom: 2.6%;
+  left: calc(var(--spine) + 1.6%);
+  right: 2.6%;
+  border-radius: 1.5%;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- glare ------------------------------------------------------- */
+
+.case__glare {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: var(--case-r);
+  pointer-events: none;
+  will-change: opacity;
+}
+
+/* Faint highlight that stays while centred and drifts with pointer / tilt. */
+.case__highlight {
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(38% 30% at 30% 22%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 70%),
+    linear-gradient(118deg, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, 0.06) 46%, rgba(255, 255, 255, 0) 54%);
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+/* One-shot specular sweep across the plastic. */
+.case__sweep {
+  position: absolute;
+  top: -60%;
+  bottom: -60%;
+  left: -72%;
+  width: 62%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.06) 30%,
+    rgba(255, 255, 255, 0.38) 47%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.38) 53%,
+    rgba(255, 255, 255, 0.06) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  mix-blend-mode: screen;
+  transform: translate3d(12%, 0, 0) rotate(22deg);
+  opacity: 0;
+  animation: sweep 0.7s cubic-bezier(0.38, 0.12, 0.42, 0.96) 0.03s forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes sweep {
+  0% {
+    transform: translate3d(12%, 0, 0) rotate(22deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(285%, 0, 0) rotate(22deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case__sweep {
+    display: none;
+  }
+  .case__poster,
+  .item__press {
+    transition: none;
+  }
+}
+
+/* ---------- caption ----------------------------------------------------- */
+
+.caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  padding: 0 calc(24px + var(--safe-l)) 0 calc(24px + var(--safe-r));
+}
+
+.caption__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 100%;
+}
+
+.caption__title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80vw;
+}
+
+.caption__year {
+  margin-top: 3px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.caption__rating {
+  margin-top: 10px;
+  font-size: 46px;
+  line-height: 1;
+  font-weight: 250;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.5s ease;
+  text-shadow: 0 0 28px color-mix(in srgb, currentColor 35%, transparent);
+}
+
+/* ---------- top bar ----------------------------------------------------- */
+
+.topbar {
+  position: absolute;
+  top: calc(var(--safe-t) + 10px);
+  left: calc(var(--safe-l) + 12px);
+  right: calc(var(--safe-r) + 12px);
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.iconbtn {
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.78);
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    color 0.2s ease;
+}
+
+.iconbtn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.iconbtn:active {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.iconbtn:focus-visible,
+.seg button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- temporary panel (becomes search/filter + settings later) ---- */
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.panel {
+  position: absolute;
+  z-index: 7;
+  top: calc(var(--safe-t) + 62px);
+  left: calc(var(--safe-l) + 12px);
+  width: min(320px, calc(100vw - 24px));
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(28, 28, 32, 0.72);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  box-shadow:
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.12),
+    0 20px 50px rgba(0, 0, 0, 0.5);
+  transform-origin: top left;
+}
+
+.panel__note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.panel__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+}
+
+.seg {
+  display: flex;
+  padding: 2px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.seg button {
+  min-width: 54px;
+  height: 30px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.seg button.is-on {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
