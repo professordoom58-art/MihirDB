@@ -26,9 +26,9 @@ jobs:
     timeout-minutes: 40
     env:
       MODE: ${{ github.event.inputs.mode || 'release' }}
-      VITE_TMDB_KEY: ${{ secrets.VITE_TMDB_KEY }}
-      VITE_OMDB_KEY: ${{ secrets.VITE_OMDB_KEY }}
-      VITE_TMDB_BASE: ${{ secrets.VITE_TMDB_BASE }}
+      # Baked into the IPA at build time (repo → Settings → Secrets → Actions)
+      VITE_TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+      VITE_OMDB_KEY: ${{ secrets.OMDB_API_KEY }}
     steps:
       - uses: actions/checkout@v4
 
@@ -47,6 +47,12 @@ jobs:
           fi
 
       - run: npm ci
+
+      - name: Check TMDB key
+        run: |
+          if [ -z "$VITE_TMDB_API_KEY" ]; then
+            echo "::warning::No TMDB_API_KEY secret, so adding movies in this IPA will say 'Search is offline — key missing'. The bundled shelf still works."
+          fi
 
       - name: Build web app
         run: npm run build

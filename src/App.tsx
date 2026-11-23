@@ -9,7 +9,8 @@ import { MovieEditor } from './components/MovieEditor'
 import { isFiltered, NO_FILTER, SearchPanel, type Filter } from './components/SearchPanel'
 import { Settings } from './components/Settings'
 import { TopBar } from './components/TopBar'
-import { getAccent } from './lib/accent'
+import { getPalette } from './lib/accent'
+import { DEFAULT_PALETTE, readableTint, type Palette } from './lib/palette'
 import { db, useLive } from './lib/db'
 import { computeLayout } from './lib/layout'
 import { blobUrl } from './lib/posters'
@@ -31,8 +32,8 @@ function loadCaseStyle(): CaseStyle {
   }
 }
 
-function accentSource(m: Movie): string | null {
-  return blobUrl(m) ?? (m.posterPath ? corsUrl(posterSrc(m.posterPath, 'w92')) : m.posterUrl ? corsUrl(m.posterUrl) : null)
+function paletteSource(m: Movie): string | null {
+  return blobUrl(m) ?? (m.posterPath ? corsUrl(posterSrc(m.posterPath, 'w185')) : m.posterUrl ? corsUrl(m.posterUrl) : null)
 }
 
 export default function App() {
@@ -64,7 +65,7 @@ export default function App() {
   const [detailId, setDetailId] = useState<string | null>(null)
   const [freshId, setFreshId] = useState<string | null>(null)
   const pendingFocus = useRef<string | null>(null)
-  const [accent, setAccent] = useState('hsl(36 60% 70%)')
+  const [computed, setComputed] = useState<Record<string, Palette>>({})
 
   // ---------------------------------------------------------------- glare input
   const glareX = useMotionValue(0)
@@ -151,17 +152,21 @@ export default function App() {
     return () => window.clearTimeout(t)
   }, [shelf.length, onSettle, pos])
 
-  // ---------------------------------------------------------------- accent colour
+  // ---------------------------------------------------------------- palette (stored per entry; computed once if missing)
   const activeMovie = shelf[active]
-  const accentSrc = activeMovie ? accentSource(activeMovie) : null
+  const palette = activeMovie?.palette ?? (activeMovie && computed[activeMovie.id]) ?? DEFAULT_PALETTE
   useEffect(() => {
-    if (!accentSrc) return
-    let alive = true
-    getAccent(accentSrc).then((c) => alive && setAccent(c))
-    return () => {
-      alive = false
-    }
-  }, [accentSrc])
+    if (!activeMovie || activeMovie.palette || computed[activeMovie.id]) return
+    const src = paletteSource(activeMovie)
+    if (!src) return
+    const id = activeMovie.id
+    getPalette(src).then((p) => {
+      setComputed((c) => ({ ...c, [id]: p }))
+      void db.movies.update(id, { palette: p })
+    })
+  }, [activeMovie, computed])
+  // rating tint: the vivid colour, lifted until it has ≥4.5:1 contrast on the dark floor
+  const accent = useMemo(() => readableTint(palette.vivid, palette.dark), [palette])
 
   // ---------------------------------------------------------------- actions
   const changeStyle = (s: CaseStyle) => {
@@ -208,7 +213,9 @@ export default function App() {
 
   return (
     <div className={`app${detailId ? ' has-detail' : ''}`} style={{ ['--accent' as string]: accent }}>
-      {!empty && <Backdrop movies={shelf} pos={pos} activeIndex={active} />}
+      {!empty && (
+        <Backdrop movie={activeMovie} index={active} palette={palette} pos={pos} layout={layout} glareX={glareX} glareY={glareY} />
+      )}
       {shelf.length > 0 && (
         <Carousel
           ref={carousel}
@@ -228,7 +235,7 @@ export default function App() {
         />
       )}
       {shelf.length > 0 && (
-        <Caption movie={activeMovie} top={layout.cy + layout.h / 2 + Math.max(22, layout.vh * 0.035)} accent={accent} />
+        <Caption movie={activeMovie} top={layout.cy + layout.h / 2 + Math.max(26, layout.h * 0.26)} accent={accent} />
       )}
 
       <AnimatePresence>
@@ -257,7 +264,7 @@ export default function App() {
                   Add your first movie
                 </button>
                 <button className="textbtn" onClick={() => setSettingsOpen(true)}>
-                  Import or load samples
+                  Import a catalog
                 </button>
               </>
             )}

@@ -21,7 +21,7 @@ interface OmdbMovie {
 
 async function omdb<T extends { Response: string; Error?: string }>(params: Record<string, string>): Promise<T> {
   const { omdbKey } = getConfig()
-  if (!omdbKey) throw new AuthError('No OMDb key')
+  if (!omdbKey) throw new AuthError('key missing')
   const url = new URL('https://www.omdbapi.com/')
   url.searchParams.set('apikey', omdbKey)
   for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v)

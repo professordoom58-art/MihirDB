@@ -75,31 +75,6 @@ img {
   background: var(--bg);
 }
 
-.backdrop__layer {
-  position: absolute;
-  inset: 0;
-  will-change: opacity;
-  overflow: hidden;
-}
-
-.backdrop__layer img {
-  position: absolute;
-  inset: -12%;
-  width: 124%;
-  height: 124%;
-  object-fit: cover;
-  /* A tiny source image blurred hard is cheap and looks the same as a big one. */
-  filter: blur(40px) saturate(1.7) brightness(0.8);
-  transform: translateZ(0) scale(1.05);
-}
-
-.backdrop__shade {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(120% 70% at 50% 42%, rgba(5, 5, 6, 0) 0%, rgba(5, 5, 6, 0.35) 55%, rgba(5, 5, 6, 0.86) 100%),
-    linear-gradient(180deg, rgba(5, 5, 6, 0.55) 0%, rgba(5, 5, 6, 0) 22%, rgba(5, 5, 6, 0) 62%, rgba(5, 5, 6, 0.9) 100%);
-}
 
 /* ---------- carousel ---------------------------------------------------- */
 
@@ -430,8 +405,9 @@ img {
 }
 
 .caption__title {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 700;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
   letter-spacing: -0.01em;
   color: var(--fg);
   white-space: nowrap;

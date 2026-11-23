@@ -50,7 +50,11 @@ export function newId(): string {
 
 export async function findExisting(tmdbId?: number, imdbId?: string): Promise<Movie | undefined> {
   if (tmdbId) {
-    const m = await db.movies.where('tmdbId').equals(tmdbId).first()
+    const m = await db.movies
+      .where('tmdbId')
+      .equals(tmdbId)
+      .filter((x) => !x.kind || x.kind === 'movie')
+      .first()
     if (m) return m
   }
   if (imdbId) return db.movies.where('imdbId').equals(imdbId).first()

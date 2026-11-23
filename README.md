@@ -2,7 +2,7 @@
 
 A personal movie catalog for iPhone: a PS5-style cover-flow of CD jewel cases, sorted by my own rating. It's built with Vite, React and TypeScript, and wrapped for iOS with Capacitor. The IPA is built in GitHub Actions, so **no Mac or Xcode is needed**.
 
-> **About the API keys:** this is a personal app, so the TMDB/OMDb keys (from `.env` or Settings) are bundled into the client and stored on the device. Don't publish a build or share it.
+> **About the API keys:** this is a personal app, so the TMDB/OMDb keys from `.env` (or the GitHub secret) are baked into the app bundle. Don't publish a build or share it.
 
 ---
 
@@ -10,22 +10,26 @@ A personal movie catalog for iPhone: a PS5-style cover-flow of CD jewel cases, s
 
 ```bash
 npm install
-cp .env.example .env      # then paste your keys
+cp .env.example .env      # then paste your TMDB key
+npm run seed              # one-time: builds src/data/seed.json from the old ILOVEMOVIES repo
 ```
 
-- **TMDB key:** https://www.themoviedb.org/settings/api. Either the v3 "API Key" or the v4 "Read Access Token" works.
-- **OMDb key:** https://www.omdbapi.com/apikey.aspx (free tier: 1,000 lookups a day).
+- **TMDB:** `VITE_TMDB_API_KEY` (v3 key) **or** `VITE_TMDB_READ_TOKEN` (v4 token) from https://www.themoviedb.org/settings/api. The app never asks for a key.
+- **OMDb (optional, critic scores):** `VITE_OMDB_KEY` from https://www.omdbapi.com/apikey.aspx.
 
-You can also skip `.env` and paste the keys into the app: **search icon → gear → API keys**.
+**The shelf doesn't need the API.** Every entry stores its poster/backdrop paths, palette, rating, review and tag, and images come from `image.tmdb.org` (no key). On first launch the bundled `seed.json` (your old catalog) is loaded, so browsing works offline and without a key. The key is only used when you **add** a movie. If it's missing, the add sheet shows "Search is offline — key missing".
+
+`npm run seed` reads `favoriteMovies.ts`, `mihirRatings.ts` and `customGenres.ts` from the old repo (it clones it, or pass a local path: `npm run seed -- C:\path	o\ILOVEMOVIES`), calls TMDB once per entry, extracts each poster's palette, and writes `src/data/seed.json`. Commit that file.
 
 ### If TMDB "can't be reached" (Jio / some Indian ISPs)
 
-Some ISPs block `api.themoviedb.org` at the DNS level. Poster images are not affected. Shelf handles this in layers:
+Some ISPs block `api.themoviedb.org` at the DNS level. Images and `api.tmdb.org` are not affected. Every TMDB call tries these in order and remembers the one that works:
 
-| Where you run it | What happens |
-|---|---|
-| `npm run dev` (laptop, phone over Wi-Fi, live-reload IPA) | Requests go through the dev server, which resolves TMDB via public DNS (1.1.1.1). **Works out of the box.** |
-| Release IPA / home-screen PWA | Search automatically falls back to **OMDb** (not blocked), so adding movies still works. For full TMDB results, either set your phone's DNS to 1.1.1.1 (the free "1.1.1.1" app), or deploy `proxy/tmdb-worker.js` to Cloudflare Workers (free) and put its URL in `VITE_TMDB_BASE` or Settings → TMDB proxy URL. |
+1. `/api/tmdb/*`: same-origin proxy (the Vite dev server; on Vercel, the rewrite in `vercel.json`), forwarding to `api.tmdb.org/3`
+2. `https://api.themoviedb.org/3`
+3. `https://api.tmdb.org/3`
+
+If TMDB still can't be reached and an OMDb key is set, search falls back to OMDb.
 
 ---
 
@@ -59,7 +63,7 @@ Some ISPs block `api.themoviedb.org` at the DNS level. Poster images are not aff
 - **Shelf:** swipe through, tap a side case to centre it, tap the centre case to open it. Sorted by your rating (ties → most recently added).
 - **`+`:** search TMDB, pick the right film (posters and years tell remakes apart), set your rating (1–10, half steps) and review, then **Save**. The shelf glides to its spot and the glare plays on it.
 - **Detail:** swipe down (or tap the chevron) to close. Edit and Delete live here.
-- **Search icon (top-left):** find a movie on your shelf, or filter by a rating range. The **gear** opens Settings: CD/DVD case style, tilt glare, backup, import, API keys.
+- **Search icon (top-left):** find a movie on your shelf, or filter by a rating range. The **gear** opens Settings: CD/DVD case style, tilt glare, backup, import.
 - **Offline:** every poster is saved on the device, so the shelf works without a connection. Critic scores that failed (offline or the OMDb limit) are retried automatically.
 
 ### Backups (important for sideloaded apps)
@@ -89,7 +93,7 @@ The `ios/` folder is committed. GitHub's macOS runners do the Xcode part.
    git remote add origin https://github.com/<you>/shelf.git
    git push -u origin main
    ```
-2. In the repo, go to **Settings → Secrets and variables → Actions** and add `VITE_TMDB_KEY` and `VITE_OMDB_KEY`. Optionally add `VITE_TMDB_BASE`. You can skip this and paste the keys in the app's Settings instead.
+2. Add the TMDB key as a secret so it's baked into the IPA: in the repo, go to **Settings → Secrets and variables → Actions → New repository secret**, name it `TMDB_API_KEY`, and paste your v3 key. (Optional: `OMDB_API_KEY` for critic scores.) The workflow passes it to the build as `VITE_TMDB_API_KEY`.
 
 ### Each build
 

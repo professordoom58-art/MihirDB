@@ -1,11 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import type { CaseStyle } from '../types'
 import { exportJson, getLastBackup, importJson } from '../lib/backup'
-import { envHas, getOverrides, setOverrides } from '../lib/config'
 import { db, useLive } from '../lib/db'
 import { syncPending } from '../lib/sync'
 import { disableTilt, enableTilt, tiltNeedsPermission, tiltSupported, tiltWanted } from '../lib/tilt'
-import { sampleMovies } from '../data/sampleMovies'
 import { Sheet, Spinner } from './ui'
 
 interface Props {
@@ -34,9 +32,6 @@ function SettingsBody({ caseStyle, onCaseStyle, onOpenImporter }: Props) {
   const [tilt, setTilt] = useState(tiltWanted())
   const file = useRef<HTMLInputElement>(null)
 
-  const [keys, setKeys] = useState(() => ({ tmdbKey: '', omdbKey: '', tmdbBase: '', ...getOverrides() }))
-  const [keysSaved, setKeysSaved] = useState(false)
-  useEffect(() => setKeysSaved(false), [keys])
 
   const run = async (label: string, fn: () => Promise<string | void>) => {
     setBusy(label)
@@ -151,59 +146,6 @@ function SettingsBody({ caseStyle, onCaseStyle, onOpenImporter }: Props) {
         <p className="muted">Bring in the movies, ratings and reviews from your previous site.</p>
         <button className="btn" onClick={onOpenImporter}>
           Import old catalog…
-        </button>
-        {count === 0 && (
-          <button
-            className="btn"
-            style={{ marginLeft: 8 }}
-            onClick={() => run('samples', async () => {
-              await db.movies.bulkPut(sampleMovies())
-              void syncPending()
-              return 'Loaded 15 sample movies.'
-            })}
-          >
-            Load sample movies
-          </button>
-        )}
-      </section>
-
-      <section>
-        <h2>API keys</h2>
-        <p className="muted">
-          Stored only on this device. {envHas.tmdb || envHas.omdb ? 'Leave blank to use the keys from .env.' : ''}
-        </p>
-        <label className="input">
-          <span>TMDB API key or read token {envHas.tmdb && <em>(set in .env)</em>}</span>
-          <input
-            type="password"
-            autoComplete="off"
-            value={keys.tmdbKey}
-            onChange={(e) => setKeys({ ...keys, tmdbKey: e.target.value })}
-            placeholder={envHas.tmdb ? 'Using .env' : 'Paste key'}
-          />
-        </label>
-        <label className="input">
-          <span>OMDb API key {envHas.omdb && <em>(set in .env)</em>}</span>
-          <input
-            type="password"
-            autoComplete="off"
-            value={keys.omdbKey}
-            onChange={(e) => setKeys({ ...keys, omdbKey: e.target.value })}
-            placeholder={envHas.omdb ? 'Using .env' : 'Paste key'}
-          />
-        </label>
-        <label className="input">
-          <span>TMDB proxy URL (optional, see README)</span>
-          <input
-            type="url"
-            autoComplete="off"
-            value={keys.tmdbBase}
-            onChange={(e) => setKeys({ ...keys, tmdbBase: e.target.value })}
-            placeholder="https://…workers.dev/3"
-          />
-        </label>
-        <button className="btn" onClick={() => (setOverrides(keys), setKeysSaved(true))}>
-          {keysSaved ? 'Saved ✓' : 'Save keys'}
         </button>
       </section>
 

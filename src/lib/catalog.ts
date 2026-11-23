@@ -18,7 +18,7 @@ export async function searchMovies(q: string, signal?: AbortSignal, year?: numbe
       if (!(e instanceof NetworkError) || !omdbKey) throw e
     }
   } else if (!omdbKey) {
-    throw new AuthError('Add a TMDB key in Settings (or .env) to search.')
+    throw new AuthError('key missing')
   }
   if (signal?.aborted) throw new DOMException('aborted', 'AbortError')
   return { provider: 'omdb', results: await omdbSearch(q) }
@@ -52,7 +52,7 @@ export async function tryScores(imdbId: string): Promise<{ scores: Scores; ok: b
 }
 
 export function describeError(e: unknown): string {
-  if (e instanceof AuthError) return e.message.includes('No ') ? 'Add your TMDB key in Settings (or .env) to search.' : e.message
+  if (e instanceof AuthError) return 'Search is offline — key missing'
   if (e instanceof NetworkError) return "Can't reach the movie database. Check your connection."
   if (e instanceof RateLimitError) return 'OMDb daily limit reached. Try again tomorrow.'
   return (e as Error)?.message || 'Something went wrong.'

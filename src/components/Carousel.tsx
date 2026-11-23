@@ -298,7 +298,9 @@ const CarouselItem = memo(function CarouselItem({
   const zIndex = useTransform(distance, (d) => 1000 - Math.round(d * 10))
   const dim = useTransform(distance, (d) => Math.min(d * 0.55, 0.8))
   const opacity = useTransform(distance, (d) => clamp(layout.side + 0.6 - d, 0, 1))
-  const shadow = useTransform(distance, (d) => clamp(1 - d * 0.7, 0.25, 1))
+  const shadow = useTransform(distance, (d) => clamp(1 - d * 0.7, 0.25, 1) * 0.6)
+  // glossy floor: 25% under the centred case, fainter for neighbours
+  const reflect = useTransform(distance, (d) => 0.25 * (1 - Math.min(d, 1.6) * 0.42))
 
   return (
     <motion.div
@@ -334,6 +336,11 @@ const CarouselItem = memo(function CarouselItem({
           />
           <motion.div className="item__dim" style={{ opacity: dim }} />
         </div>
+        <motion.div className="item__reflect" style={{ opacity: reflect }} aria-hidden>
+          <div className="item__reflect-flip">
+            <JewelCase movie={movie} style={caseStyle} />
+          </div>
+        </motion.div>
       </motion.div>
     </motion.div>
   )

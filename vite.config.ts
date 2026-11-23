@@ -21,12 +21,13 @@ const publicLookup: LookupFunction = (hostname, options, callback) => {
   })
 }
 const tmdbAgent = new https.Agent({ keepAlive: true, lookup: publicLookup })
+// Same path as the Vercel rewrite in vercel.json: /api/tmdb/* → api.tmdb.org/3/*
 const tmdbProxy = {
-  '/tmdb': {
-    target: 'https://api.themoviedb.org',
+  '/api/tmdb': {
+    target: 'https://api.tmdb.org',
     changeOrigin: true,
     agent: tmdbAgent,
-    rewrite: (p: string) => p.replace(/^\/tmdb/, '/3'),
+    rewrite: (p: string) => p.replace(/^\/api\/tmdb/, '/3'),
   },
 }
 

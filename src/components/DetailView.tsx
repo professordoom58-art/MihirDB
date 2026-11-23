@@ -118,7 +118,12 @@ export function DetailView({ movie, caseStyle, accent, originRect, onClosed, onE
     ),
   ].filter(Boolean)
 
-  const meta = [movie.year || null, movie.director || null, movie.runtime ? fmtRuntime(movie.runtime) : null].filter(Boolean)
+  const meta = [
+    movie.year || null,
+    movie.kind === 'collection' && movie.parts ? `${movie.parts} films` : movie.kind === 'tv' ? 'Series' : null,
+    movie.director || null,
+    movie.runtime && movie.kind !== 'collection' ? fmtRuntime(movie.runtime) + (movie.kind === 'tv' ? ' / ep' : '') : null,
+  ].filter(Boolean)
 
   return (
     <div className="detail" role="dialog" aria-modal="true" aria-label={movie.title}>
@@ -139,6 +144,11 @@ export function DetailView({ movie, caseStyle, accent, originRect, onClosed, onE
             <h1 className="detail__title">{movie.title}</h1>
             <div className="detail__meta">{meta.join(' · ')}</div>
             {movie.genres.length > 0 && <div className="detail__genres">{movie.genres.join(' · ')}</div>}
+            {movie.tag && (
+              <div className="detail__tag" style={{ color: accent, borderColor: accent }}>
+                {movie.tag}
+              </div>
+            )}
 
             <div className="detail__rating" style={{ color: accent }}>
               {formatRating(movie.myRating)}

@@ -2,13 +2,18 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Capacitor } from '@capacitor/core'
 import App from './App'
+import { ensureSeeded } from './lib/seed'
 import './styles.css'
 import './ui.css'
+import './stage.css'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+// Load the bundled catalog on first launch before the first paint (no empty-shelf flash).
+ensureSeeded().finally(() =>
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  ),
 )
 
 // Service worker for the home-screen PWA (offline app shell + poster cache).

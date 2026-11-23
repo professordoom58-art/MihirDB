@@ -1,6 +1,10 @@
-/** Persisted movie record (IndexedDB via Dexie). */
+import type { Palette } from './lib/palette'
+
+/** Persisted shelf entry (IndexedDB via Dexie). Holds everything the shelf needs, so browsing never touches the API. */
 export interface Movie {
   id: string
+  /** default 'movie'; the seeded catalog also has TV series and collections */
+  kind?: 'movie' | 'tv' | 'collection'
   tmdbId: number // 0 when the movie came from the OMDb fallback
   imdbId: string
   title: string
@@ -11,6 +15,14 @@ export interface Movie {
   /** TMDB poster path, e.g. "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg" (absent for OMDb-only posters) */
   posterPath?: string
   posterUrl: string
+  /** TMDB backdrop path (wide still) for the background */
+  backdropPath?: string
+  /** colours extracted from the poster, used to grade the background */
+  palette?: Palette
+  /** my custom label, e.g. "CRIME THRILLER" */
+  tag?: string
+  /** number of films (collections) */
+  parts?: number
   /** locally cached high-res poster for offline use */
   posterBlob?: Blob
   posterCachedAt?: number
@@ -28,7 +40,7 @@ export interface Movie {
 /** Everything needed to create a Movie except my own fields and bookkeeping. */
 export type MovieInfo = Pick<
   Movie,
-  'tmdbId' | 'imdbId' | 'title' | 'year' | 'director' | 'runtime' | 'genres' | 'posterPath' | 'posterUrl'
+  'tmdbId' | 'imdbId' | 'title' | 'year' | 'director' | 'runtime' | 'genres' | 'posterPath' | 'posterUrl' | 'backdropPath'
 >
 
 export interface Scores {

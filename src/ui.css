@@ -1098,3 +1098,15 @@ input[type='search']::-webkit-search-cancel-button {
   opacity: 0;
   pointer-events: none;
 }
+
+.detail__tag {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 10px;
+  border: 1px solid;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+}
