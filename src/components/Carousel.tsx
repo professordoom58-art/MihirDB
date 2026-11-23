@@ -279,9 +279,10 @@ export function Carousel({
         glareX={glareX}
         glareY={glareY}
         live={Math.abs(k - centre) <= 1}
-        // The floor reflection is only ever visible under the centred case (its opacity
-        // reaches zero at |offset| 0.625), so the other six copies were pure cost.
-        reflect={k === centre}
+        // The floor reflection only ever has opacity under |offset| < 0.625, so it can
+        // only be visible on the top case and its immediate neighbours — the other
+        // four copies were pure cost (a mirrored JewelCase each, always at opacity 0).
+        reflect={Math.abs(k - centre) <= 1}
         sweepKey={sweep && sweep.id === m.id ? sweep.key : null}
         hidden={hiddenId === m.id}
         fresh={freshId === m.id}

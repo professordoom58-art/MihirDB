@@ -66,7 +66,7 @@ Reported: very laggy in LiveContainer on an iPhone 13, and it sometimes went bla
 - **Per-frame cost removed** (all verified in a production preview, 390×844):
   - `zIndex` quantised to 0.25 steps (`10000 - round(d*4)`) — was 0.001 steps, i.e. a compositor layer re-order every frame.
   - Depth blur stepped (none / 0.7px / `blurAt2`) instead of continuous — animating `filter` re-rasterises the case each frame.
-  - Floor reflection rendered only for the centred case; it was mounted 7×.
+  - Floor reflection rendered only for the top case and its immediate neighbours; it was mounted 7× and is invisible past |offset| 0.625.
   - Cases beyond 2.25 steps get `visibility: hidden` (they were already opacity 0).
   - Backdrop tint is a plain 15% colour instead of `mix-blend-mode: soft-light` (no full-screen blend per frame); backdrops are `w780` (was `w1280`, ¼ the decoded memory); grain overscan 50% → 10%; backdrop blur 13px → 10px.
   - `.case__highlight` no longer uses `mix-blend-mode: screen`.
