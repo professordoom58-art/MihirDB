@@ -1,1 +1,5856 @@
-[]
+[
+ {
+  "id": "movie-299536",
+  "kind": "movie",
+  "tmdbId": 299536,
+  "imdbId": "tt4154756",
+  "title": "Avengers: Infinity War",
+  "year": 2018,
+  "director": "Joe Russo & Anthony Russo",
+  "runtime": 149,
+  "genres": [
+   "Adventure",
+   "Action",
+   "Science Fiction"
+  ],
+  "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+  "posterPath": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+  "backdropPath": "/mDfJG3LC3Dqb67AZ52x3Z0jU0uB.jpg",
+  "palette": {
+   "dark": "#190c18",
+   "vivid": "#d4622f",
+   "light": "#e1a593"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 1,
+  "addedAt": 1735689660000
+ },
+ {
+  "id": "movie-299534",
+  "kind": "movie",
+  "tmdbId": 299534,
+  "imdbId": "tt4154796",
+  "title": "Avengers: Endgame",
+  "year": 2019,
+  "director": "Joe Russo & Anthony Russo",
+  "runtime": 181,
+  "genres": [
+   "Adventure",
+   "Science Fiction",
+   "Action"
+  ],
+  "overview": "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.",
+  "posterPath": "/jtDv3lCnST0fZRvdYFwR5CVwK2x.jpg",
+  "backdropPath": "/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+  "palette": {
+   "dark": "#100a1d",
+   "vivid": "#483ea7",
+   "light": "#9c6691"
+  },
+  "myRating": 9.5,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 2,
+  "addedAt": 1735689720000
+ },
+ {
+  "id": "movie-18785",
+  "kind": "movie",
+  "tmdbId": 18785,
+  "imdbId": "tt1119646",
+  "title": "The Hangover",
+  "year": 2009,
+  "director": "Todd Phillips",
+  "runtime": 100,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "When three friends finally come to after a raucous night of bachelor-party revelry, they find a baby in the closet and a tiger in the bathroom. But they can't seem to locate their best friend, Doug – who's supposed to be tying the knot. Launching a frantic search for Doug, the trio perseveres through a nasty hangover to try to make it to the church on time.",
+  "posterPath": "/A0uS9rHR56FeBtpjVki16M5xxSW.jpg",
+  "backdropPath": "/iuRVt8tFiXDPGgzavhuSa3QHRxD.jpg",
+  "palette": {
+   "dark": "#261c17",
+   "vivid": "#f6bb55",
+   "light": "#ece8dd"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "COMEDY",
+  "originalOrder": 3,
+  "addedAt": 1735689780000
+ },
+ {
+  "id": "movie-45243",
+  "kind": "movie",
+  "tmdbId": 45243,
+  "imdbId": "tt1411697",
+  "title": "The Hangover Part II",
+  "year": 2011,
+  "director": "Todd Phillips",
+  "runtime": 102,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "The Hangover crew heads to Thailand for Stu's wedding. After the disaster of a bachelor party in Las Vegas last year, Stu is playing it safe with a mellow pre-wedding brunch. However, nothing goes as planned and Bangkok is the perfect setting for another adventure with the rowdy group.",
+  "posterPath": "/cKZu0Fdkj7dmwbfMpgDqVVCkLJQ.jpg",
+  "backdropPath": "/aGmsekNU5cMOkJMpbdRutkvmVMl.jpg",
+  "palette": {
+   "dark": "#21120b",
+   "vivid": "#ae6237",
+   "light": "#f3ebd9"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "COMEDY",
+  "originalOrder": 4,
+  "addedAt": 1735689840000
+ },
+ {
+  "id": "movie-109439",
+  "kind": "movie",
+  "tmdbId": 109439,
+  "imdbId": "tt1951261",
+  "title": "The Hangover Part III",
+  "year": 2013,
+  "director": "Todd Phillips",
+  "runtime": 100,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "This time, there's no wedding. No bachelor party. What could go wrong, right? But when the Wolfpack hits the road, all bets are off.",
+  "posterPath": "/vtxuPWkdllLNLVyGjKYa267ntuH.jpg",
+  "backdropPath": "/o8ZS811VjYbBi4pRYwILLdWCVey.jpg",
+  "palette": {
+   "dark": "#0b0807",
+   "vivid": "#0fb0d6",
+   "light": "#e8cfa0"
+  },
+  "myRating": 6,
+  "myReview": "",
+  "tag": "COMEDY",
+  "originalOrder": 5,
+  "addedAt": 1735689900000
+ },
+ {
+  "id": "movie-537921",
+  "kind": "movie",
+  "tmdbId": 537921,
+  "imdbId": "tt8785038",
+  "title": "Fixed",
+  "year": 2025,
+  "director": "Genndy Tartakovsky",
+  "runtime": 87,
+  "genres": [
+   "Animation",
+   "Comedy"
+  ],
+  "overview": "After learning he's getting neutered, a dog has 24 hours to squeeze in one last balls-to-the-wall adventure with the boys.",
+  "posterPath": "/udtlwWSJ45S0uQm29BvFvjPJGW0.jpg",
+  "backdropPath": "/vmWgToiWzgWxzGtdbeQFrtuS2BN.jpg",
+  "palette": {
+   "dark": "#25181e",
+   "vivid": "#db1869",
+   "light": "#a1979d"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "ANIMATED",
+  "originalOrder": 6,
+  "addedAt": 1735689960000
+ },
+ {
+  "id": "movie-152601",
+  "kind": "movie",
+  "tmdbId": 152601,
+  "imdbId": "tt1798709",
+  "title": "Her",
+  "year": 2013,
+  "director": "Spike Jonze",
+  "runtime": 126,
+  "genres": [
+   "Romance",
+   "Science Fiction",
+   "Drama"
+  ],
+  "overview": "In the not so distant future, Theodore, a lonely writer, purchases a newly developed operating system designed to meet the user's every need. To Theodore's surprise, a romantic relationship develops between him and his operating system. This unconventional love story blends science fiction and romance in a sweet tale that explores the nature of love and the ways that technology isolates and connects us all.",
+  "posterPath": "/eCOtqtfvn7mxGl6nfmq4b1exJRc.jpg",
+  "backdropPath": "/1YnZchmaGc8dchgRPDpR1KGrixA.jpg",
+  "palette": {
+   "dark": "#2d0e0b",
+   "vivid": "#d11448",
+   "light": "#eadddd"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI HORROR",
+  "originalOrder": 7,
+  "addedAt": 1735690020000
+ },
+ {
+  "id": "movie-324849",
+  "kind": "movie",
+  "tmdbId": 324849,
+  "imdbId": "tt4116284",
+  "title": "The Lego Batman Movie",
+  "year": 2017,
+  "director": "Chris McKay",
+  "runtime": 104,
+  "genres": [
+   "Animation",
+   "Action",
+   "Comedy",
+   "Family"
+  ],
+  "overview": "A cooler-than-ever Batman must face the usual villains as the Joker plots a takeover of Gotham City. But when Bruce Wayne accidentally adopts a teenage orphan who wishes to become his sidekick, he’s forced to give up his lone-vigilante ways and learn to work with others.",
+  "posterPath": "/e1TliRWOdXQ73pRunbpFiGst6Kd.jpg",
+  "backdropPath": "/rWYtghaUJSDvQm4jmXiCPXBHUdQ.jpg",
+  "palette": {
+   "dark": "#201f1d",
+   "vivid": "#f2d013",
+   "light": "#f9f59b"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ITS BATMAN JUST WATCH IT",
+  "originalOrder": 8,
+  "addedAt": 1735690080000
+ },
+ {
+  "id": "movie-76338",
+  "kind": "movie",
+  "tmdbId": 76338,
+  "imdbId": "tt1981115",
+  "title": "Thor: The Dark World",
+  "year": 2013,
+  "director": "Alan Taylor",
+  "runtime": 112,
+  "genres": [
+   "Action",
+   "Adventure",
+   "Fantasy"
+  ],
+  "overview": "Thor fights to restore order across the cosmos… but an ancient race led by the vengeful Malekith returns to plunge the universe back into darkness. Faced with an enemy that even Odin and Asgard cannot withstand, Thor must embark on his most perilous and personal journey yet, one that will reunite him with Jane Foster and force him to sacrifice everything to save us all.",
+  "posterPath": "/wp6OxE4poJ4G7c0U2ZIXasTSMR7.jpg",
+  "backdropPath": "/5o88bbqcV5STn56jqOeovaaWbAE.jpg",
+  "palette": {
+   "dark": "#172726",
+   "vivid": "#3f91a6",
+   "light": "#e6ead3"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 9,
+  "addedAt": 1735690140000
+ },
+ {
+  "id": "movie-71469",
+  "kind": "movie",
+  "tmdbId": 71469,
+  "imdbId": "tt1093357",
+  "title": "The Darkest Hour",
+  "year": 2011,
+  "director": "Chris Gorak",
+  "runtime": 89,
+  "genres": [
+   "Horror",
+   "Action",
+   "Thriller",
+   "Science Fiction"
+  ],
+  "overview": "In Moscow, five young people lead the charge against an alien race which has attacked Earth via our power supply.",
+  "posterPath": "/iUrtHcc8rn7iX31Id3MYOT1rbyw.jpg",
+  "backdropPath": "/ogRXgYKABTqiqmBen9hkbo3Fvz1.jpg",
+  "palette": {
+   "dark": "#1c2021",
+   "vivid": "#d8a062",
+   "light": "#e9ce9d"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 10,
+  "addedAt": 1735690200000
+ },
+ {
+  "id": "movie-91314",
+  "kind": "movie",
+  "tmdbId": 91314,
+  "imdbId": "tt2109248",
+  "title": "Transformers: Age of Extinction",
+  "year": 2014,
+  "director": "Michael Bay",
+  "runtime": 165,
+  "genres": [
+   "Science Fiction",
+   "Action",
+   "Adventure"
+  ],
+  "overview": "As humanity picks up the pieces after the battle of Chicago, a shadowy group reveals itself in an attempt to control the direction of history…while an ancient, powerful new menace sets Earth in its crosshairs. With help from Cade Yeager, Optimus Prime and the Autobots rise to meet their most fearsome challenge yet.",
+  "posterPath": "/jyzrfx2WaeY60kYZpPYepSjGz4S.jpg",
+  "backdropPath": "/wxr4Z6E83h14CogsZOzDm1vuDX3.jpg",
+  "palette": {
+   "dark": "#1d1a19",
+   "vivid": "#dfa152",
+   "light": "#e9e3d3"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "AUTOBOTS 4EVA",
+  "originalOrder": 11,
+  "addedAt": 1735690260000
+ },
+ {
+  "id": "movie-1422",
+  "kind": "movie",
+  "tmdbId": 1422,
+  "imdbId": "tt0407887",
+  "title": "The Departed",
+  "year": 2006,
+  "director": "Martin Scorsese",
+  "runtime": 151,
+  "genres": [
+   "Drama",
+   "Thriller",
+   "Crime"
+  ],
+  "overview": "To take down South Boston's Irish Mafia, the police send in one of their own to infiltrate the underworld, not realizing the syndicate has done likewise. While an undercover cop curries favor with the mob kingpin, a career criminal rises through the police ranks. But both sides soon discover there's a mole among them.",
+  "posterPath": "/nT97ifVT2J1yMQmeq20Qblg61T.jpg",
+  "backdropPath": "/6WRrGYalXXveItfpnipYdayFkQB.jpg",
+  "palette": {
+   "dark": "#1d1b13",
+   "vivid": "#d61042",
+   "light": "#e6d8d3"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 12,
+  "addedAt": 1735690320000
+ },
+ {
+  "id": "movie-369972",
+  "kind": "movie",
+  "tmdbId": 369972,
+  "imdbId": "tt1213641",
+  "title": "First Man",
+  "year": 2018,
+  "director": "Damien Chazelle",
+  "runtime": 141,
+  "genres": [
+   "History",
+   "Drama"
+  ],
+  "overview": "A look at the life of the astronaut, Neil Armstrong, and the legendary space mission that led him to become the first man to walk on the Moon on July 20, 1969.",
+  "posterPath": "/i91mfvFcPPlaegcbOyjGgiWfZzh.jpg",
+  "backdropPath": "/jrudoaXcoLyHRPdolyOGemXgPEs.jpg",
+  "palette": {
+   "dark": "#130f14",
+   "vivid": "#db672c",
+   "light": "#db672c"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "INSPIRED BY REALITY",
+  "originalOrder": 13,
+  "addedAt": 1735690380000
+ },
+ {
+  "id": "movie-64690",
+  "kind": "movie",
+  "tmdbId": 64690,
+  "imdbId": "tt0780504",
+  "title": "Drive",
+  "year": 2011,
+  "director": "Nicolas Winding Refn",
+  "runtime": 100,
+  "genres": [
+   "Drama",
+   "Thriller",
+   "Crime"
+  ],
+  "overview": "Driver is a skilled Hollywood stuntman who moonlights as a getaway driver for criminals. Though he projects an icy exterior, lately he's been warming up to a pretty neighbor named Irene and her young son, Benicio. When Irene's husband gets out of jail, he enlists Driver's help in a million-dollar heist. The job goes horribly wrong, and Driver must risk his life to protect Irene and Benicio from the vengeful masterminds behind the robbery.",
+  "posterPath": "/602vevIURmpDfzbnv5Ubi6wIkQm.jpg",
+  "backdropPath": "/hoyAALgfmjMEK7O1wZ4r8wT91RP.jpg",
+  "palette": {
+   "dark": "#07090b",
+   "vivid": "#b92d72",
+   "light": "#eeede1"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 14,
+  "addedAt": 1735690440000
+ },
+ {
+  "id": "movie-687163",
+  "kind": "movie",
+  "tmdbId": 687163,
+  "imdbId": "tt12042730",
+  "title": "Project Hail Mary",
+  "year": 2026,
+  "director": "Phil Lord & Christopher Miller",
+  "runtime": 157,
+  "genres": [
+   "Science Fiction",
+   "Adventure"
+  ],
+  "overview": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
+  "posterPath": "/iOb2fjXLbpJgyQXe46n1WtGCnaa.jpg",
+  "backdropPath": "/2I1OFQJ0L9T0dpU6FobKFWV2PxX.jpg",
+  "palette": {
+   "dark": "#142529",
+   "vivid": "#2693bf",
+   "light": "#9aa4a2"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 15,
+  "addedAt": 1735690500000
+ },
+ {
+  "id": "movie-27581",
+  "kind": "movie",
+  "tmdbId": 27581,
+  "imdbId": "tt1386588",
+  "title": "The Other Guys",
+  "year": 2010,
+  "director": "Adam McKay",
+  "runtime": 107,
+  "genres": [
+   "Comedy",
+   "Action",
+   "Crime"
+  ],
+  "overview": "Unlike their heroic counterparts on the force, desk-bound NYPD detectives Gamble and Hoitz garner no headlines as they work day to day. When a seemingly minor case turns out to be a big deal, the two cops get the opportunity to finally prove to their comrades that they have the right stuff.",
+  "posterPath": "/wNEHNqo3MgHmj3BUiPSqqq5czcm.jpg",
+  "backdropPath": "/nHyri67CN6juBR6hmOefCn9oGf8.jpg",
+  "palette": {
+   "dark": "#1f1e1e",
+   "vivid": "#99877f",
+   "light": "#dbdcdf"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "COMEDY",
+  "originalOrder": 16,
+  "addedAt": 1735690560000
+ },
+ {
+  "id": "movie-290250",
+  "kind": "movie",
+  "tmdbId": 290250,
+  "imdbId": "tt3799694",
+  "title": "The Nice Guys",
+  "year": 2016,
+  "director": "Shane Black",
+  "runtime": 116,
+  "genres": [
+   "Comedy",
+   "Crime",
+   "Action"
+  ],
+  "overview": "A private eye investigates the apparent suicide of a fading porn star in 1970s Los Angeles and uncovers a conspiracy.",
+  "posterPath": "/clq4So9spa9cXk3MZy2iMdqkxP2.jpg",
+  "backdropPath": "/oLp6ueqQXNWvWCFwrb6tXDnH0Ye.jpg",
+  "palette": {
+   "dark": "#111626",
+   "vivid": "#da691b",
+   "light": "#f8edd3"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "COMEDY",
+  "originalOrder": 17,
+  "addedAt": 1735690620000
+ },
+ {
+  "id": "movie-335984",
+  "kind": "movie",
+  "tmdbId": 335984,
+  "imdbId": "tt1856101",
+  "title": "Blade Runner 2049",
+  "year": 2017,
+  "director": "Denis Villeneuve",
+  "runtime": 164,
+  "genres": [
+   "Science Fiction",
+   "Drama"
+  ],
+  "overview": "Thirty years after the events of the first film, a new blade runner, LAPD Officer K, unearths a long-buried secret that has the potential to plunge what's left of society into chaos. K's discovery leads him on a quest to find Rick Deckard, a former LAPD blade runner who has been missing for 30 years.",
+  "posterPath": "/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
+  "backdropPath": "/gNdLJU9TxrpGx4dkZidjys3fyy0.jpg",
+  "palette": {
+   "dark": "#17161a",
+   "vivid": "#da250b",
+   "light": "#9cded2"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 18,
+  "addedAt": 1735690680000
+ },
+ {
+  "id": "movie-746036",
+  "kind": "movie",
+  "tmdbId": 746036,
+  "imdbId": "tt1684562",
+  "title": "The Fall Guy",
+  "year": 2024,
+  "director": "David Leitch",
+  "runtime": 127,
+  "genres": [
+   "Action",
+   "Comedy",
+   "Romance"
+  ],
+  "overview": "Fresh off an almost career-ending accident, stuntman Colt Seavers has to track down a missing movie star, solve a conspiracy and try to win back the love of his life while still doing his day job.",
+  "posterPath": "/e7olqFmzcIX5c23kX4zSmLPJi8c.jpg",
+  "backdropPath": "/2rjI2uXmjitMAaXVO21r9ao7v2j.jpg",
+  "palette": {
+   "dark": "#1e1b22",
+   "vivid": "#3697eb",
+   "light": "#dbdbdc"
+  },
+  "myRating": 7.5,
+  "myReview": "",
+  "tag": "COMEDY",
+  "originalOrder": 19,
+  "addedAt": 1735690740000
+ },
+ {
+  "id": "movie-50646",
+  "kind": "movie",
+  "tmdbId": 50646,
+  "imdbId": "tt1570728",
+  "title": "Crazy, Stupid, Love.",
+  "year": 2011,
+  "director": "Glenn Ficarra & John Requa",
+  "runtime": 118,
+  "genres": [
+   "Comedy",
+   "Drama",
+   "Romance"
+  ],
+  "overview": "Cal Weaver is living the American dream. He has a good job, a beautiful house, great children and a beautiful wife, named Emily. Cal's seemingly perfect life unravels, however, when he learns that Emily has been unfaithful and wants a divorce. Over 40 and suddenly single, Cal is adrift in the fickle world of dating. Enter, Jacob Palmer, a self-styled player who takes Cal under his wing and teaches him how to be a hit with the ladies.",
+  "posterPath": "/p4RafgAPk558muOjnBMHhMArjS2.jpg",
+  "backdropPath": "/vyrCniZsrXZAW08eECKIp1BMLPh.jpg",
+  "palette": {
+   "dark": "#161818",
+   "vivid": "#0bd8da",
+   "light": "#fdd95c"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "COMEDY",
+  "originalOrder": 20,
+  "addedAt": 1735690800000
+ },
+ {
+  "id": "movie-43347",
+  "kind": "movie",
+  "tmdbId": 43347,
+  "imdbId": "tt0758752",
+  "title": "Love & Other Drugs",
+  "year": 2010,
+  "director": "Edward Zwick",
+  "runtime": 112,
+  "genres": [
+   "Drama",
+   "Comedy",
+   "Romance"
+  ],
+  "overview": "Maggie is an alluring free spirit who won't let anyone – or anything – tie her down. But she meets her match in Jamie, whose relentless and nearly infallible charm serves him well with the ladies and the cutthroat world of pharmaceutical sales. Maggie and Jamie's evolving relationship takes them both by surprise, as they find themselves under the influence of the ultimate drug: love.",
+  "posterPath": "/wZLM2uKJRYNchLmiCIjosX0rXy8.jpg",
+  "backdropPath": "/ca4DAKJ1stCFeU6wq16hxmTAba.jpg",
+  "palette": {
+   "dark": "#2b0f0e",
+   "vivid": "#bc532a",
+   "light": "#d9aa90"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "COMEDY",
+  "originalOrder": 21,
+  "addedAt": 1735690860000
+ },
+ {
+  "id": "movie-185",
+  "kind": "movie",
+  "tmdbId": 185,
+  "imdbId": "tt0066921",
+  "title": "A Clockwork Orange",
+  "year": 1971,
+  "director": "Stanley Kubrick",
+  "runtime": 137,
+  "genres": [
+   "Science Fiction",
+   "Crime"
+  ],
+  "overview": "In a near-future Britain, young Alexander DeLarge and his pals get their kicks beating and raping anyone they please. When not destroying the lives of others, Alex swoons to the music of Beethoven. The state, eager to crack down on juvenile crime, gives an incarcerated Alex the option to undergo an invasive procedure that'll rob him of all personal agency. In a time when conscience is a commodity, can Alex change his tune?",
+  "posterPath": "/4sHeTAp65WrSSuc05nRBKddhBxO.jpg",
+  "backdropPath": "/3hwKS7e21hzEnXZaOs2FE6e97bc.jpg",
+  "palette": {
+   "dark": "#0e0b07",
+   "vivid": "#d04316",
+   "light": "#f9f9f8"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "DARK GRITTY CRIME THRILLER",
+  "originalOrder": 22,
+  "addedAt": 1735690920000
+ },
+ {
+  "id": "movie-106646",
+  "kind": "movie",
+  "tmdbId": 106646,
+  "imdbId": "tt0993846",
+  "title": "The Wolf of Wall Street",
+  "year": 2013,
+  "director": "Martin Scorsese",
+  "runtime": 180,
+  "genres": [
+   "Crime",
+   "Drama",
+   "Comedy"
+  ],
+  "overview": "A New York stockbroker refuses to cooperate in a large securities fraud case involving corruption on Wall Street, corporate banking world and mob infiltration. Based on Jordan Belfort's autobiography.",
+  "posterPath": "/kW9LmvYHAaS9iA0tHmZVq8hQYoq.jpg",
+  "backdropPath": "/7Nwnmyzrtd0FkcRyPqmdzTPppQa.jpg",
+  "palette": {
+   "dark": "#131312",
+   "vivid": "#d69c2e",
+   "light": "#dbb095"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "GET THE FUCK OFF MY BOAT",
+  "originalOrder": 23,
+  "addedAt": 1735690980000
+ },
+ {
+  "id": "movie-27205",
+  "kind": "movie",
+  "tmdbId": 27205,
+  "imdbId": "tt1375666",
+  "title": "Inception",
+  "year": 2010,
+  "director": "Christopher Nolan",
+  "runtime": 148,
+  "genres": [
+   "Action",
+   "Science Fiction",
+   "Crime"
+  ],
+  "overview": "Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: \"inception\", the implantation of another person's idea into a target's subconscious.",
+  "posterPath": "/xlaY2zyzMfkhk0HSC5VUwzoZPU1.jpg",
+  "backdropPath": "/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg",
+  "palette": {
+   "dark": "#07141a",
+   "vivid": "#3091b5",
+   "light": "#d4e5f3"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 24,
+  "addedAt": 1735691040000
+ },
+ {
+  "id": "movie-157336",
+  "kind": "movie",
+  "tmdbId": 157336,
+  "imdbId": "tt0816692",
+  "title": "Interstellar",
+  "year": 2014,
+  "director": "Christopher Nolan",
+  "runtime": 169,
+  "genres": [
+   "Adventure",
+   "Drama",
+   "Science Fiction"
+  ],
+  "overview": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+  "posterPath": "/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
+  "backdropPath": "/8sNiAPPYU14PUepFNeSNGUTiHW.jpg",
+  "palette": {
+   "dark": "#0f1825",
+   "vivid": "#daad72",
+   "light": "#f5e8d8"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 25,
+  "addedAt": 1735691100000
+ },
+ {
+  "id": "movie-1368337",
+  "kind": "movie",
+  "tmdbId": 1368337,
+  "imdbId": "tt33764258",
+  "title": "The Odyssey",
+  "year": 2026,
+  "director": "Christopher Nolan",
+  "runtime": 173,
+  "genres": [
+   "Adventure",
+   "Action",
+   "Fantasy"
+  ],
+  "overview": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is forced to confront the whims of gods, mythological monsters, and trials that stretch both his cunning and his humanity to the breaking point.",
+  "posterPath": "/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+  "backdropPath": "/c7btGYblBnfAaw713WvFM0Kimc7.jpg",
+  "palette": {
+   "dark": "#140d15",
+   "vivid": "#dbb571",
+   "light": "#e4c895"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "ACTION ADVENTURE",
+  "originalOrder": 26,
+  "addedAt": 1735691160000
+ },
+ {
+  "id": "movie-969681",
+  "kind": "movie",
+  "tmdbId": 969681,
+  "imdbId": "tt22084616",
+  "title": "Spider-Man: Brand New Day",
+  "year": 2026,
+  "director": "Destin Daniel Cretton",
+  "runtime": 145,
+  "genres": [
+   "Science Fiction",
+   "Action",
+   "Adventure"
+  ],
+  "overview": "Fighting crime full-time as Spider-Man in a world that doesn't remember him—and the pressure of seeing his old friends move on without him—sparks a change in Peter Parker he may not have the power to control. But that transformation might also be the only thing that can stop a shocking new threat to the city and those he loves - a powerful villain no one can even see.",
+  "posterPath": "/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg",
+  "backdropPath": "/subj7knTn4DeS6KS7qI66EQKe9i.jpg",
+  "palette": {
+   "dark": "#1b0708",
+   "vivid": "#ca1b28",
+   "light": "#a79d9f"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 27,
+  "addedAt": 1735691220000
+ },
+ {
+  "id": "movie-1930",
+  "kind": "movie",
+  "tmdbId": 1930,
+  "imdbId": "tt0948470",
+  "title": "The Amazing Spider-Man",
+  "year": 2012,
+  "director": "Marc Webb",
+  "runtime": 136,
+  "genres": [
+   "Action",
+   "Adventure",
+   "Science Fiction"
+  ],
+  "overview": "A teenage Peter Parker grapples with both high school and amazing super-human crises as his alter-ego Spider-Man.",
+  "posterPath": "/3zbb5XD0hEA8IpAcUmv1J9Rej3B.jpg",
+  "backdropPath": "/sxskOU71CO8LaNX2LOtjYFUtKv7.jpg",
+  "palette": {
+   "dark": "#13192a",
+   "vivid": "#3f76a6",
+   "light": "#9097a1"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 28,
+  "addedAt": 1735691280000
+ },
+ {
+  "id": "movie-322",
+  "kind": "movie",
+  "tmdbId": 322,
+  "imdbId": "tt0327056",
+  "title": "Mystic River",
+  "year": 2003,
+  "director": "Clint Eastwood",
+  "runtime": 138,
+  "genres": [
+   "Thriller",
+   "Drama",
+   "Mystery",
+   "Crime"
+  ],
+  "overview": "The lives of three men who were childhood friends are shattered when one of them suffers a family tragedy.",
+  "posterPath": "/hCHVDbo6XJGj3r2i4hVjKhE0GKF.jpg",
+  "backdropPath": "/4ycpMe25LYpzGW42U9amyW9gM53.jpg",
+  "palette": {
+   "dark": "#060915",
+   "vivid": "#2f4cb6",
+   "light": "#989da4"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "WHODUNIT",
+  "originalOrder": 29,
+  "addedAt": 1735691340000
+ },
+ {
+  "id": "movie-286217",
+  "kind": "movie",
+  "tmdbId": 286217,
+  "imdbId": "tt3659388",
+  "title": "The Martian",
+  "year": 2015,
+  "director": "Ridley Scott",
+  "runtime": 141,
+  "genres": [
+   "Science Fiction",
+   "Drama",
+   "Adventure"
+  ],
+  "overview": "During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet. With only meager supplies, he must draw upon his ingenuity, wit and spirit to subsist and find a way to signal to Earth that he is alive.",
+  "posterPath": "/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg",
+  "backdropPath": "/lzMS0CI3FLQYC5EgJoWeIaEt0lm.jpg",
+  "palette": {
+   "dark": "#221818",
+   "vivid": "#cea17e",
+   "light": "#ddc9b0"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 30,
+  "addedAt": 1735691400000
+ },
+ {
+  "id": "movie-713704",
+  "kind": "movie",
+  "tmdbId": 713704,
+  "imdbId": "tt13345606",
+  "title": "Evil Dead Rise",
+  "year": 2023,
+  "director": "Lee Cronin",
+  "runtime": 96,
+  "genres": [
+   "Horror",
+   "Thriller"
+  ],
+  "overview": "A reunion between two estranged sisters gets cut short by the rise of flesh-possessing demons, thrusting them into a primal battle for survival as they face the most nightmarish version of family imaginable.",
+  "posterPath": "/5ik4ATKmNtmJU6AYD0bLm56BCVM.jpg",
+  "backdropPath": "/7bWxAsNPv9CXHOhZbJVlj2KxgfP.jpg",
+  "palette": {
+   "dark": "#151613",
+   "vivid": "#af4736",
+   "light": "#ab988e"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "SCI-FI HORROR",
+  "originalOrder": 31,
+  "addedAt": 1735691460000
+ },
+ {
+  "id": "movie-263115",
+  "kind": "movie",
+  "tmdbId": 263115,
+  "imdbId": "tt3315342",
+  "title": "Logan",
+  "year": 2017,
+  "director": "James Mangold",
+  "runtime": 137,
+  "genres": [
+   "Action",
+   "Drama",
+   "Science Fiction"
+  ],
+  "overview": "In the near future, a weary Logan cares for an ailing Professor X in a hideout on the Mexican border. But Logan's attempts to hide from the world and his legacy are upended when a young mutant arrives, pursued by dark forces.",
+  "posterPath": "/fnbjcRDYn6YviCcePDnGdyAkYsB.jpg",
+  "backdropPath": "/4DZxWNSAyksN6N3JkvpJ53Yq6zU.jpg",
+  "palette": {
+   "dark": "#251918",
+   "vivid": "#d85827",
+   "light": "#f6f5e0"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 32,
+  "addedAt": 1735691520000
+ },
+ {
+  "id": "movie-509967",
+  "kind": "movie",
+  "tmdbId": 509967,
+  "imdbId": "tt8106534",
+  "title": "6 Underground",
+  "year": 2019,
+  "director": "Michael Bay",
+  "runtime": 128,
+  "genres": [
+   "Action",
+   "Thriller"
+  ],
+  "overview": "After faking his death, a tech billionaire recruits a team of international operatives for a bold and bloody mission to take down a brutal dictator.",
+  "posterPath": "/lnWkyG3LLgbbrIEeyl5mK5VRFe4.jpg",
+  "backdropPath": "/eFw5YSorHidsajLTayo1noueIxI.jpg",
+  "palette": {
+   "dark": "#1d1915",
+   "vivid": "#63a5d5",
+   "light": "#edebd6"
+  },
+  "myRating": 7.5,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 33,
+  "addedAt": 1735691580000
+ },
+ {
+  "id": "movie-696806",
+  "kind": "movie",
+  "tmdbId": 696806,
+  "imdbId": "tt2463208",
+  "title": "The Adam Project",
+  "year": 2022,
+  "director": "Shawn Levy",
+  "runtime": 106,
+  "genres": [
+   "Adventure",
+   "Science Fiction",
+   "Comedy"
+  ],
+  "overview": "After accidentally crash-landing in 2022, time-traveling fighter pilot Adam Reed teams up with his 12-year-old self on a mission to save the future.",
+  "posterPath": "/wFjboE0aFZNbVOF05fzrka9Fqyx.jpg",
+  "backdropPath": "/ewUqXnwiRLhgmGhuksOdLgh49Ch.jpg",
+  "palette": {
+   "dark": "#13121e",
+   "vivid": "#d7946b",
+   "light": "#f7e4d9"
+  },
+  "myRating": 7,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 34,
+  "addedAt": 1735691640000
+ },
+ {
+  "id": "movie-64688",
+  "kind": "movie",
+  "tmdbId": 64688,
+  "imdbId": "tt1232829",
+  "title": "21 Jump Street",
+  "year": 2012,
+  "director": "Phil Lord & Christopher Miller",
+  "runtime": 109,
+  "genres": [
+   "Action",
+   "Comedy",
+   "Crime"
+  ],
+  "overview": "When cops Schmidt and Jenko join the secret Jump Street unit, they use their youthful appearances to go undercover as high school students. They trade in their guns and badges for backpacks, and set out to shut down a dangerous drug ring. But, as time goes on, Schmidt and Jenko discover that high school is nothing like it was just a few years earlier -- and, what's more, they must again confront the teenage terror and anxiety they thought they had left behind.",
+  "posterPath": "/8v3Sqv9UcIUC4ebmpKWROqPBINZ.jpg",
+  "backdropPath": "/rXrpYOveFl76ivMmyb2612T7Q8w.jpg",
+  "palette": {
+   "dark": "#161d27",
+   "vivid": "#3f81a6",
+   "light": "#dee1e4"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 35,
+  "addedAt": 1735691700000
+ },
+ {
+  "id": "movie-187017",
+  "kind": "movie",
+  "tmdbId": 187017,
+  "imdbId": "tt2294449",
+  "title": "22 Jump Street",
+  "year": 2014,
+  "director": "Phil Lord & Christopher Miller",
+  "runtime": 112,
+  "genres": [
+   "Crime",
+   "Comedy",
+   "Action"
+  ],
+  "overview": "After making their way through high school (twice), big changes are in store for officers Schmidt and Jenko when they go deep undercover at a local college. But when Jenko meets a kindred spirit on the football team, and Schmidt infiltrates the bohemian art major scene, they begin to question their partnership. Now they don't have to just crack the case - they have to figure out if they can have a mature relationship. If these two overgrown adolescents can grow from freshmen into real men, college might be the best thing that ever happened to them.",
+  "posterPath": "/850chzYHYbT3IISl6Q7dbBuFP2B.jpg",
+  "backdropPath": "/kdyYOwpKvvD2fSbwfnMM2YPAzfq.jpg",
+  "palette": {
+   "dark": "#161317",
+   "vivid": "#5db9e8",
+   "light": "#dce8ee"
+  },
+  "myRating": 7,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 36,
+  "addedAt": 1735691760000
+ },
+ {
+  "id": "movie-877817",
+  "kind": "movie",
+  "tmdbId": 877817,
+  "imdbId": "tt14257582",
+  "title": "Wolfs",
+  "year": 2024,
+  "director": "Jon Watts",
+  "runtime": 108,
+  "genres": [
+   "Crime",
+   "Comedy"
+  ],
+  "overview": "Hired to cover up a high-profile crime, a fixer soon finds his night spiralling out of control when he's forced to work with an unexpected counterpart.",
+  "posterPath": "/vOX1Zng472PC2KnS0B9nRfM8aaZ.jpg",
+  "backdropPath": "/nSVwus6Vcnw06zqKAa1ioacrpUF.jpg",
+  "palette": {
+   "dark": "#121011",
+   "vivid": "#c91d6c",
+   "light": "#fefdfd"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 37,
+  "addedAt": 1735691820000
+ },
+ {
+  "id": "movie-718930",
+  "kind": "movie",
+  "tmdbId": 718930,
+  "imdbId": "tt12593682",
+  "title": "Bullet Train",
+  "year": 2022,
+  "director": "David Leitch",
+  "runtime": 126,
+  "genres": [
+   "Action",
+   "Comedy",
+   "Thriller"
+  ],
+  "overview": "Unlucky assassin Ladybug is determined to do his job peacefully after one too many gigs gone off the rails. Fate, however, may have other plans, as Ladybug's latest mission puts him on a collision course with lethal adversaries from around the globe—all with connected, yet conflicting, objectives—on the world's fastest train.",
+  "posterPath": "/j8szC8OgrejDQjjMKSVXyaAjw3V.jpg",
+  "backdropPath": "/y2Ca1neKke2mGPMaHzlCNDVZqsK.jpg",
+  "palette": {
+   "dark": "#1a1e20",
+   "vivid": "#0b91da",
+   "light": "#dba59f"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 38,
+  "addedAt": 1735691880000
+ },
+ {
+  "id": "movie-72190",
+  "kind": "movie",
+  "tmdbId": 72190,
+  "imdbId": "tt0816711",
+  "title": "World War Z",
+  "year": 2013,
+  "director": "Marc Forster",
+  "runtime": 116,
+  "genres": [
+   "Action",
+   "Horror",
+   "Science Fiction"
+  ],
+  "overview": "Life for former United Nations investigator Gerry Lane and his family seems content. Suddenly, the world is plagued by a mysterious infection turning whole human populations into rampaging mindless zombies. After barely escaping the chaos, Lane is persuaded to go on a mission to investigate this disease. What follows is a perilous trek around the world where Lane must brave horrific dangers and long odds to find answers before human civilization falls.",
+  "posterPath": "/aCnVdvExw6UWSeQfr0tUH3jr4qG.jpg",
+  "backdropPath": "/kg2FOT2Oe5PSCgs3L4vLel6B7ck.jpg",
+  "palette": {
+   "dark": "#0f1213",
+   "vivid": "#a64c3f",
+   "light": "#e7d9d2"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 39,
+  "addedAt": 1735691940000
+ },
+ {
+  "id": "movie-273481",
+  "kind": "movie",
+  "tmdbId": 273481,
+  "imdbId": "tt3397884",
+  "title": "Sicario",
+  "year": 2015,
+  "director": "Denis Villeneuve",
+  "runtime": 122,
+  "genres": [
+   "Action",
+   "Crime",
+   "Thriller"
+  ],
+  "overview": "An idealistic FBI agent is enlisted by a government task force to aid in the escalating war against drugs at the border area between the U.S. and Mexico.",
+  "posterPath": "/lz8vNyXeidqqOdJW9ZjnDAMb5Vr.jpg",
+  "backdropPath": "/fKPgObonYgPgCdu88yjV7Hpn7Dp.jpg",
+  "palette": {
+   "dark": "#211d1d",
+   "vivid": "#ceb27e",
+   "light": "#e9ddc7"
+  },
+  "myRating": 7.5,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 40,
+  "addedAt": 1735692000000
+ },
+ {
+  "id": "movie-146233",
+  "kind": "movie",
+  "tmdbId": 146233,
+  "imdbId": "tt1392214",
+  "title": "Prisoners",
+  "year": 2013,
+  "director": "Denis Villeneuve",
+  "runtime": 153,
+  "genres": [
+   "Drama",
+   "Thriller",
+   "Crime"
+  ],
+  "overview": "After his six-year-old daughter is abducted, a desperate father takes justice into his own hands when he loses faith in the detective leading the investigation, setting both men on a collision course as the search descends into obsession and moral compromise.",
+  "posterPath": "/uhviyknTT5cEQXbn6vWIqfM4vGm.jpg",
+  "backdropPath": "/3RFmTz5h2UuFWEV4oH00XICBR9y.jpg",
+  "palette": {
+   "dark": "#10151b",
+   "vivid": "#3f6ea6",
+   "light": "#979394"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 41,
+  "addedAt": 1735692060000
+ },
+ {
+  "id": "movie-300681",
+  "kind": "movie",
+  "tmdbId": 300681,
+  "imdbId": "tt4154916",
+  "title": "Replicas",
+  "year": 2018,
+  "director": "Jeffrey Nachmanoff",
+  "runtime": 107,
+  "genres": [
+   "Science Fiction",
+   "Thriller",
+   "Drama"
+  ],
+  "overview": "A scientist becomes obsessed with returning his family to normalcy after a terrible accident.",
+  "posterPath": "/hhPBTAn9b4TYOxc1JYNsX4BFAlW.jpg",
+  "backdropPath": "/dKFTYg8vWj5ZpsR4SVmueAssyZH.jpg",
+  "palette": {
+   "dark": "#0e0f0f",
+   "vivid": "#a65d3f",
+   "light": "#a69d97"
+  },
+  "myRating": 7,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 42,
+  "addedAt": 1735692120000
+ },
+ {
+  "id": "movie-1813",
+  "kind": "movie",
+  "tmdbId": 1813,
+  "imdbId": "tt0118971",
+  "title": "The Devil's Advocate",
+  "year": 1997,
+  "director": "Taylor Hackford",
+  "runtime": 144,
+  "genres": [
+   "Horror",
+   "Drama",
+   "Mystery"
+  ],
+  "overview": "Aspiring Florida defense lawyer Kevin Lomax accepts a job at a New York law firm. With the stakes getting higher every case, Kevin quickly learns that his boss has something far more evil planned.",
+  "posterPath": "/5ZzBGpxy55OQzHxKVY11IpY6a0o.jpg",
+  "backdropPath": "/bFRyrzb16IqM8hTmxT0z1nCaqhr.jpg",
+  "palette": {
+   "dark": "#18090e",
+   "vivid": "#ca1c2a",
+   "light": "#9b695b"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "DARK GRITTY CRIME THRILLER",
+  "originalOrder": 43,
+  "addedAt": 1735692180000
+ },
+ {
+  "id": "movie-949",
+  "kind": "movie",
+  "tmdbId": 949,
+  "imdbId": "tt0113277",
+  "title": "Heat",
+  "year": 1995,
+  "director": "Michael Mann",
+  "runtime": 170,
+  "genres": [
+   "Crime",
+   "Drama",
+   "Action"
+  ],
+  "overview": "Obsessive master thief Neil McCauley leads a top-notch crew on various daring heists throughout Los Angeles while determined detective Vincent Hanna pursues him without rest. Each man recognizes and respects the ability and the dedication of the other even though they are aware their cat-and-mouse game may end in violence.",
+  "posterPath": "/umSVjVdbVwtx5ryCA2QXL44Durm.jpg",
+  "backdropPath": "/uI22JkEMediWyiRqhllNqeeGtW0.jpg",
+  "palette": {
+   "dark": "#050912",
+   "vivid": "#2377c2",
+   "light": "#a9cbe1"
+  },
+  "myRating": 7.5,
+  "myReview": "",
+  "tag": "DARK GRITTY CRIME THRILLER",
+  "originalOrder": 44,
+  "addedAt": 1735692240000
+ },
+ {
+  "id": "movie-62",
+  "kind": "movie",
+  "tmdbId": 62,
+  "imdbId": "tt0062622",
+  "title": "2001: A Space Odyssey",
+  "year": 1968,
+  "director": "Stanley Kubrick",
+  "runtime": 149,
+  "genres": [
+   "Science Fiction",
+   "Mystery",
+   "Adventure"
+  ],
+  "overview": "Humanity finds a mysterious object buried beneath the lunar surface and sets off to find its origins with the help of HAL 9000, the world's most advanced super computer.",
+  "posterPath": "/ve72VxNqjGM69Uky4WTo2bK6rfq.jpg",
+  "backdropPath": "/w5IDXtifKntw0ajv2co7jFlTQDM.jpg",
+  "palette": {
+   "dark": "#090c0d",
+   "vivid": "#c6a720",
+   "light": "#d9d8c8"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 45,
+  "addedAt": 1735692300000
+ },
+ {
+  "id": "movie-38",
+  "kind": "movie",
+  "tmdbId": 38,
+  "imdbId": "tt0338013",
+  "title": "Eternal Sunshine of the Spotless Mind",
+  "year": 2004,
+  "director": "Michel Gondry",
+  "runtime": 108,
+  "genres": [
+   "Science Fiction",
+   "Drama",
+   "Romance"
+  ],
+  "overview": "Joel Barish, heartbroken that his girlfriend underwent a procedure to erase him from her memory, decides to do the same. However, as he watches his memories of her fade away, he realises that he still loves her, and may be too late to correct his mistake.",
+  "posterPath": "/5MwkWH9tYHv3mV9OdYTMR5qreIz.jpg",
+  "backdropPath": "/95qi5TJMIBI5VzWHia88Pbrye7Z.jpg",
+  "palette": {
+   "dark": "#141c1f",
+   "vivid": "#0b97da",
+   "light": "#dee7f0"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 46,
+  "addedAt": 1735692360000
+ },
+ {
+  "id": "movie-37165",
+  "kind": "movie",
+  "tmdbId": 37165,
+  "imdbId": "tt0120382",
+  "title": "The Truman Show",
+  "year": 1998,
+  "director": "Peter Weir",
+  "runtime": 103,
+  "genres": [
+   "Comedy",
+   "Drama"
+  ],
+  "overview": "In a picture-perfect seaside town, an insurance salesman begins to realize that his entire existence may be staged and observed by a vast unseen audience as part of a long-running real-time reality TV show.",
+  "posterPath": "/vuza0WqY239yBXOadKlGwJsZJFE.jpg",
+  "backdropPath": "/rmiG2uwcNoGFmBKMoa1pIcf514L.jpg",
+  "palette": {
+   "dark": "#231c1a",
+   "vivid": "#277dbe",
+   "light": "#d9dfe5"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "INSPIRED BY REALITY",
+  "originalOrder": 47,
+  "addedAt": 1735692420000
+ },
+ {
+  "id": "movie-3049",
+  "kind": "movie",
+  "tmdbId": 3049,
+  "imdbId": "tt0109040",
+  "title": "Ace Ventura: Pet Detective",
+  "year": 1994,
+  "director": "Tom Shadyac",
+  "runtime": 86,
+  "genres": [
+   "Comedy",
+   "Crime",
+   "Mystery"
+  ],
+  "overview": "He's Ace Ventura: Pet Detective. The Ace is on the case to find the Miami Dolphins' missing mascot and quarterback Dan Marino. He goes eyeball to eyeball with a man-eating shark, stakes out the Miami Dolphins and woos and wows the ladies. Whether he's undercover, under fire or underwater, he always gets his man… or beast!",
+  "posterPath": "/pqiRuETmuSybfnVZ7qyeoXhQyN1.jpg",
+  "backdropPath": "/mhMnWStdREZiYrWpm1MqTS7J2V5.jpg",
+  "palette": {
+   "dark": "#141829",
+   "vivid": "#e4686a",
+   "light": "#e3d9e3"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FOR JIM CARREY",
+  "originalOrder": 48,
+  "addedAt": 1735692480000
+ },
+ {
+  "id": "movie-854",
+  "kind": "movie",
+  "tmdbId": 854,
+  "imdbId": "tt0110475",
+  "title": "The Mask",
+  "year": 1994,
+  "director": "Chuck Russell",
+  "runtime": 101,
+  "genres": [
+   "Comedy",
+   "Fantasy",
+   "Crime",
+   "Romance"
+  ],
+  "overview": "Timid bank clerk Stanley Ipkiss discovers a magical mask infused with the spirit of the Norse god Loki. Donning it transforms him into an unrestrained, green-faced, cartoon-like wild man. While the mask grants him the confidence to woo a local singer, it also makes him the target of a ruthless mobster.",
+  "posterPath": "/jPC2eYub74zwf2tPGVtzSlBW6Oy.jpg",
+  "backdropPath": "/bQlw59HncOXX9alFlOYKHAvSnm.jpg",
+  "palette": {
+   "dark": "#17110f",
+   "vivid": "#da9f0b",
+   "light": "#d1b095"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FOR JIM CARREY",
+  "originalOrder": 49,
+  "addedAt": 1735692540000
+ },
+ {
+  "id": "movie-8467",
+  "kind": "movie",
+  "tmdbId": 8467,
+  "imdbId": "tt0109686",
+  "title": "Dumb and Dumber",
+  "year": 1994,
+  "director": "Peter Farrelly",
+  "runtime": 107,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "Lloyd and Harry are two men whose stupidity is really indescribable. When Mary, a beautiful woman, loses an important suitcase with money before she leaves for Aspen, the two friends (who have found the suitcase) decide to return it to her. After some \"adventures\" they finally get to Aspen where, using the lost money they live it up and fight for Mary's heart.",
+  "posterPath": "/4LdpBXiCyGKkR8FGHgjKlphrfUc.jpg",
+  "backdropPath": "/8uBTDGRcNHhYChcoazP5rleRME7.jpg",
+  "palette": {
+   "dark": "#1d1f20",
+   "vivid": "#2172c5",
+   "light": "#fbf9f7"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "FOR JIM CARREY",
+  "originalOrder": 50,
+  "addedAt": 1735692600000
+ },
+ {
+  "id": "movie-10201",
+  "kind": "movie",
+  "tmdbId": 10201,
+  "imdbId": "tt1068680",
+  "title": "Yes Man",
+  "year": 2008,
+  "director": "Peyton Reed",
+  "runtime": 104,
+  "genres": [
+   "Comedy",
+   "Romance"
+  ],
+  "overview": "Carl Allen, a guy whose life is going nowhere, signs up for a self-help program based on one simple covenant: say yes to everything…and anything.",
+  "posterPath": "/8Vk2nQF1kY34x53YnWd5zDaTht.jpg",
+  "backdropPath": "/l9kUuYVqiZV1r6d4nKUKcQvtLR3.jpg",
+  "palette": {
+   "dark": "#10222d",
+   "vivid": "#0b98da",
+   "light": "#98d5f3"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "FOR JIM CARREY",
+  "originalOrder": 51,
+  "addedAt": 1735692660000
+ },
+ {
+  "id": "movie-456750",
+  "kind": "movie",
+  "tmdbId": 456750,
+  "imdbId": "tt3317234",
+  "title": "Game Over, Man!",
+  "year": 2018,
+  "director": "Kyle Newacheck",
+  "runtime": 101,
+  "genres": [
+   "Action",
+   "Comedy"
+  ],
+  "overview": "Three friends are on the verge of getting their video game financed when their benefactor is taken hostage by terrorists.",
+  "posterPath": "/58BnnYeQOTzdMBghZIH1tSH0REx.jpg",
+  "backdropPath": "/inhn4rTCAhvnu9yR5Kl1ZCRjBki.jpg",
+  "palette": {
+   "dark": "#110805",
+   "vivid": "#f19d2b",
+   "light": "#e3cca9"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "COMEDY",
+  "originalOrder": 52,
+  "addedAt": 1735692720000
+ },
+ {
+  "id": "movie-11324",
+  "kind": "movie",
+  "tmdbId": 11324,
+  "imdbId": "tt1130884",
+  "title": "Shutter Island",
+  "year": 2010,
+  "director": "Martin Scorsese",
+  "runtime": 138,
+  "genres": [
+   "Drama",
+   "Thriller",
+   "Mystery"
+  ],
+  "overview": "World War II soldier-turned-U.S. Marshal Teddy Daniels investigates the disappearance of a patient from a hospital for the criminally insane, but his efforts are compromised by troubling visions and a mysterious doctor.",
+  "posterPath": "/nrmXQ0zcZUL8jFLrakWc90IR8z9.jpg",
+  "backdropPath": "/lavdyiJWciCJvyLG37ZOs6HJijg.jpg",
+  "palette": {
+   "dark": "#0a0d14",
+   "vivid": "#cf1616",
+   "light": "#a09799"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 53,
+  "addedAt": 1735692780000
+ },
+ {
+  "id": "movie-1949",
+  "kind": "movie",
+  "tmdbId": 1949,
+  "imdbId": "tt0443706",
+  "title": "Zodiac",
+  "year": 2007,
+  "director": "David Fincher",
+  "runtime": 157,
+  "genres": [
+   "Crime",
+   "Mystery",
+   "Thriller"
+  ],
+  "overview": "Police conduct a manhunt for the Zodiac Killer, a serial killer who terrorized the San Francisco Bay Area during the late 1960s and early 1970s, taunting police with letters, bloodstained clothing, and ciphers mailed to newspapers.",
+  "posterPath": "/6YmeO4pB7XTh8P8F960O1uA14JO.jpg",
+  "backdropPath": "/3zCPI4JFc54xvLaJ71oI2KoP3az.jpg",
+  "palette": {
+   "dark": "#102426",
+   "vivid": "#3f9da6",
+   "light": "#8b9fa2"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 54,
+  "addedAt": 1735692840000
+ },
+ {
+  "id": "movie-210577",
+  "kind": "movie",
+  "tmdbId": 210577,
+  "imdbId": "tt2267998",
+  "title": "Gone Girl",
+  "year": 2014,
+  "director": "David Fincher",
+  "runtime": 149,
+  "genres": [
+   "Mystery",
+   "Thriller",
+   "Drama"
+  ],
+  "overview": "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him when it's suspected that he may not be innocent.",
+  "posterPath": "/ts996lKsxvjkO2yiYG0ht4qAicO.jpg",
+  "backdropPath": "/iWak7wT0j6ycCc8lKr4NBz9c7n5.jpg",
+  "palette": {
+   "dark": "#11202c",
+   "vivid": "#3f77a6",
+   "light": "#cfcec3"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 55,
+  "addedAt": 1735692900000
+ },
+ {
+  "id": "movie-550",
+  "kind": "movie",
+  "tmdbId": 550,
+  "imdbId": "tt0137523",
+  "title": "Fight Club",
+  "year": 1999,
+  "director": "David Fincher",
+  "runtime": 139,
+  "genres": [
+   "Drama",
+   "Thriller"
+  ],
+  "overview": "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.",
+  "posterPath": "/jSziioSwPVrOy9Yow3XhWIBDjq1.jpg",
+  "backdropPath": "/c6OLXfKAk5BKeR6broC8pYiCquX.jpg",
+  "palette": {
+   "dark": "#0f0904",
+   "vivid": "#e2a229",
+   "light": "#f4d09b"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 56,
+  "addedAt": 1735692960000
+ },
+ {
+  "id": "movie-65754",
+  "kind": "movie",
+  "tmdbId": 65754,
+  "imdbId": "tt1568346",
+  "title": "The Girl with the Dragon Tattoo",
+  "year": 2011,
+  "director": "David Fincher",
+  "runtime": 158,
+  "genres": [
+   "Thriller",
+   "Crime",
+   "Mystery"
+  ],
+  "overview": "Disgraced journalist Mikael Blomkvist investigates the disappearance of a weary patriarch's niece from 40 years ago. He is aided by the pierced, tattooed, punk computer hacker named Lisbeth Salander. As they work together in the investigation, Blomkvist and Salander uncover immense corruption beyond anything they have ever imagined.",
+  "posterPath": "/8bokS83zGdhaXgN9tjidUKmAftW.jpg",
+  "backdropPath": "/dNFbrnF0mIBm0rClbfEFWTtsgMP.jpg",
+  "palette": {
+   "dark": "#12161a",
+   "vivid": "#7eb0ce",
+   "light": "#d1dde5"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 57,
+  "addedAt": 1735693020000
+ },
+ {
+  "id": "movie-807",
+  "kind": "movie",
+  "tmdbId": 807,
+  "imdbId": "tt0114369",
+  "title": "Se7en",
+  "year": 1995,
+  "director": "David Fincher",
+  "runtime": 127,
+  "genres": [
+   "Crime",
+   "Mystery",
+   "Thriller"
+  ],
+  "overview": "Two homicide detectives are on a desperate hunt for a serial killer whose crimes are based on the \"seven deadly sins\" in this dark and haunting film that takes viewers from the tortured remains of one victim to the next. The seasoned Det. Somerset researches each sin in an effort to get inside the killer's mind, while his novice partner, Mills, scoffs at his efforts to unravel the case.",
+  "posterPath": "/191nKfP0ehp3uIvWqgPbFmI4lv9.jpg",
+  "backdropPath": "/jwBs4djVIe9Kz3Vu9rsI9aEEKWU.jpg",
+  "palette": {
+   "dark": "#131817",
+   "vivid": "#dea05f",
+   "light": "#dea05f"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 58,
+  "addedAt": 1735693080000
+ },
+ {
+  "id": "movie-2649",
+  "kind": "movie",
+  "tmdbId": 2649,
+  "imdbId": "tt0119174",
+  "title": "The Game",
+  "year": 1997,
+  "director": "David Fincher",
+  "runtime": 129,
+  "genres": [
+   "Drama",
+   "Thriller",
+   "Mystery"
+  ],
+  "overview": "In honor of his birthday, San Francisco banker Nicholas Van Orton, a financial genius and a cold-hearted loner, receives an unusual present from his younger brother, Conrad: a gift certificate to play a unique kind of game. In nary a nanosecond, Nicholas finds himself consumed by a dangerous set of ever-changing rules, unable to distinguish where the charade ends and reality begins.",
+  "posterPath": "/eRInC7NTiDkt6dnm7Ryzu4hQZEs.jpg",
+  "backdropPath": "/k7GM13qRYSour3lk90Dq1EwdpoW.jpg",
+  "palette": {
+   "dark": "#0f0908",
+   "vivid": "#f4d558",
+   "light": "#f4d760"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 59,
+  "addedAt": 1735693140000
+ },
+ {
+  "id": "movie-76493",
+  "kind": "movie",
+  "tmdbId": 76493,
+  "imdbId": "tt1645170",
+  "title": "The Dictator",
+  "year": 2012,
+  "director": "Larry Charles",
+  "runtime": 83,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "The heroic story of a dictator who risks his life to ensure that democracy would never come to the country he so lovingly oppressed.",
+  "posterPath": "/n0W7kajF4GFMRk2c0wWwMQqTaDM.jpg",
+  "backdropPath": "/jWq20KNbg5txb28tLxJl0yLYuxp.jpg",
+  "palette": {
+   "dark": "#1b1716",
+   "vivid": "#d2a679",
+   "light": "#eee6dd"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "COMEDY",
+  "originalOrder": 60,
+  "addedAt": 1735693200000
+ },
+ {
+  "id": "movie-496",
+  "kind": "movie",
+  "tmdbId": 496,
+  "imdbId": "tt0443453",
+  "title": "Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan",
+  "year": 2006,
+  "director": "Larry Charles",
+  "runtime": 84,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "Kazakh journalist Borat Sagdiyev travels to America to make a documentary. As he zigzags across the nation, Borat meets real people in real situations with hysterical consequences. His backwards behavior generates strong reactions around him exposing prejudices and hypocrisies in American culture.",
+  "posterPath": "/7g9kBHMN2KTr5KUf8aen187Mdn.jpg",
+  "backdropPath": "/mEagEZkyUp18shDqX05w4zxTnEM.jpg",
+  "palette": {
+   "dark": "#261e17",
+   "vivid": "#dcac6f",
+   "light": "#f2dfc7"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "COMEDY",
+  "originalOrder": 61,
+  "addedAt": 1735693260000
+ },
+ {
+  "id": "movie-8844",
+  "kind": "movie",
+  "tmdbId": 8844,
+  "imdbId": "tt0113497",
+  "title": "Jumanji",
+  "year": 1995,
+  "director": "Joe Johnston",
+  "runtime": 104,
+  "genres": [
+   "Adventure",
+   "Fantasy",
+   "Family"
+  ],
+  "overview": "When siblings Judy and Peter discover an enchanted board game that opens the door to a magical world, they unwittingly invite Alan -- an adult who's been trapped inside the game for 26 years -- into their living room. Alan's only hope for freedom is to finish the game, which proves risky as all three find themselves running from giant rhinoceroses, evil monkeys and other terrifying creatures.",
+  "posterPath": "/bdHG5Mo83VPobeZZdlSz0Y7HQHB.jpg",
+  "backdropPath": "/qSxeCfWUUyht9hZgaaYmtPtTkw2.jpg",
+  "palette": {
+   "dark": "#1c210d",
+   "vivid": "#0ba1da",
+   "light": "#e8d6a3"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "ADVENTURE",
+  "originalOrder": 62,
+  "addedAt": 1735693320000
+ },
+ {
+  "id": "movie-353486",
+  "kind": "movie",
+  "tmdbId": 353486,
+  "imdbId": "tt2283362",
+  "title": "Jumanji: Welcome to the Jungle",
+  "year": 2017,
+  "director": "Jake Kasdan",
+  "runtime": 119,
+  "genres": [
+   "Adventure",
+   "Comedy",
+   "Fantasy"
+  ],
+  "overview": "Four teenagers in detention discover an old video game console with a game they’ve never heard of. When they decide to play, they are immediately sucked into the jungle world of Jumanji in the bodies of their avatars. They’ll have to complete the adventure of their lives filled with fun, thrills and danger or be stuck in the game forever!",
+  "posterPath": "/pSgXKPU5h6U89ipF7HBYajvYt7j.jpg",
+  "backdropPath": "/zZKmEmRDc7ZjFucPm2UGNgDRlDc.jpg",
+  "palette": {
+   "dark": "#1b140c",
+   "vivid": "#b37433",
+   "light": "#d29f5c"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ADVENTURE",
+  "originalOrder": 63,
+  "addedAt": 1735693380000
+ },
+ {
+  "id": "movie-512200",
+  "kind": "movie",
+  "tmdbId": 512200,
+  "imdbId": "tt7975244",
+  "title": "Jumanji: The Next Level",
+  "year": 2019,
+  "director": "Jake Kasdan",
+  "runtime": 123,
+  "genres": [
+   "Adventure",
+   "Comedy",
+   "Fantasy"
+  ],
+  "overview": "As the gang return to Jumanji to rescue one of their own, they discover that nothing is as they expect. The players will have to brave parts unknown and unexplored in order to escape the world’s most dangerous game.",
+  "posterPath": "/2RyMYPKmlUcT4BkVmPIOUV4X2iC.jpg",
+  "backdropPath": "/qgch2rFskIxDMgwrD5lWTaB4nBl.jpg",
+  "palette": {
+   "dark": "#22221b",
+   "vivid": "#d4991c",
+   "light": "#d7d5d2"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "ADVENTURE",
+  "originalOrder": 64,
+  "addedAt": 1735693440000
+ },
+ {
+  "id": "movie-512195",
+  "kind": "movie",
+  "tmdbId": 512195,
+  "imdbId": "tt7991608",
+  "title": "Red Notice",
+  "year": 2021,
+  "director": "Rawson Marshall Thurber",
+  "runtime": 118,
+  "genres": [
+   "Action",
+   "Comedy",
+   "Crime"
+  ],
+  "overview": "An Interpol-issued Red Notice is a global alert to hunt and capture the world's most wanted. But when a daring heist brings together the FBI's top profiler and two rival criminals, there's no telling what will happen.",
+  "posterPath": "/lAXONuqg41NwUMuzMiFvicDET9Y.jpg",
+  "backdropPath": "/p34WRcgkN2QIHcds5FtFiSpV3PC.jpg",
+  "palette": {
+   "dark": "#1c0a09",
+   "vivid": "#c02627",
+   "light": "#dbcfca"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 65,
+  "addedAt": 1735693500000
+ },
+ {
+  "id": "movie-302699",
+  "kind": "movie",
+  "tmdbId": 302699,
+  "imdbId": "tt1489889",
+  "title": "Central Intelligence",
+  "year": 2016,
+  "director": "Rawson Marshall Thurber",
+  "runtime": 107,
+  "genres": [
+   "Action",
+   "Comedy"
+  ],
+  "overview": "Calvin Joyner, a mild-mannered accountant whose high school glory days are long behind him, reconnects with an awkward pal from high school through Facebook. After meeting up, Calvin’s mundane life takes an unexpectedly thrilling turn when he's thrust into the world of international espionage.",
+  "posterPath": "/hXQVMbRNpf7c93e8clMY4W5DRm6.jpg",
+  "backdropPath": "/12gfRwL8RuZUQ4kiGzq9kRYBK5J.jpg",
+  "palette": {
+   "dark": "#221f1b",
+   "vivid": "#ecc22d",
+   "light": "#dde0e4"
+  },
+  "myRating": 9.5,
+  "myReview": "",
+  "tag": "ACTION ADVENTURE",
+  "originalOrder": 66,
+  "addedAt": 1735693560000
+ },
+ {
+  "id": "movie-72545",
+  "kind": "movie",
+  "tmdbId": 72545,
+  "imdbId": "tt1397514",
+  "title": "Journey 2: The Mysterious Island",
+  "year": 2012,
+  "director": "Brad Peyton",
+  "runtime": 94,
+  "genres": [
+   "Adventure",
+   "Action",
+   "Science Fiction"
+  ],
+  "overview": "Sean Anderson partners with his mom's boyfriend on a mission to find his grandfather, who is thought to be missing on a mythical island.",
+  "posterPath": "/uFm2vnp9LhHx5MNo1Ego6O3vUhl.jpg",
+  "backdropPath": "/fZvAroq9Vb5hhyKT6TxsjxJW7nm.jpg",
+  "palette": {
+   "dark": "#111511",
+   "vivid": "#7dc2cf",
+   "light": "#cfdad6"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "ADVENTURE",
+  "originalOrder": 67,
+  "addedAt": 1735693620000
+ },
+ {
+  "id": "movie-436270",
+  "kind": "movie",
+  "tmdbId": 436270,
+  "imdbId": "tt6443346",
+  "title": "Black Adam",
+  "year": 2022,
+  "director": "Jaume Collet-Serra",
+  "runtime": 125,
+  "genres": [
+   "Action",
+   "Adventure",
+   "Science Fiction"
+  ],
+  "overview": "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.",
+  "posterPath": "/rCtreCr4xiYEWDQTebybolIh6Xe.jpg",
+  "backdropPath": "/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
+  "palette": {
+   "dark": "#18100c",
+   "vivid": "#d1a269",
+   "light": "#d2b191"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "DC HICCUP",
+  "originalOrder": 68,
+  "addedAt": 1735693680000
+ },
+ {
+  "id": "movie-9654",
+  "kind": "movie",
+  "tmdbId": 9654,
+  "imdbId": "tt0317740",
+  "title": "The Italian Job",
+  "year": 2003,
+  "director": "F. Gary Gray",
+  "runtime": 110,
+  "genres": [
+   "Action",
+   "Crime"
+  ],
+  "overview": "Charlie Croker pulled off the crime of a lifetime. The one thing that he didn't plan on was being double-crossed. Along with a drop-dead gorgeous safecracker, Croker and his team take off to re-steal the loot and end up in a pulse-pounding, pedal-to-the-metal chase that careens up, down, above and below the streets of Los Angeles.",
+  "posterPath": "/eSkjK4kctyrWpFhxl35GPvSs6tI.jpg",
+  "backdropPath": "/scub2eRSY0c3feyVIZhjZFXvgeV.jpg",
+  "palette": {
+   "dark": "#100b0b",
+   "vivid": "#d2c114",
+   "light": "#9b9493"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 69,
+  "addedAt": 1735693740000
+ },
+ {
+  "id": "movie-384018",
+  "kind": "movie",
+  "tmdbId": 384018,
+  "imdbId": "tt6806448",
+  "title": "Fast & Furious Presents: Hobbs & Shaw",
+  "year": 2019,
+  "director": "David Leitch",
+  "runtime": 137,
+  "genres": [
+   "Action",
+   "Adventure",
+   "Comedy"
+  ],
+  "overview": "Ever since US Diplomatic Security Service Agent Hobbs and lawless outcast Shaw first faced off, they just have traded smack talk and body blows. But when cyber-genetically enhanced anarchist Brixton's ruthless actions threaten the future of humanity, they join forces to defeat him.",
+  "posterPath": "/qRyy2UmjC5ur9bDi3kpNNRCc5nc.jpg",
+  "backdropPath": "/hpgda6P9GutvdkDX5MUJ92QG9aj.jpg",
+  "palette": {
+   "dark": "#191d24",
+   "vivid": "#e3a061",
+   "light": "#faf9f9"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 70,
+  "addedAt": 1735693800000
+ },
+ {
+  "id": "movie-8850",
+  "kind": "movie",
+  "tmdbId": 8850,
+  "imdbId": "tt0111143",
+  "title": "The Shadow",
+  "year": 1994,
+  "director": "Russell Mulcahy",
+  "runtime": 108,
+  "genres": [
+   "Fantasy",
+   "Action",
+   "Crime",
+   "Adventure"
+  ],
+  "overview": "Based on the 1930s comic strip, The Shadow is put up against his archenemy Shiwan Khan, who plans to take over the world by holding a city to ransom using an atom bomb. Using his powers of invisibility and \"the power to cloud men's minds\", The Shadow comes blazing to the rescue with explosive results.",
+  "posterPath": "/xAbFJH3vQYZvUyzzGAtG4OLy492.jpg",
+  "backdropPath": "/j3CMtQbRS4bBAuRuoTBpnPAaHSj.jpg",
+  "palette": {
+   "dark": "#191621",
+   "vivid": "#1fc737",
+   "light": "#eaddce"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 71,
+  "addedAt": 1735693860000
+ },
+ {
+  "id": "movie-27578",
+  "kind": "movie",
+  "tmdbId": 27578,
+  "imdbId": "tt1320253",
+  "title": "The Expendables",
+  "year": 2010,
+  "director": "Sylvester Stallone",
+  "runtime": 103,
+  "genres": [
+   "Thriller",
+   "Adventure",
+   "Action"
+  ],
+  "overview": "Barney Ross leads a band of highly skilled mercenaries including knife enthusiast Lee Christmas, a martial arts expert Yin Yang, heavy weapons specialist Hale Caesar, demolitionist Toll Road, and a loose-cannon sniper Gunner Jensen. When the group is commissioned by the mysterious Mr. Church to assassinate the dictator of a small South American island, Barney and Lee visit the remote locale to scout out their opposition and discover the true nature of the conflict engulfing the city.",
+  "posterPath": "/j09ZkH6R4JWVylBcDai1laCmGw7.jpg",
+  "backdropPath": "/yBv9RxlWPXRCvjMFsrmB1pxwWo6.jpg",
+  "palette": {
+   "dark": "#0d0c0c",
+   "vivid": "#a6473f",
+   "light": "#9e9693"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 72,
+  "addedAt": 1735693920000
+ },
+ {
+  "id": "movie-76163",
+  "kind": "movie",
+  "tmdbId": 76163,
+  "imdbId": "tt1764651",
+  "title": "The Expendables 2",
+  "year": 2012,
+  "director": "Simon West",
+  "runtime": 103,
+  "genres": [
+   "Action",
+   "Adventure",
+   "Thriller"
+  ],
+  "overview": "Mr. Church reunites the Expendables for what should be an easy paycheck, but when one of their men is murdered on the job, their quest for revenge puts them deep in enemy territory and up against an unexpected threat.",
+  "posterPath": "/74rTIGyGoIu5KSxDVMdr8H3MtMo.jpg",
+  "backdropPath": "/ihKsZZYMbyHXC1L7s90WDLITdC5.jpg",
+  "palette": {
+   "dark": "#170d0b",
+   "vivid": "#e8962f",
+   "light": "#e8962f"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 73,
+  "addedAt": 1735693980000
+ },
+ {
+  "id": "movie-443635",
+  "kind": "movie",
+  "tmdbId": 443635,
+  "imdbId": "tt6734984",
+  "title": "DJ: Duvvada Jagannadham",
+  "year": 2017,
+  "director": "Harish Shankar",
+  "runtime": 160,
+  "genres": [
+   "Action",
+   "Comedy"
+  ],
+  "overview": "A righteous young man who helps everyone gain their rightful justice, gets recruited as an undercover agent to work on a high profile case that involves a crime lord working for a corrupt minister who also happens to be the father of his romantic interest.",
+  "posterPath": "/hb0hntwxMyFz0HLLmXS3M4cae0P.jpg",
+  "backdropPath": "/8nGg7rp4lSOOfzmVN6UPQCyUkjs.jpg",
+  "palette": {
+   "dark": "#281a11",
+   "vivid": "#cb2c1b",
+   "light": "#e0b190"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ALLU ARJUN PRIME",
+  "originalOrder": 74,
+  "addedAt": 1735694040000
+ },
+ {
+  "id": "movie-374954",
+  "kind": "movie",
+  "tmdbId": 374954,
+  "imdbId": "tt5457772",
+  "title": "Sarrainodu",
+  "year": 2016,
+  "director": "Boyapati Srinu",
+  "runtime": 161,
+  "genres": [
+   "Action",
+   "Comedy"
+  ],
+  "overview": "Ghana, a jobless young man who left military to bring justice to the society, whiling away timing beating up goons. Life takes a turn when he brushes the shady Vairam Dhanush the wrong way.",
+  "posterPath": "/qbiW01I4uYXZ8LWoxinEsMGpIz4.jpg",
+  "backdropPath": "/bBn8pi9uq4fZkJxbMdlEefFgoZj.jpg",
+  "palette": {
+   "dark": "#262515",
+   "vivid": "#a97d3d",
+   "light": "#d7d8a3"
+  },
+  "myRating": 9.5,
+  "myReview": "",
+  "tag": "ALLU ARJUN PRIME",
+  "originalOrder": 75,
+  "addedAt": 1735694100000
+ },
+ {
+  "id": "movie-215248",
+  "kind": "movie",
+  "tmdbId": 215248,
+  "imdbId": "tt2211173",
+  "title": "Yevadu",
+  "year": 2014,
+  "director": "Vamshi Paidipally",
+  "runtime": 166,
+  "genres": [
+   "Action",
+   "Thriller"
+  ],
+  "overview": "Satya is given a different face after he suffers burn-related injuries. After being released from the hospital, he deals with the murderer of his lover Deepti. But his new face has given him new foes.",
+  "posterPath": "/6uU5jvqmPI5aURjznE5WEJsjNSz.jpg",
+  "backdropPath": "/uTb1cHB9nF6CRPtaq55D5VA5M8z.jpg",
+  "palette": {
+   "dark": "#221f1a",
+   "vivid": "#a6543f",
+   "light": "#dbc6b4"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 76,
+  "addedAt": 1735694160000
+ },
+ {
+  "id": "movie-24049",
+  "kind": "movie",
+  "tmdbId": 24049,
+  "imdbId": "tt0479751",
+  "title": "Sivaji: The Boss",
+  "year": 2007,
+  "director": "Shankar",
+  "runtime": 189,
+  "genres": [
+   "Action",
+   "Drama"
+  ],
+  "overview": "A wealthy engineer arrives in India with the mission of serving the nation and investing in the country's welfare but is met with strong opposition from corrupt officials and politicians. After being faced with insurmountable hardships, he decides to take drastic measures.",
+  "posterPath": "/3ZckU1gr33fjIcVXM60exv2knaG.jpg",
+  "backdropPath": "/vpVF5tPI5v7h9knuwnwpPSaRToW.jpg",
+  "palette": {
+   "dark": "#191717",
+   "vivid": "#7eb3ce",
+   "light": "#f5f6f6"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "RAJNIKANTH SUPER",
+  "originalOrder": 77,
+  "addedAt": 1735694220000
+ },
+ {
+  "id": "movie-148284",
+  "kind": "movie",
+  "tmdbId": 148284,
+  "imdbId": "tt1305797",
+  "title": "Enthiran",
+  "year": 2010,
+  "director": "Shankar",
+  "runtime": 176,
+  "genres": [
+   "Action",
+   "Science Fiction",
+   "Adventure"
+  ],
+  "overview": "Dr. Vaseegaran creates Chitti, a powerful robot in his own image, but it is rejected by the scientific body AIRD due to its lack of human behaviour and emotions. After a lightning strike triggers emotions in Chitti, he begins to develop human-like feelings. However, Chitti falls in love with Dr. Vaseegaran's fiancée, Sana, and turns against his creator, leading to dangerous consequences.",
+  "posterPath": "/hai6CSCLxULO1RThjDP3lWAqOtQ.jpg",
+  "backdropPath": "/fvsSPqeVq4yhp7oZTGXA99uDQ1v.jpg",
+  "palette": {
+   "dark": "#131117",
+   "vivid": "#3fa75a",
+   "light": "#d0b291"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "RAJNIKANTH SUPER",
+  "originalOrder": 78,
+  "addedAt": 1735694280000
+ },
+ {
+  "id": "movie-41517",
+  "kind": "movie",
+  "tmdbId": 41517,
+  "imdbId": "tt1562871",
+  "title": "Ra.One",
+  "year": 2011,
+  "director": "Anubhav Sinha",
+  "runtime": 156,
+  "genres": [
+   "Adventure",
+   "Action",
+   "Science Fiction"
+  ],
+  "overview": "When the titular antagonist of an action game takes on physical form, it's up to the game's less powerful protagonist to save the world.",
+  "posterPath": "/mXlS41qbd0bzhO44iPDtJqYtQt8.jpg",
+  "backdropPath": "/lXI2fhjeoah5d5pxoR9GMogb6Q3.jpg",
+  "palette": {
+   "dark": "#0b0c0f",
+   "vivid": "#d32c26",
+   "light": "#dfdad5"
+  },
+  "myRating": 11,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 79,
+  "addedAt": 1735694340000
+ },
+ {
+  "id": "movie-262227",
+  "kind": "movie",
+  "tmdbId": 262227,
+  "imdbId": "tt3142764",
+  "title": "Race Gurram",
+  "year": 2014,
+  "director": "Surender Reddy",
+  "runtime": 162,
+  "genres": [
+   "Comedy",
+   "Action"
+  ],
+  "overview": "Ram and Lakshman, aka Lucky, are brothers who are polar opposites in nature. Their mother wishes to see them united.",
+  "posterPath": "/oHqHsgx8lc01xrBraY4OBJtdeRn.jpg",
+  "backdropPath": "/4DXhyKAo4Zn88byJloNT82EkKFF.jpg",
+  "palette": {
+   "dark": "#211c1c",
+   "vivid": "#23a5cc",
+   "light": "#e2e1d7"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ALLU ARJUN PRIME",
+  "originalOrder": 80,
+  "addedAt": 1735694400000
+ },
+ {
+  "id": "movie-34763",
+  "kind": "movie",
+  "tmdbId": 34763,
+  "imdbId": "tt1526323",
+  "title": "Aarya 2",
+  "year": 2009,
+  "director": "Sukumar",
+  "runtime": 155,
+  "genres": [
+   "Romance",
+   "Comedy",
+   "Action"
+  ],
+  "overview": "Two young boys staying together at an orphanage become friends. One of them is adopted by a wealthy family and grows up to become the owner of a software company. He provides employment for his friend, but when they both fall in love with the same young woman, conflict emerges.",
+  "posterPath": "/kjbbx8kV6pNhNXX9aRsVDwyEJbm.jpg",
+  "backdropPath": "/zqrIgwPXi4qg2sJPEB0vvGtgCiz.jpg",
+  "palette": {
+   "dark": "#0c2731",
+   "vivid": "#17a6ce",
+   "light": "#dfe7e7"
+  },
+  "myRating": 11,
+  "myReview": "",
+  "tag": "ALLU ARJUN PRIME",
+  "originalOrder": 81,
+  "addedAt": 1735694460000
+ },
+ {
+  "id": "movie-11423",
+  "kind": "movie",
+  "tmdbId": 11423,
+  "imdbId": "tt0353969",
+  "title": "Memories of Murder",
+  "year": 2003,
+  "director": "Bong Joon Ho",
+  "runtime": 131,
+  "genres": [
+   "Crime",
+   "Drama",
+   "Thriller"
+  ],
+  "overview": "A sadistic serial rapist and murderer of young women terrorizes a small province in 1980s South Korea. To prevent further crimes, three increasingly desperate detectives with conflicting methods race against time to unravel the violent mind of the killer in a futile effort to solve the case.",
+  "posterPath": "/jcgUjx1QcupGzjntTVlnQ15lHqy.jpg",
+  "backdropPath": "/6Kn6qW3an3DkPl3MahWemTzrjCt.jpg",
+  "palette": {
+   "dark": "#16211d",
+   "vivid": "#3fa681",
+   "light": "#515f5e"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 82,
+  "addedAt": 1735694520000
+ },
+ {
+  "id": "movie-629",
+  "kind": "movie",
+  "tmdbId": 629,
+  "imdbId": "tt0114814",
+  "title": "The Usual Suspects",
+  "year": 1995,
+  "director": "Bryan Singer",
+  "runtime": 106,
+  "genres": [
+   "Drama",
+   "Crime",
+   "Thriller"
+  ],
+  "overview": "The lone survivor of an explosive heist gone wrong recounts for interrogators the events that began with five disparate criminals assembled for a police lineup - with alleged criminal mastermind Keyser Soze at the center of it all.",
+  "posterPath": "/99X2SgyFunJFXGAYnDv3sb9pnUD.jpg",
+  "backdropPath": "/hy0Hx9fMPk2fmw26Li60z1S2giU.jpg",
+  "palette": {
+   "dark": "#0a0908",
+   "vivid": "#d1a971",
+   "light": "#f5f5f4"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 83,
+  "addedAt": 1735694580000
+ },
+ {
+  "id": "movie-5236",
+  "kind": "movie",
+  "tmdbId": 5236,
+  "imdbId": "tt0373469",
+  "title": "Kiss Kiss Bang Bang",
+  "year": 2005,
+  "director": "Shane Black",
+  "runtime": 103,
+  "genres": [
+   "Comedy",
+   "Crime",
+   "Mystery",
+   "Thriller"
+  ],
+  "overview": "A petty thief posing as an actor is brought to Los Angeles for an unlikely audition and finds himself in the middle of a murder investigation along with his high school dream girl and a detective who's been training him for his upcoming role...",
+  "posterPath": "/aWfjIkpENFX6Uw82pET7EQ6jnrd.jpg",
+  "backdropPath": "/kKdBNPXfjENj3wG5qtiCrZ2wflp.jpg",
+  "palette": {
+   "dark": "#0c1531",
+   "vivid": "#1e76c7",
+   "light": "#f4f3f5"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "WHODUNIT",
+  "originalOrder": 84,
+  "addedAt": 1735694640000
+ },
+ {
+  "id": "movie-8363",
+  "kind": "movie",
+  "tmdbId": 8363,
+  "imdbId": "tt0829482",
+  "title": "Superbad",
+  "year": 2007,
+  "director": "Greg Mottola",
+  "runtime": 113,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "Two co-dependent high school seniors are forced to deal with separation anxiety after their plan to stage a booze-soaked party goes awry.",
+  "posterPath": "/ek8e8txUyUwd2BNqj6lFEerJfbq.jpg",
+  "backdropPath": "/coru98UcFBzJIU7bxZguxaePgu0.jpg",
+  "palette": {
+   "dark": "#241317",
+   "vivid": "#da0b0c",
+   "light": "#f5eedd"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 85,
+  "addedAt": 1735694700000
+ },
+ {
+  "id": "movie-228967",
+  "kind": "movie",
+  "tmdbId": 228967,
+  "imdbId": "tt2788710",
+  "title": "The Interview",
+  "year": 2014,
+  "director": "Evan Goldberg & Seth Rogen",
+  "runtime": 112,
+  "genres": [
+   "Action",
+   "Comedy"
+  ],
+  "overview": "Dave Skylark and his producer Aaron Rapaport run the celebrity tabloid show \"Skylark Tonight\". When they land an interview with a surprise fan, North Korean dictator Kim Jong-un, they are recruited by the CIA to turn their trip to Pyongyang into an assassination mission.",
+  "posterPath": "/tIDC4xT65l7a8qbgg8GvwD5g8c5.jpg",
+  "backdropPath": "/3YKGMZQ0pwQXSBSASeKlfPlkso7.jpg",
+  "palette": {
+   "dark": "#221914",
+   "vivid": "#f29e35",
+   "light": "#e7ebeb"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 86,
+  "addedAt": 1735694760000
+ },
+ {
+  "id": "movie-109414",
+  "kind": "movie",
+  "tmdbId": 109414,
+  "imdbId": "tt1245492",
+  "title": "This Is the End",
+  "year": 2013,
+  "director": "Seth Rogen & Evan Goldberg",
+  "runtime": 106,
+  "genres": [
+   "Action",
+   "Comedy"
+  ],
+  "overview": "While attending a party at James Franco's house, Seth Rogen, Jay Baruchel and many other celebrities are faced with the apocalypse.",
+  "posterPath": "/tNIW0NhX1hKvUsy6PQ80DOKUhkD.jpg",
+  "backdropPath": "/sXfN4ir91SfTeoWidIukQWane43.jpg",
+  "palette": {
+   "dark": "#24100a",
+   "vivid": "#d48d6f",
+   "light": "#f2e6de"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 87,
+  "addedAt": 1735694820000
+ },
+ {
+  "id": "movie-141",
+  "kind": "movie",
+  "tmdbId": 141,
+  "imdbId": "tt0246578",
+  "title": "Donnie Darko",
+  "year": 2001,
+  "director": "Richard Kelly",
+  "runtime": 114,
+  "genres": [
+   "Fantasy",
+   "Drama",
+   "Mystery"
+  ],
+  "overview": "After narrowly escaping a bizarre accident, a troubled teenager is plagued by visions of a large bunny rabbit that manipulates him to commit a series of crimes.",
+  "posterPath": "/j2AtZFsflxiluaNtajMTI0Avm8C.jpg",
+  "backdropPath": "/msCHK5Kh1YbdZ0zPJ2nzPUhhSN9.jpg",
+  "palette": {
+   "dark": "#0e1c2a",
+   "vivid": "#3873ad",
+   "light": "#8eb4cb"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 88,
+  "addedAt": 1735694880000
+ },
+ {
+  "id": "movie-242582",
+  "kind": "movie",
+  "tmdbId": 242582,
+  "imdbId": "tt2872718",
+  "title": "Nightcrawler",
+  "year": 2014,
+  "director": "Dan Gilroy",
+  "runtime": 118,
+  "genres": [
+   "Crime",
+   "Drama",
+   "Thriller"
+  ],
+  "overview": "When Lou Bloom, desperate for work, muscles into the world of L.A. crime journalism, he blurs the line between observer and participant to become the star of his own story. Aiding him in his effort is Nina, a TV-news veteran.",
+  "posterPath": "/j9HrX8f7GbZQm1BrBiR40uFQZSb.jpg",
+  "backdropPath": "/aCnpRvVBqltC8ZuVP67C4fdUCb4.jpg",
+  "palette": {
+   "dark": "#181d1d",
+   "vivid": "#a6a53f",
+   "light": "#595d53"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 89,
+  "addedAt": 1735694940000
+ },
+ {
+  "id": "movie-22538",
+  "kind": "movie",
+  "tmdbId": 22538,
+  "imdbId": "tt0446029",
+  "title": "Scott Pilgrim vs. the World",
+  "year": 2010,
+  "director": "Edgar Wright",
+  "runtime": 113,
+  "genres": [
+   "Action",
+   "Comedy",
+   "Romance"
+  ],
+  "overview": "As bass guitarist for a garage-rock band, Scott Pilgrim has never had trouble getting a girlfriend; usually, the problem is getting rid of them. But when Ramona Flowers skates into his heart, he finds she has the most troublesome baggage of all: an army of ex-boyfriends who will stop at nothing to eliminate him from her list of suitors.",
+  "posterPath": "/g5IoYeudx9XBEfwNL0fHvSckLBz.jpg",
+  "backdropPath": "/6R9nT6m8wmzayV5XOQq3TRA6yZw.jpg",
+  "palette": {
+   "dark": "#310c0e",
+   "vivid": "#da0b13",
+   "light": "#e4d6d1"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "FEVER DREAM",
+  "originalOrder": 90,
+  "addedAt": 1735695000000
+ },
+ {
+  "id": "movie-1903",
+  "kind": "movie",
+  "tmdbId": 1903,
+  "imdbId": "tt0259711",
+  "title": "Vanilla Sky",
+  "year": 2001,
+  "director": "Cameron Crowe",
+  "runtime": 136,
+  "genres": [
+   "Mystery",
+   "Romance",
+   "Science Fiction"
+  ],
+  "overview": "David Aames has it all: wealth, good looks and gorgeous women on his arm. But just as he begins falling for the warmhearted Sofia, his face is horribly disfigured in a car accident. That's just the beginning of his troubles as the lines between illusion and reality, between life and death, are blurred.",
+  "posterPath": "/cAh2pCiNPftsY3aSqJuIOde7uWr.jpg",
+  "backdropPath": "/wwLufumafJojc59hgIamHyJSTO9.jpg",
+  "palette": {
+   "dark": "#171415",
+   "vivid": "#189dcf",
+   "light": "#e7eee7"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 91,
+  "addedAt": 1735695060000
+ },
+ {
+  "id": "movie-1538",
+  "kind": "movie",
+  "tmdbId": 1538,
+  "imdbId": "tt0369339",
+  "title": "Collateral",
+  "year": 2004,
+  "director": "Michael Mann",
+  "runtime": 120,
+  "genres": [
+   "Drama",
+   "Crime",
+   "Thriller"
+  ],
+  "overview": "Cab driver Max picks up a man who offers him $600 to drive him around. But the promise of easy money sours when Max realizes his fare is an assassin.",
+  "posterPath": "/nV5316WUsVij8sVXLCF1g7TFitg.jpg",
+  "backdropPath": "/qVzmXKKOTtd3szkiCheCNrfa394.jpg",
+  "palette": {
+   "dark": "#070504",
+   "vivid": "#a6633f",
+   "light": "#675e54"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 92,
+  "addedAt": 1735695120000
+ },
+ {
+  "id": "movie-180",
+  "kind": "movie",
+  "tmdbId": 180,
+  "imdbId": "tt0181689",
+  "title": "Minority Report",
+  "year": 2002,
+  "director": "Steven Spielberg",
+  "runtime": 145,
+  "genres": [
+   "Science Fiction",
+   "Action",
+   "Thriller"
+  ],
+  "overview": "John Anderton is a top 'Precrime' cop in the late-21st century, when technology can predict crimes before they're committed. But Anderton becomes the quarry when another investigator targets him for a murder charge.",
+  "posterPath": "/qtgFcnwh9dAFLocsDk2ySDVS8UF.jpg",
+  "backdropPath": "/PrMb3oeEluauy0q9ZO5xL33A6C.jpg",
+  "palette": {
+   "dark": "#0e1013",
+   "vivid": "#3f63a6",
+   "light": "#e2e3e0"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 93,
+  "addedAt": 1735695180000
+ },
+ {
+  "id": "movie-75612",
+  "kind": "movie",
+  "tmdbId": 75612,
+  "imdbId": "tt1483013",
+  "title": "Oblivion",
+  "year": 2013,
+  "director": "Joseph Kosinski",
+  "runtime": 124,
+  "genres": [
+   "Action",
+   "Science Fiction",
+   "Adventure",
+   "Mystery"
+  ],
+  "overview": "Jack Harper is one of the last few drone repairmen stationed on Earth. Part of a massive operation to extract vital resources after decades of war with a terrifying threat known as the Scavs, Jack’s mission is nearly complete. His existence is brought crashing down when he rescues a beautiful  stranger from a downed spacecraft. Her arrival triggers a chain of events that  forces him to question everything he knows and puts the fate of humanity in his hands.",
+  "posterPath": "/eO3r38fwnhb58M1YgcjQBd3VNcp.jpg",
+  "backdropPath": "/2kVt8oj1cSz4GAP0Hi8SESOiH0T.jpg",
+  "palette": {
+   "dark": "#0d1728",
+   "vivid": "#3867ad",
+   "light": "#d7dee4"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 94,
+  "addedAt": 1735695240000
+ },
+ {
+  "id": "movie-75780",
+  "kind": "movie",
+  "tmdbId": 75780,
+  "imdbId": "tt0790724",
+  "title": "Jack Reacher",
+  "year": 2012,
+  "director": "Christopher McQuarrie",
+  "runtime": 130,
+  "genres": [
+   "Crime",
+   "Drama",
+   "Thriller",
+   "Action"
+  ],
+  "overview": "One morning in an ordinary town, five people are shot dead in a seemingly random attack. All evidence points to a single suspect: an ex-military sniper who is quickly brought into custody. The interrogation yields one written note: 'Get Jack Reacher!'. Reacher, an enigmatic ex-Army investigator, believes the authorities have the right man but agrees to help the sniper's defense attorney. However, the more Reacher delves into the case, the less clear-cut it appears. So begins an extraordinary chase for the truth, pitting Jack Reacher against an unexpected enemy, with a skill for violence and a secret to keep.",
+  "posterPath": "/uQBbjrLVsUibWxNDGA4Czzo8lwz.jpg",
+  "backdropPath": "/iwvP8XVpYVmJ3xfF9xdBi5uAOWl.jpg",
+  "palette": {
+   "dark": "#1a1a0e",
+   "vivid": "#b48331",
+   "light": "#9aa396"
+  },
+  "myRating": 9.5,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 95,
+  "addedAt": 1735695300000
+ },
+ {
+  "id": "movie-343611",
+  "kind": "movie",
+  "tmdbId": 343611,
+  "imdbId": "tt3393786",
+  "title": "Jack Reacher: Never Go Back",
+  "year": 2016,
+  "director": "Edward Zwick",
+  "runtime": 118,
+  "genres": [
+   "Action",
+   "Thriller",
+   "Crime"
+  ],
+  "overview": "Years after resigning command of an elite military police unit, the nomadic, righter-of-wrongs Reacher is drawn back into the life he left behind when his friend and successor, Major Susan Turner is framed for espionage. Reacher will stop at nothing to prove her innocence and to expose the real perpetrators behind the killings of his former soldiers.",
+  "posterPath": "/cOg3UT2NYWHZxp41vpxAnVCOC4M.jpg",
+  "backdropPath": "/ww1eIoywghjoMzRLRIcbJLuKnJH.jpg",
+  "palette": {
+   "dark": "#170e0a",
+   "vivid": "#d61010",
+   "light": "#dbd1aa"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 96,
+  "addedAt": 1735695360000
+ },
+ {
+  "id": "movie-137113",
+  "kind": "movie",
+  "tmdbId": 137113,
+  "imdbId": "tt1631867",
+  "title": "Edge of Tomorrow",
+  "year": 2014,
+  "director": "Doug Liman",
+  "runtime": 114,
+  "genres": [
+   "Action",
+   "Science Fiction"
+  ],
+  "overview": "Major Bill Cage is an officer who has never seen a day of combat when he is unceremoniously demoted and dropped into combat. Cage is killed within minutes, managing to take an alpha alien down with him. He awakens back at the beginning of the same day and is forced to fight and die again... and again - as physical contact with the alien has thrown him into a time loop.",
+  "posterPath": "/nBM9MMa2WCwvMG4IJ3eiGUdbPe6.jpg",
+  "backdropPath": "/4V1yIoAKPMRQwGBaSses8Bp2nsi.jpg",
+  "palette": {
+   "dark": "#181411",
+   "vivid": "#cb1a1d",
+   "light": "#ecd0a4"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 97,
+  "addedAt": 1735695420000
+ },
+ {
+  "id": "movie-640",
+  "kind": "movie",
+  "tmdbId": 640,
+  "imdbId": "tt0264464",
+  "title": "Catch Me If You Can",
+  "year": 2002,
+  "director": "Steven Spielberg",
+  "runtime": 141,
+  "genres": [
+   "Drama",
+   "Crime"
+  ],
+  "overview": "A true story about Frank Abagnale Jr. who, before his 19th birthday, successfully conned millions of dollars worth of checks as a Pan Am pilot, doctor, and legal prosecutor. An FBI agent makes it his mission to put him behind bars. But Frank not only eludes capture, he revels in the pursuit.",
+  "posterPath": "/ctjEj2xM32OvBXCq8zAdK3ZrsAj.jpg",
+  "backdropPath": "/eS3xZQ1C8lt6mm4K5lTmjbYn2HE.jpg",
+  "palette": {
+   "dark": "#0b1214",
+   "vivid": "#1977cd",
+   "light": "#fdfcfc"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 98,
+  "addedAt": 1735695480000
+ },
+ {
+  "id": "movie-59967",
+  "kind": "movie",
+  "tmdbId": 59967,
+  "imdbId": "tt1276104",
+  "title": "Looper",
+  "year": 2012,
+  "director": "Rian Johnson",
+  "runtime": 118,
+  "genres": [
+   "Action",
+   "Thriller",
+   "Science Fiction"
+  ],
+  "overview": "In the year 2044, time travel has not yet been invented but in 30 years it will have been. When the mob wants to get rid of someone, they will send their target into the past where a looper, a hired gun, like Joe is waiting to mop up. Joe is getting rich and life is good until the day the mob decides to close the loop, sending back Joe's future self for assassination.",
+  "posterPath": "/sNjL6SqErDBE8OUZlrDLkexfsCj.jpg",
+  "backdropPath": "/4GPCnwvTbsDleH5QIOyDLMsK8a2.jpg",
+  "palette": {
+   "dark": "#2a1914",
+   "vivid": "#a65a3f",
+   "light": "#e7e4de"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 99,
+  "addedAt": 1735695540000
+ },
+ {
+  "id": "movie-79464",
+  "kind": "movie",
+  "tmdbId": 79464,
+  "imdbId": "tt1839596",
+  "title": "Rockstar",
+  "year": 2011,
+  "director": "Imtiaz Ali",
+  "runtime": 159,
+  "genres": [
+   "Drama",
+   "Music",
+   "Romance"
+  ],
+  "overview": "College student Janardhan is a simpleton who desperately seeks inspiration for the musician inside him. Although heartbreak helps him reach his goal, it also leads him to self-destruction.",
+  "posterPath": "/cJZC9riwrdATBUonkZJZD6y9g40.jpg",
+  "backdropPath": "/3UseBwzKsUmMN37XcahJSVYRWkf.jpg",
+  "palette": {
+   "dark": "#221d1c",
+   "vivid": "#b6362f",
+   "light": "#d1a69c"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 100,
+  "addedAt": 1735695600000
+ },
+ {
+  "id": "movie-127501",
+  "kind": "movie",
+  "tmdbId": 127501,
+  "imdbId": "tt2082197",
+  "title": "Barfi!",
+  "year": 2012,
+  "director": "Anurag Basu",
+  "runtime": 151,
+  "genres": [
+   "Drama",
+   "Romance",
+   "Comedy"
+  ],
+  "overview": "The heartwarming tale of Barfi, a charming deaf-mute young man from 1970s Darjeeling, and two unalike women who can't help but fall for him.",
+  "posterPath": "/8lVuWmArvr41CvyvpgI3elD5iB1.jpg",
+  "backdropPath": "/581O5n2p5I7Zz0SgKjIucslHPTA.jpg",
+  "palette": {
+   "dark": "#251c18",
+   "vivid": "#27d3ee",
+   "light": "#e5f4e4"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 101,
+  "addedAt": 1735695660000
+ },
+ {
+  "id": "movie-21297",
+  "kind": "movie",
+  "tmdbId": 21297,
+  "imdbId": "tt1324059",
+  "title": "Wake Up Sid",
+  "year": 2009,
+  "director": "Ayan Mukerji",
+  "runtime": 138,
+  "genres": [
+   "Comedy",
+   "Drama",
+   "Romance"
+  ],
+  "overview": "Wake Up Sid! is the story of a lazy Mumbai college student who does absolutely nothing, with a turn of events will Sid realize his potential in this world and become a success in the fast-paced life of Mumbai.",
+  "posterPath": "/1UpgW67W6Do0xizTuE26bMQFLdL.jpg",
+  "backdropPath": "/bYlQaqn0eZGtYjzPyKHDn2QXDVp.jpg",
+  "palette": {
+   "dark": "#1f1f1e",
+   "vivid": "#dc7052",
+   "light": "#e8eae4"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 102,
+  "addedAt": 1735695720000
+ },
+ {
+  "id": "movie-24827",
+  "kind": "movie",
+  "tmdbId": 24827,
+  "imdbId": "tt1252596",
+  "title": "Ajab Prem Ki Ghazab Kahani",
+  "year": 2009,
+  "director": "Rajkumar Santoshi",
+  "runtime": 150,
+  "genres": [
+   "Romance",
+   "Comedy"
+  ],
+  "overview": "When his love interest doesn't show up for a meeting, a man and his friends go to Goa in order to find her, where they discover she loves someone else.",
+  "posterPath": "/zDpPrcBTVmbFoKcI2TSuhhdoTa0.jpg",
+  "backdropPath": "/iracY0nh7yTQfOYIMFhq2ZgcT3f.jpg",
+  "palette": {
+   "dark": "#201712",
+   "vivid": "#dd2f19",
+   "light": "#f6f5f4"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 103,
+  "addedAt": 1735695780000
+ },
+ {
+  "id": "movie-15864",
+  "kind": "movie",
+  "tmdbId": 15864,
+  "imdbId": "tt1182972",
+  "title": "Bachna Ae Haseeno",
+  "year": 2008,
+  "director": "Siddharth Anand",
+  "runtime": 153,
+  "genres": [
+   "Romance",
+   "Comedy",
+   "Drama"
+  ],
+  "overview": "Raj is a heartbreaker. His love stories with Mahi, Radhika and Gayatri finally teach him about love and life in their own sweet, sexy and sassy way.",
+  "posterPath": "/bFjzXEDw7b8tjWJeFEKMXjCkqbz.jpg",
+  "backdropPath": "/uoqDaSsJp5aBsBUOpDVBg3asLKO.jpg",
+  "palette": {
+   "dark": "#2c2012",
+   "vivid": "#f3c315",
+   "light": "#f9f7f7"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 104,
+  "addedAt": 1735695840000
+ },
+ {
+  "id": "movie-34764",
+  "kind": "movie",
+  "tmdbId": 34764,
+  "imdbId": "tt1373156",
+  "title": "Karthik Calling Karthik",
+  "year": 2010,
+  "director": "Vijay Lalwani",
+  "runtime": 135,
+  "genres": [
+   "Romance",
+   "Mystery",
+   "Thriller"
+  ],
+  "overview": "A much abused loner achieves success, and even wins the heart of his gorgeous co-worker, after getting early morning mysterious phone calls from someone.",
+  "posterPath": "/sJotaiNW28dj439ghTuKxFJijP4.jpg",
+  "backdropPath": "/zI4OrjoqyTiqycoN00OugzJD4Iv.jpg",
+  "palette": {
+   "dark": "#15130f",
+   "vivid": "#ceaf7e",
+   "light": "#d7d7d7"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 105,
+  "addedAt": 1735695900000
+ },
+ {
+  "id": "movie-61202",
+  "kind": "movie",
+  "tmdbId": 61202,
+  "imdbId": "tt1562872",
+  "title": "Zindagi Na Milegi Dobara",
+  "year": 2011,
+  "director": "Zoya Akhtar",
+  "runtime": 154,
+  "genres": [
+   "Drama",
+   "Comedy",
+   "Romance"
+  ],
+  "overview": "Three friends who were inseparable in childhood decide to go on a three-week-long bachelor road trip to Spain, in order to re-establish their bond and explore thrilling adventures, before one of them gets married. What will they learn of themselves and each other during the adventure?",
+  "posterPath": "/hKO9O715wYxjkQSEv47giCYcyO8.jpg",
+  "backdropPath": "/z4k7b66jAHP8sQbEahxss6Ct8BW.jpg",
+  "palette": {
+   "dark": "#220e08",
+   "vivid": "#17c6ce",
+   "light": "#e1edec"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 106,
+  "addedAt": 1735695960000
+ },
+ {
+  "id": "movie-17501",
+  "kind": "movie",
+  "tmdbId": 17501,
+  "imdbId": "tt0461936",
+  "title": "Don",
+  "year": 2006,
+  "director": "Farhan Akhtar",
+  "runtime": 178,
+  "genres": [
+   "Action",
+   "Drama",
+   "Thriller"
+  ],
+  "overview": "DCP DeSilva sees a way to bring to justice the feared head of a criminal empire by recruiting a man named Vijay, who looks exactly like the crime boss. The ruse works too well, and soon Vijay finds his life in danger when DeSilva, the only one who knows his true identity, dies.",
+  "posterPath": "/1d52h7aDRlc5IPUFno24XPNT6hA.jpg",
+  "backdropPath": "/edCPKBBiWwiLnvMyDwpDeEHL0Oz.jpg",
+  "palette": {
+   "dark": "#1f2218",
+   "vivid": "#a6703f",
+   "light": "#9ca19a"
+  },
+  "myRating": 11,
+  "myReview": "",
+  "tag": "DON DON DON...",
+  "originalOrder": 107,
+  "addedAt": 1735696020000
+ },
+ {
+  "id": "movie-41109",
+  "kind": "movie",
+  "tmdbId": 41109,
+  "imdbId": "tt1285241",
+  "title": "Don 2",
+  "year": 2011,
+  "director": "Farhan Akhtar",
+  "runtime": 139,
+  "genres": [
+   "Action",
+   "Thriller"
+  ],
+  "overview": "Having conquered the Asian underworld, crime boss Don sets in motion a plan that will give him dominion over Europe.",
+  "posterPath": "/2gBM8c36HIwn4vc2UuMeliqiCKY.jpg",
+  "backdropPath": "/r4crDJeIpT2ZDLmptpA27Q67NZG.jpg",
+  "palette": {
+   "dark": "#240e0d",
+   "vivid": "#da2629",
+   "light": "#dfad95"
+  },
+  "myRating": 11,
+  "myReview": "",
+  "tag": "DON DON DON...",
+  "originalOrder": 108,
+  "addedAt": 1735696080000
+ },
+ {
+  "id": "movie-15974",
+  "kind": "movie",
+  "tmdbId": 15974,
+  "imdbId": "tt0991346",
+  "title": "Bhoothnath",
+  "year": 2008,
+  "director": "Vivek Sharma",
+  "runtime": 151,
+  "genres": [
+   "Family",
+   "Comedy"
+  ],
+  "overview": "Moving into a new house, a family witnesses an unfriendly ghost who wants to drive them away from the house. However, he befriends a little boy who changes his outlook forever.",
+  "posterPath": "/2Tvwmsu4ihzDiltXxPWI4RwTF3W.jpg",
+  "backdropPath": "/mVNhm0lf9Wc5phX4gvxN0SP14Q0.jpg",
+  "palette": {
+   "dark": "#19201b",
+   "vivid": "#14a7d5",
+   "light": "#d5e5ee"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 109,
+  "addedAt": 1735696140000
+ },
+ {
+  "id": "movie-496527",
+  "kind": "movie",
+  "tmdbId": 496527,
+  "imdbId": "tt7700730",
+  "title": "October",
+  "year": 2018,
+  "director": "Shoojit Sircar",
+  "runtime": 109,
+  "genres": [
+   "Drama",
+   "Romance"
+  ],
+  "overview": "Dan, a 21-year-old carefree boy is always surrounded by a bunch of friends and fellow hotel interns who feed off each other's everyday moments, their ups and downs. Shiuli is also an intern working in the same hotel, who at times is at a receiving end of Dan's audaciousness. Everything was normal in their life until a sudden turn of events smashes Dan and Shiuli's lives together, into a bond.",
+  "posterPath": "/nHUBPUwXkHinq2rIXnnCHsPylD1.jpg",
+  "backdropPath": "/6Z3e850z4TNBUo4OviVRfwjK5O3.jpg",
+  "palette": {
+   "dark": "#0d1a16",
+   "vivid": "#35b05e",
+   "light": "#748f84"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 110,
+  "addedAt": 1735696200000
+ },
+ {
+  "id": "movie-13183",
+  "kind": "movie",
+  "tmdbId": 13183,
+  "imdbId": "tt0409459",
+  "title": "Watchmen",
+  "year": 2009,
+  "director": "Zack Snyder",
+  "runtime": 163,
+  "genres": [
+   "Mystery",
+   "Action",
+   "Science Fiction"
+  ],
+  "overview": "In a gritty and alternate 1985, the glory days of costumed vigilantes have been brought to a close by a government crackdown. But after one of the masked veterans is brutally murdered, an investigation into the killer is initiated. The reunited heroes set out to prevent their own destruction, but in doing so they uncover a sinister plot that puts all of humanity in grave danger.",
+  "posterPath": "/aVURelN3pM56lFM7Dgfs5TixcIf.jpg",
+  "backdropPath": "/dH7ia3vtkYCa3CBvDnvVjqm9uiQ.jpg",
+  "palette": {
+   "dark": "#081518",
+   "vivid": "#11a3d4",
+   "light": "#dad11e"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "SUPE GENRE REIMAGINED",
+  "originalOrder": 111,
+  "addedAt": 1735696260000
+ },
+ {
+  "id": "movie-284054",
+  "kind": "movie",
+  "tmdbId": 284054,
+  "imdbId": "tt1825683",
+  "title": "Black Panther",
+  "year": 2018,
+  "director": "Ryan Coogler",
+  "runtime": 135,
+  "genres": [
+   "Action",
+   "Adventure",
+   "Science Fiction"
+  ],
+  "overview": "King T'Challa returns home to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne by factions within his own country as well as without. Using powers reserved to Wakandan kings, T'Challa assumes the Black Panther mantle to join with ex-girlfriend Nakia, the queen-mother, his princess-kid sister, members of the Dora Milaje (the Wakandan 'special forces') and an American secret agent, to prevent Wakanda from being dragged into a world war.",
+  "posterPath": "/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+  "backdropPath": "/b6ZJZHUdMEFECvGiDpJjlfUWela.jpg",
+  "palette": {
+   "dark": "#121419",
+   "vivid": "#287fbe",
+   "light": "#9aa097"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 112,
+  "addedAt": 1735696320000
+ },
+ {
+  "id": "movie-11918",
+  "kind": "movie",
+  "tmdbId": 11918,
+  "imdbId": "tt0426592",
+  "title": "Superhero Movie",
+  "year": 2008,
+  "director": "Craig Mazin",
+  "runtime": 82,
+  "genres": [
+   "Comedy",
+   "Action",
+   "Science Fiction"
+  ],
+  "overview": "Rick Riker is a nerdy teen imbued with superpowers by a radioactive dragonfly. And because every hero needs a nemesis, enter Lou Landers, aka the villainously goofy Hourglass.",
+  "posterPath": "/4MtvQdh5VP7jMSydhggp1P80FMj.jpg",
+  "backdropPath": "/d6E8KUsRleStQKXWLGYsHsegIoj.jpg",
+  "palette": {
+   "dark": "#161a18",
+   "vivid": "#2e7bb8",
+   "light": "#d2dbdb"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "PARODY",
+  "originalOrder": 113,
+  "addedAt": 1735696380000
+ },
+ {
+  "id": "movie-4247",
+  "kind": "movie",
+  "tmdbId": 4247,
+  "imdbId": "tt0175142",
+  "title": "Scary Movie",
+  "year": 2000,
+  "director": "Keenen Ivory Wayans",
+  "runtime": 88,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "A familiar-looking group of teenagers find themselves being stalked by a more-than-vaguely recognizable masked killer! As the victims begin to pile up and the laughs pile on, none of your favorite scary movies escape the razor-sharp satire of this outrageously funny parody!",
+  "posterPath": "/fVQFPRuw3yWXojYDJvA5EoFjUOY.jpg",
+  "backdropPath": "/m5dA4JZsj78EBTa2D6imWOAebwB.jpg",
+  "palette": {
+   "dark": "#0e1210",
+   "vivid": "#da0c1e",
+   "light": "#e0e9ed"
+  },
+  "myRating": 7.5,
+  "myReview": "",
+  "tag": "PARODY",
+  "originalOrder": 114,
+  "addedAt": 1735696440000
+ },
+ {
+  "id": "movie-1061474",
+  "kind": "movie",
+  "tmdbId": 1061474,
+  "imdbId": "tt5950044",
+  "title": "Superman",
+  "year": 2025,
+  "director": "James Gunn",
+  "runtime": 130,
+  "genres": [
+   "Science Fiction",
+   "Adventure",
+   "Action"
+  ],
+  "overview": "Superman, a journalist in Metropolis, embarks on a journey to reconcile his Kryptonian heritage with his human upbringing as Clark Kent.",
+  "posterPath": "/ombsmhYUqR4qqOLOxAyr5V8hbyv.jpg",
+  "backdropPath": "/eGX66zonvc4bXg3rM08RUxdYSDx.jpg",
+  "palette": {
+   "dark": "#1a0b19",
+   "vivid": "#5ca5ef",
+   "light": "#f8f8f8"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "DC IS SO BACK",
+  "originalOrder": 115,
+  "addedAt": 1735696500000
+ },
+ {
+  "id": "movie-1560520",
+  "kind": "movie",
+  "tmdbId": 1560520,
+  "imdbId": "tt32333324",
+  "title": "Batman: Knightfall Part 1: Knightfall",
+  "year": 2026,
+  "director": "Jeff Wamester",
+  "runtime": 79,
+  "genres": [
+   "Animation",
+   "Action",
+   "Adventure",
+   "Drama"
+  ],
+  "overview": "Arkham Asylum has been destroyed, and all its inmates have been unleashed upon Gotham City. As Batman races to round up some of his greatest enemies, he is pushed to his physical and mental limits and into a final confrontation with a new threat: the man called Bane!",
+  "posterPath": "/360qdtu2hLnqMu8SVHMywn420w1.jpg",
+  "backdropPath": "/caBIySpwuFi2i7ynvHIlnxJLOdN.jpg",
+  "palette": {
+   "dark": "#12111f",
+   "vivid": "#b27d34",
+   "light": "#d49da4"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ITS BATMAN JUST WATCH IT",
+  "originalOrder": 116,
+  "addedAt": 1735696560000
+ },
+ {
+  "id": "movie-408220",
+  "kind": "movie",
+  "tmdbId": 408220,
+  "imdbId": "tt2494376",
+  "title": "Justice League Dark",
+  "year": 2017,
+  "director": "Jay Oliva",
+  "runtime": 76,
+  "genres": [
+   "Animation",
+   "Action",
+   "Adventure",
+   "Fantasy",
+   "Science Fiction"
+  ],
+  "overview": "When innocent civilians begin committing unthinkable crimes across Metropolis, Gotham City and beyond, Batman must call upon mystical counterparts to eradicate this demonic threat to the planet; enter Justice League Dark. This team of Dark Arts specialists must unravel the mystery of Earth's supernatural plague and contend with the rising, powerful villainous forces behind the siege—before it's too late for all of mankind.",
+  "posterPath": "/gWcTaDFXDrOAPfVzfBFz0Aya5BE.jpg",
+  "backdropPath": "/2idkeA6HJ9F7IxeP6zbU4xBU35y.jpg",
+  "palette": {
+   "dark": "#1a1a23",
+   "vivid": "#ce967e",
+   "light": "#e8dbe9"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "DC ANIMATED",
+  "originalOrder": 117,
+  "addedAt": 1735696620000
+ },
+ {
+  "id": "movie-485942",
+  "kind": "movie",
+  "tmdbId": 485942,
+  "imdbId": "tt7451284",
+  "title": "Batman Ninja",
+  "year": 2018,
+  "director": "Jumpei Mizusaki",
+  "runtime": 85,
+  "genres": [
+   "Animation",
+   "Action",
+   "Science Fiction"
+  ],
+  "overview": "Batman, along with many of his allies and adversaries, finds himself transported to feudal Japan by Gorilla Grodd's time displacement machine.",
+  "posterPath": "/5xSB0Npkc9Fd9kahKBsq9P4Cdzp.jpg",
+  "backdropPath": "/silcq0dj3Scf1LtpBjjVKXMQXS2.jpg",
+  "palette": {
+   "dark": "#20191f",
+   "vivid": "#3f72a6",
+   "light": "#a3875e"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "ITS BATMAN JUST WATCH IT",
+  "originalOrder": 118,
+  "addedAt": 1735696680000
+ },
+ {
+  "id": "movie-76341",
+  "kind": "movie",
+  "tmdbId": 76341,
+  "imdbId": "tt1392190",
+  "title": "Mad Max: Fury Road",
+  "year": 2015,
+  "director": "George Miller",
+  "runtime": 121,
+  "genres": [
+   "Action",
+   "Adventure",
+   "Science Fiction"
+  ],
+  "overview": "An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and most everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order.",
+  "posterPath": "/ulcAi4dKpAjHwYGS08vNyx9H6I9.jpg",
+  "backdropPath": "/gqrnQA6Xppdl8vIb2eJc58VC1tW.jpg",
+  "palette": {
+   "dark": "#0e0b06",
+   "vivid": "#efd11d",
+   "light": "#d0a260"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 119,
+  "addedAt": 1735696740000
+ },
+ {
+  "id": "movie-30061",
+  "kind": "movie",
+  "tmdbId": 30061,
+  "imdbId": "tt1494772",
+  "title": "Justice League: Crisis on Two Earths",
+  "year": 2010,
+  "director": "Lauren Montgomery & Sam Liu",
+  "runtime": 75,
+  "genres": [
+   "Animation",
+   "Science Fiction",
+   "Fantasy"
+  ],
+  "overview": "A heroic version of Lex Luthor from an alternate universe appears to recruit the Justice League to help save his Earth from the Crime Syndicate, an evil version of the League. What ensues is the ultimate battle of good versus evil in a war that threatens both planets and, through a devious plan launched by Batman's counterpart Owlman, puts the balance of all existence in peril.",
+  "posterPath": "/tN2lodc5g7Fkkus6I6Ch2tNTgb5.jpg",
+  "backdropPath": "/okRY6YHbakM9cQz08EfcaLfzDoX.jpg",
+  "palette": {
+   "dark": "#291415",
+   "vivid": "#e86824",
+   "light": "#e0ede6"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "DC ANIMATED",
+  "originalOrder": 120,
+  "addedAt": 1735696800000
+ },
+ {
+  "id": "movie-188927",
+  "kind": "movie",
+  "tmdbId": 188927,
+  "imdbId": "tt2660888",
+  "title": "Star Trek Beyond",
+  "year": 2016,
+  "director": "Justin Lin",
+  "runtime": 122,
+  "genres": [
+   "Action",
+   "Adventure",
+   "Science Fiction"
+  ],
+  "overview": "The USS Enterprise crew explores the furthest reaches of uncharted space, where they encounter a mysterious new enemy who puts them and everything the Federation stands for to the test.",
+  "posterPath": "/wI5VghYNYLktDRPUa5rrVcVA1h7.jpg",
+  "backdropPath": "/nkr43pY7ZzUt9b0kDFwJLVuDP8G.jpg",
+  "palette": {
+   "dark": "#1f191e",
+   "vivid": "#f49d26",
+   "light": "#dee7d6"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 121,
+  "addedAt": 1735696860000
+ },
+ {
+  "id": "movie-4141",
+  "kind": "movie",
+  "tmdbId": 4141,
+  "imdbId": "tt0465602",
+  "title": "Shoot 'Em Up",
+  "year": 2007,
+  "director": "Michael Davis",
+  "runtime": 86,
+  "genres": [
+   "Action",
+   "Thriller",
+   "Comedy",
+   "Crime"
+  ],
+  "overview": "A man named Mr. Smith delivers a woman's baby during a shootout, and is then called upon to protect the newborn from the army of gunmen.",
+  "posterPath": "/hZ4p0MvSUWnCCL0IUn47UXTVPCs.jpg",
+  "backdropPath": "/1bYY2WUsHyCl66gQAGoF40JIryW.jpg",
+  "palette": {
+   "dark": "#0e100f",
+   "vivid": "#7ebace",
+   "light": "#f2f6f8"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 122,
+  "addedAt": 1735696920000
+ },
+ {
+  "id": "movie-87421",
+  "kind": "movie",
+  "tmdbId": 87421,
+  "imdbId": "tt1411250",
+  "title": "Riddick",
+  "year": 2013,
+  "director": "David Twohy",
+  "runtime": 119,
+  "genres": [
+   "Science Fiction",
+   "Action",
+   "Thriller"
+  ],
+  "overview": "Betrayed by his own kind and left for dead on a desolate planet, Riddick fights for survival against alien predators and becomes more powerful and dangerous than ever before. Soon bounty hunters from throughout the galaxy descend on Riddick only to find themselves pawns in his greater scheme for revenge. With his enemies right where he wants them, Riddick unleashes a vicious attack of vengeance before returning to his home planet of Furya to save it from destruction.",
+  "posterPath": "/pUul9pGWOKT7X0smkTvsIEIQxcP.jpg",
+  "backdropPath": "/naGU49u4BXynQ1o5L755pfs8dom.jpg",
+  "palette": {
+   "dark": "#26130a",
+   "vivid": "#c7531f",
+   "light": "#fbe9d1"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 123,
+  "addedAt": 1735696980000
+ },
+ {
+  "id": "col-transformers-1-3",
+  "kind": "collection",
+  "tmdbId": 8650,
+  "imdbId": "",
+  "title": "Transformers Collection — 1–3",
+  "sourceTitle": "TRANSFORMERS COLLECTION — 1–3",
+  "year": 2007,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Adventure",
+   "Science Fiction",
+   "Action"
+  ],
+  "overview": "The Transformers series follows the continuing battle between the Autobots and the Decepticons and ultimately, the triumph of good over evil. This collection includes theatrically released films of the Transformers saga only.",
+  "posterPath": "/nnFgBA6nR0pHorxdFaDvdY4nVHL.jpg",
+  "backdropPath": "/zvZBNNDWd5LcsIBpDhJyCB2MDT7.jpg",
+  "palette": {
+   "dark": "#161311",
+   "vivid": "#a64b3f",
+   "light": "#e0ded9"
+  },
+  "parts": 3,
+  "children": [
+   {
+    "tmdbId": 1858,
+    "title": "Transformers",
+    "year": 2007,
+    "posterPath": "/lkZ9gqCEjzX85lKR6Jjd1uGAXNp.jpg",
+    "imdbId": "tt0418279"
+   },
+   {
+    "tmdbId": 8373,
+    "title": "Transformers: Revenge of the Fallen",
+    "year": 2009,
+    "posterPath": "/pLBb0whOzVDtJvyD4DPeQyQNOqp.jpg",
+    "imdbId": "tt1055369"
+   },
+   {
+    "tmdbId": 38356,
+    "title": "Transformers: Dark of the Moon",
+    "year": 2011,
+    "posterPath": "/28YlCLrFhONteYSs9hKjD1Km0Cj.jpg",
+    "imdbId": "tt1399103"
+   }
+  ],
+  "myRating": 9,
+  "myReview": "",
+  "tag": "AUTOBOTS 4EVA",
+  "originalOrder": 124,
+  "addedAt": 1735697040000
+ },
+ {
+  "id": "col-fast-furious-1-7",
+  "kind": "collection",
+  "tmdbId": 9485,
+  "imdbId": "",
+  "title": "Fast & Furious Collection — 1–7",
+  "sourceTitle": "FAST & FURIOUS COLLECTION — 1–7",
+  "year": 2001,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Action",
+   "Crime",
+   "Thriller"
+  ],
+  "overview": "An action film series centered on illegal street racing and heists.",
+  "posterPath": "/zOCnMPoUxgJK1RFPfN4PcnT16gr.jpg",
+  "backdropPath": "/z5A5W3WYJc3UVEWljSGwdjDgQ0j.jpg",
+  "palette": {
+   "dark": "#0a0a09",
+   "vivid": "#78c2d4",
+   "light": "#e2e9e8"
+  },
+  "parts": 7,
+  "children": [
+   {
+    "tmdbId": 9799,
+    "title": "The Fast and the Furious",
+    "year": 2001,
+    "posterPath": "/gqY0ITBgT7A82poL9jv851qdnIb.jpg",
+    "imdbId": "tt0232500"
+   },
+   {
+    "tmdbId": 584,
+    "title": "2 Fast 2 Furious",
+    "year": 2003,
+    "posterPath": "/6nDZExrDKIXvSAghsFKVFRVJuSf.jpg",
+    "imdbId": "tt0322259"
+   },
+   {
+    "tmdbId": 9615,
+    "title": "The Fast and the Furious: Tokyo Drift",
+    "year": 2006,
+    "posterPath": "/46xqGOwHbh2TH2avWSw3SMXph4E.jpg",
+    "imdbId": "tt0463985",
+    "favorite": true
+   },
+   {
+    "tmdbId": 13804,
+    "title": "Fast & Furious",
+    "year": 2009,
+    "posterPath": "/lUtVoRukW7WNtUySwd8hWlByBds.jpg",
+    "imdbId": "tt1013752"
+   },
+   {
+    "tmdbId": 51497,
+    "title": "Fast Five",
+    "year": 2011,
+    "posterPath": "/gEfQjjQwY7fh5bI4GlG0RrBu7Pz.jpg",
+    "imdbId": "tt1596343"
+   },
+   {
+    "tmdbId": 82992,
+    "title": "Fast & Furious 6",
+    "year": 2013,
+    "posterPath": "/thSmnRdrzPBBospIOJjLZBReqzo.jpg",
+    "imdbId": "tt1905041"
+   },
+   {
+    "tmdbId": 168259,
+    "title": "Furious 7",
+    "year": 2015,
+    "posterPath": "/wurKlC3VKUgcfsn0K51MJYEleS2.jpg",
+    "imdbId": "tt2820852"
+   }
+  ],
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 125,
+  "addedAt": 1735697100000
+ },
+ {
+  "id": "col-kill-bill",
+  "kind": "collection",
+  "tmdbId": 2883,
+  "imdbId": "",
+  "title": "Kill Bill",
+  "sourceTitle": "KILL BILL",
+  "year": 2003,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Action",
+   "Crime"
+  ],
+  "overview": "The Kill Bill Collection is a series of thrilling revenge dramas directed by Quentin Tarantino. Inspired by Hong Kong martial arts movies, Japanese samurai films, and Italian spaghetti westerns, these movies are characterized by their stylized violence, pop culture references, and extensive use of popular music. Featuring Uma Thurman in the iconic role of The Bride, the Kill Bill films have become cult classics that continue to captivate audiences worldwide.",
+  "posterPath": "/tf1nUtw3LJGUGv1EFFi23iz6ngr.jpg",
+  "backdropPath": "/voSMLsbi3f0YMGuC8DvflOEB3lo.jpg",
+  "palette": {
+   "dark": "#26130a",
+   "vivid": "#f4d32b",
+   "light": "#fbd823"
+  },
+  "parts": 2,
+  "children": [
+   {
+    "tmdbId": 24,
+    "title": "Kill Bill: Vol. 1",
+    "year": 2003,
+    "posterPath": "/v7TaX8kXMXs5yFFGR41guUDNcnB.jpg",
+    "imdbId": "tt0266697"
+   },
+   {
+    "tmdbId": 393,
+    "title": "Kill Bill: Vol. 2",
+    "year": 2004,
+    "posterPath": "/2yhg0mZQMhDyvUQ4rG1IZ4oIA8L.jpg",
+    "imdbId": "tt0378194"
+   }
+  ],
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 126,
+  "addedAt": 1735697160000
+ },
+ {
+  "id": "col-bourne-saga",
+  "kind": "collection",
+  "tmdbId": 31562,
+  "imdbId": "",
+  "title": "Jason Bourne Collection",
+  "sourceTitle": "JASON BOURNE COLLECTION",
+  "year": 2002,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Action",
+   "Mystery",
+   "Thriller"
+  ],
+  "overview": "The Bourne films are a series of action thriller movies based on the character Jason Bourne, a CIA assassin suffering from extreme memory loss who must figure out who he is. The character is based on novels by Robert Ludlum. The fourth film in the series introduces Aaron Cross, a Department of Defense operative who runs for his life because of Bourne's actions.",
+  "posterPath": "/r74T5OOHEtpxpIHmRY3zI6wh5eW.jpg",
+  "backdropPath": "/vA5xMglyZv7yzDTj1qUTU4OvelV.jpg",
+  "palette": {
+   "dark": "#0e0e0c",
+   "vivid": "#939683",
+   "light": "#9c9d99"
+  },
+  "parts": 5,
+  "children": [
+   {
+    "tmdbId": 2501,
+    "title": "The Bourne Identity",
+    "year": 2002,
+    "posterPath": "/aP8swke3gmowbkfZ6lmNidu0y9p.jpg",
+    "imdbId": "tt0258463"
+   },
+   {
+    "tmdbId": 2502,
+    "title": "The Bourne Supremacy",
+    "year": 2004,
+    "posterPath": "/jupG9sFT64YwM8PSkwkUD2wHcYD.jpg",
+    "imdbId": "tt0372183"
+   },
+   {
+    "tmdbId": 2503,
+    "title": "The Bourne Ultimatum",
+    "year": 2007,
+    "posterPath": "/15rMz5MRXFp7CP4VxhjYw4y0FUn.jpg",
+    "imdbId": "tt0440963"
+   },
+   {
+    "tmdbId": 49040,
+    "title": "The Bourne Legacy",
+    "year": 2012,
+    "posterPath": "/1aExL5DTGHj25ZfIC3dDwS84RWi.jpg",
+    "imdbId": "tt1194173"
+   },
+   {
+    "tmdbId": 324668,
+    "title": "Jason Bourne",
+    "year": 2016,
+    "posterPath": "/xA7N41glw17MBQtcWSm2eBlBRuG.jpg",
+    "imdbId": "tt4196776"
+   }
+  ],
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 127,
+  "addedAt": 1735697220000
+ },
+ {
+  "id": "col-oceans-trilogy",
+  "kind": "collection",
+  "tmdbId": 304,
+  "imdbId": "",
+  "title": "Ocean's Collection",
+  "sourceTitle": "OCEAN'S COLLECTION",
+  "year": 2001,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Thriller",
+   "Crime"
+  ],
+  "overview": "The Ocean's Collection is a star-studded film series about a group of professional robbers who get together to pull off some mind-boggling heists.",
+  "posterPath": "/oHUHccvraYF8lYp6BxRoujRtH8Q.jpg",
+  "backdropPath": "/7WUSrq8DqSkVgv1vmhBvav5bPoB.jpg",
+  "palette": {
+   "dark": "#17181c",
+   "vivid": "#da0b1d",
+   "light": "#faf7f6"
+  },
+  "parts": 3,
+  "children": [
+   {
+    "tmdbId": 161,
+    "title": "Ocean's Eleven",
+    "year": 2001,
+    "posterPath": "/hQQCdZrsHtZyR6NbKH2YyCqd2fR.jpg",
+    "imdbId": "tt0240772"
+   },
+   {
+    "tmdbId": 163,
+    "title": "Ocean's Twelve",
+    "year": 2004,
+    "posterPath": "/pE5anFf7nf6ah7V3VRezQ1KSovi.jpg",
+    "imdbId": "tt0349903"
+   },
+   {
+    "tmdbId": 298,
+    "title": "Ocean's Thirteen",
+    "year": 2007,
+    "posterPath": "/pBsZs4zYUiUTemqbikTZ76iQRaU.jpg",
+    "imdbId": "tt0496806"
+   }
+  ],
+  "myRating": 10,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 128,
+  "addedAt": 1735697280000
+ },
+ {
+  "id": "col-x-men-through-2015",
+  "kind": "collection",
+  "tmdbId": 748,
+  "imdbId": "",
+  "title": "X-Men Collection — Through 2015",
+  "sourceTitle": "X-MEN COLLECTION — THROUGH 2015",
+  "year": 2000,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Adventure",
+   "Action",
+   "Science Fiction"
+  ],
+  "overview": "A superhero film series about a team of mutant superheroes based on the Marvel Comics superheroes of the same name.",
+  "posterPath": "/31rqs6ZxFdi5nWZZaFPIr17q8jt.jpg",
+  "backdropPath": "/ykVHlrE3aSvHYeIXOrWDsYZ18vv.jpg",
+  "palette": {
+   "dark": "#1c1e21",
+   "vivid": "#818c98",
+   "light": "#d2d3d6"
+  },
+  "parts": 5,
+  "children": [
+   {
+    "tmdbId": 36657,
+    "title": "X-Men",
+    "year": 2000,
+    "posterPath": "/bRDAc4GogyS9ci3ow7UnInOcriN.jpg",
+    "imdbId": "tt0120903"
+   },
+   {
+    "tmdbId": 36658,
+    "title": "X2",
+    "year": 2003,
+    "posterPath": "/bst4alFUXCxISwdRUKSMhhkrX1M.jpg",
+    "imdbId": "tt0290334"
+   },
+   {
+    "tmdbId": 36668,
+    "title": "X-Men: The Last Stand",
+    "year": 2006,
+    "posterPath": "/a2xicU8DpKtRizOHjQLC1JyCSRS.jpg",
+    "imdbId": "tt0376994"
+   },
+   {
+    "tmdbId": 49538,
+    "title": "X-Men: First Class",
+    "year": 2011,
+    "posterPath": "/hNEokmUke0dazoBhttFN0o3L7Xv.jpg",
+    "imdbId": "tt1270798"
+   },
+   {
+    "tmdbId": 127585,
+    "title": "X-Men: Days of Future Past",
+    "year": 2014,
+    "posterPath": "/tYfijzolzgoMOtegh1Y7j2Enorg.jpg",
+    "imdbId": "tt1877832"
+   }
+  ],
+  "myRating": 10,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 129,
+  "addedAt": 1735697340000
+ },
+ {
+  "id": "col-deadpool-trilogy",
+  "kind": "collection",
+  "tmdbId": 448150,
+  "imdbId": "",
+  "title": "Deadpool Collection",
+  "sourceTitle": "DEADPOOL COLLECTION",
+  "year": 2016,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Action",
+   "Adventure",
+   "Comedy"
+  ],
+  "overview": "The Deadpool Collection centers on a sharp-tongued mercenary with regenerative powers, blending irreverent humor, stylized action, and self-aware storytelling. Set within the X-Men universe, it delivers a bold, unconventional take on superhero tropes while exploring themes of identity, redemption, and chaotic heroism.",
+  "posterPath": "/30c5jO7YEXuF8KiWXLg9m28GWDA.jpg",
+  "backdropPath": "/dTq7mGyAR5eAydR532feWfjJjzm.jpg",
+  "palette": {
+   "dark": "#0d0506",
+   "vivid": "#cc193e",
+   "light": "#92122c"
+  },
+  "parts": 3,
+  "children": [
+   {
+    "tmdbId": 293660,
+    "title": "Deadpool",
+    "year": 2016,
+    "posterPath": "/3E53WEZJqP6aM84D8CckXx4pIHw.jpg",
+    "imdbId": "tt1431045"
+   },
+   {
+    "tmdbId": 383498,
+    "title": "Deadpool 2",
+    "year": 2018,
+    "posterPath": "/gyfPKfFYcVW54MoqhYlwwDDIfJR.jpg",
+    "imdbId": "tt5463162"
+   },
+   {
+    "tmdbId": 533535,
+    "title": "Deadpool & Wolverine",
+    "year": 2024,
+    "posterPath": "/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+    "imdbId": "tt6263850"
+   }
+  ],
+  "myRating": 9.5,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 130,
+  "addedAt": 1735697400000
+ },
+ {
+  "id": "col-matrix-trilogy",
+  "kind": "collection",
+  "tmdbId": 2344,
+  "imdbId": "",
+  "title": "The Matrix Collection",
+  "sourceTitle": "THE MATRIX COLLECTION",
+  "year": 1999,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Action",
+   "Science Fiction"
+  ],
+  "overview": "The Matrix collection depicts a complex science fiction story incorporating many philosophical elements. Written and directed by the Wachowskis and produced by Joel Silver.",
+  "posterPath": "/bV9qTVHTVf0gkW0j7p7M0ILD4pG.jpg",
+  "backdropPath": "/bRm2DEgUiYciDw3myHuYFInD7la.jpg",
+  "palette": {
+   "dark": "#0a1c21",
+   "vivid": "#3498b2",
+   "light": "#f0f7f5"
+  },
+  "parts": 3,
+  "children": [
+   {
+    "tmdbId": 603,
+    "title": "The Matrix",
+    "year": 1999,
+    "posterPath": "/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg",
+    "imdbId": "tt0133093"
+   },
+   {
+    "tmdbId": 604,
+    "title": "The Matrix Reloaded",
+    "year": 2003,
+    "posterPath": "/8xEVAe84zlL9rkfYT6dZXero4KK.jpg",
+    "imdbId": "tt0234215"
+   },
+   {
+    "tmdbId": 605,
+    "title": "The Matrix Revolutions",
+    "year": 2003,
+    "posterPath": "/qEWiBXJGXK28jGBAm8oFKKTB0WD.jpg",
+    "imdbId": "tt0242653"
+   }
+  ],
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 131,
+  "addedAt": 1735697460000
+ },
+ {
+  "id": "col-john-wick",
+  "kind": "collection",
+  "tmdbId": 404609,
+  "imdbId": "",
+  "title": "John Wick",
+  "sourceTitle": "JOHN WICK",
+  "year": 2014,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Action",
+   "Thriller"
+  ],
+  "overview": "A neo-noir action thriller film series that follows Jonathan 'John' Wick, a former assassin, who comes out of retirement seeking vengeance for the theft of his vintage car and the murder of the puppy his deceased wife left to him.",
+  "posterPath": "/sm7rZZivZm2NhJDucFf3gpfFdVt.jpg",
+  "backdropPath": "/fSwYa5q2xRkBoOOjueLpkLf3N1m.jpg",
+  "palette": {
+   "dark": "#0b0e2c",
+   "vivid": "#1671d0",
+   "light": "#dee3ea"
+  },
+  "parts": 4,
+  "children": [
+   {
+    "tmdbId": 245891,
+    "title": "John Wick",
+    "year": 2014,
+    "posterPath": "/wXqWR7dHncNRbxoEGybEy7QTe9h.jpg",
+    "imdbId": "tt2911666"
+   },
+   {
+    "tmdbId": 324552,
+    "title": "John Wick: Chapter 2",
+    "year": 2017,
+    "posterPath": "/hXWBc0ioZP3cN4zCu6SN3YHXZVO.jpg",
+    "imdbId": "tt4425200"
+   },
+   {
+    "tmdbId": 458156,
+    "title": "John Wick: Chapter 3 - Parabellum",
+    "year": 2019,
+    "posterPath": "/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg",
+    "imdbId": "tt6146586"
+   },
+   {
+    "tmdbId": 603692,
+    "title": "John Wick: Chapter 4",
+    "year": 2023,
+    "posterPath": "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
+    "imdbId": "tt10366206"
+   }
+  ],
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 132,
+  "addedAt": 1735697520000
+ },
+ {
+  "id": "col-harry-potter",
+  "kind": "collection",
+  "tmdbId": 1241,
+  "imdbId": "",
+  "title": "Harry Potter Collection",
+  "sourceTitle": "HARRY POTTER COLLECTION",
+  "year": 2001,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Adventure",
+   "Fantasy"
+  ],
+  "overview": "The Harry Potter films are a fantasy series based on the series of seven Harry Potter novels by British writer J. K. Rowling.",
+  "posterPath": "/eVPs2Y0LyvTLZn6AP5Z6O2rtiGB.jpg",
+  "backdropPath": "/kmEsQL2vOTA0jnM28fXS45Ky8kX.jpg",
+  "palette": {
+   "dark": "#121415",
+   "vivid": "#7f909a",
+   "light": "#778993"
+  },
+  "parts": 8,
+  "children": [
+   {
+    "tmdbId": 671,
+    "title": "Harry Potter and the Philosopher's Stone",
+    "year": 2001,
+    "posterPath": "/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
+    "imdbId": "tt0241527"
+   },
+   {
+    "tmdbId": 672,
+    "title": "Harry Potter and the Chamber of Secrets",
+    "year": 2002,
+    "posterPath": "/sdEOH0992YZ0QSxgXNIGLq1ToUi.jpg",
+    "imdbId": "tt0295297"
+   },
+   {
+    "tmdbId": 673,
+    "title": "Harry Potter and the Prisoner of Azkaban",
+    "year": 2004,
+    "posterPath": "/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg",
+    "imdbId": "tt0304141"
+   },
+   {
+    "tmdbId": 674,
+    "title": "Harry Potter and the Goblet of Fire",
+    "year": 2005,
+    "posterPath": "/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg",
+    "imdbId": "tt0330373"
+   },
+   {
+    "tmdbId": 675,
+    "title": "Harry Potter and the Order of the Phoenix",
+    "year": 2007,
+    "posterPath": "/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg",
+    "imdbId": "tt0373889"
+   },
+   {
+    "tmdbId": 767,
+    "title": "Harry Potter and the Half-Blood Prince",
+    "year": 2009,
+    "posterPath": "/z7uo9zmQdQwU5ZJHFpv2Upl30i1.jpg",
+    "imdbId": "tt0417741"
+   },
+   {
+    "tmdbId": 12444,
+    "title": "Harry Potter and the Deathly Hallows: Part 1",
+    "year": 2010,
+    "posterPath": "/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg",
+    "imdbId": "tt0926084"
+   },
+   {
+    "tmdbId": 12445,
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+    "year": 2011,
+    "posterPath": "/c54HpQmuwXjHq2C9wmoACjxoom3.jpg",
+    "imdbId": "tt1201607"
+   }
+  ],
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ACTION ADVENTURE",
+  "originalOrder": 133,
+  "addedAt": 1735697580000
+ },
+ {
+  "id": "col-spider-verse",
+  "kind": "collection",
+  "tmdbId": 573436,
+  "imdbId": "",
+  "title": "Spider-Man: Spider-Verse",
+  "sourceTitle": "SPIDER-MAN: SPIDER-VERSE",
+  "year": 2018,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Animation",
+   "Action",
+   "Adventure",
+   "Science Fiction"
+  ],
+  "overview": "An animated trilogy of Spider-Man films helmed by writers Phil Lord and Christopher Miller. The films follow Miles Morales and Gwen Stacy as they deal with various iterations of Spider-Man throughout the vast and infinite multiverse.",
+  "posterPath": "/eD4bGQNfmqExIAzKdvX5gDHhI2.jpg",
+  "backdropPath": "/xLg6LRJ6VqwJX3ZiB6mRhLYAg3I.jpg",
+  "palette": {
+   "dark": "#09060b",
+   "vivid": "#1f25c6",
+   "light": "#eae4e9"
+  },
+  "parts": 2,
+  "children": [
+   {
+    "tmdbId": 324857,
+    "title": "Spider-Man: Into the Spider-Verse",
+    "year": 2018,
+    "posterPath": "/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
+    "imdbId": "tt4633694"
+   },
+   {
+    "tmdbId": 569094,
+    "title": "Spider-Man: Across the Spider-Verse",
+    "year": 2023,
+    "posterPath": "/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+    "imdbId": "tt9362722"
+   }
+  ],
+  "myRating": 9,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 134,
+  "addedAt": 1735697640000
+ },
+ {
+  "id": "col-crisis-on-infinite-earths",
+  "kind": "collection",
+  "tmdbId": 0,
+  "imdbId": "",
+  "title": "Justice League: Crisis on Infinite Earths",
+  "sourceTitle": "JUSTICE LEAGUE: CRISIS ON INFINITE EARTHS",
+  "year": 2024,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Animation",
+   "Science Fiction",
+   "Action"
+  ],
+  "overview": "Death is coming. Worse than death: oblivion. Not just for our Earth, but for everyone, everywhere, in every universe! Against this ultimate destruction, the mysterious Monitor has gathered the greatest team of Super Heroes ever assembled. But what can the combined might of Superman, Wonder Woman, Batman, The Flash, Green Lantern and hundreds of Super Heroes from multiple Earths even do to save all of reality from an unstoppable antimatter armageddon?!",
+  "posterPath": "/mcRVsjMbhFstRK9z2oGRHiIvulr.jpg",
+  "backdropPath": "/rVJfabCz1ViynQCEz54MRqdZig1.jpg",
+  "palette": {
+   "dark": "#211924",
+   "vivid": "#f09f2f",
+   "light": "#9fcce6"
+  },
+  "parts": 3,
+  "children": [
+   {
+    "tmdbId": 1155089,
+    "title": "Justice League: Crisis on Infinite Earths Part One",
+    "year": 2024,
+    "posterPath": "/zR6C66EDklgTPLHRSmmMt5878MR.jpg",
+    "imdbId": "tt29195117"
+   },
+   {
+    "tmdbId": 1209288,
+    "title": "Justice League: Crisis on Infinite Earths Part Two",
+    "year": 2024,
+    "posterPath": "/g8ak4QAGLZpqMs3CpnFHWWfIzJQ.jpg",
+    "imdbId": "tt30150907"
+   },
+   {
+    "tmdbId": 1209290,
+    "title": "Justice League: Crisis on Infinite Earths Part Three",
+    "year": 2024,
+    "posterPath": "/a3q8NkM8uTh9E23VsbUOdDSbBeN.jpg",
+    "imdbId": "tt30150917"
+   }
+  ],
+  "myRating": 10,
+  "myReview": "",
+  "tag": "DC ANIMATED",
+  "originalOrder": 135,
+  "addedAt": 1735697700000
+ },
+ {
+  "id": "col-guardians-of-the-galaxy",
+  "kind": "collection",
+  "tmdbId": 284433,
+  "imdbId": "",
+  "title": "Guardians of the Galaxy Collection",
+  "sourceTitle": "GUARDIANS OF THE GALAXY COLLECTION",
+  "year": 2014,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Action",
+   "Science Fiction",
+   "Adventure"
+  ],
+  "overview": "A superhero film series based on the Marvel Comics superhero team Guardians of the Galaxy, and part of the Marvel Cinematic Universe (MCU) series. The series is centered on a band of former intergalactic outlaws, who have teamed together to protect the Galaxy from planetary threats. Led by Peter Quill (Star-Lord) the roster includes Gamora, Drax the Destroyer, Rocket Raccon & Groot.",
+  "posterPath": "/kFWLxUwcSpiLzszZbxUIZT9g6WR.jpg",
+  "backdropPath": "/sxyF4lVkEvOLVzr8jOF5K5nrMh3.jpg",
+  "palette": {
+   "dark": "#121118",
+   "vivid": "#2f7ab6",
+   "light": "#d0abaa"
+  },
+  "parts": 3,
+  "children": [
+   {
+    "tmdbId": 118340,
+    "title": "Guardians of the Galaxy",
+    "year": 2014,
+    "posterPath": "/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg",
+    "imdbId": "tt2015381"
+   },
+   {
+    "tmdbId": 283995,
+    "title": "Guardians of the Galaxy Vol. 2",
+    "year": 2017,
+    "posterPath": "/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg",
+    "imdbId": "tt3896198"
+   },
+   {
+    "tmdbId": 447365,
+    "title": "Guardians of the Galaxy Vol. 3",
+    "year": 2023,
+    "posterPath": "/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg",
+    "imdbId": "tt6791350"
+   }
+  ],
+  "myRating": 10,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 136,
+  "addedAt": 1735697760000
+ },
+ {
+  "id": "col-knives-out",
+  "kind": "collection",
+  "tmdbId": 722971,
+  "imdbId": "",
+  "title": "Knives Out Collection",
+  "sourceTitle": "KNIVES OUT COLLECTION",
+  "year": 2019,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Comedy",
+   "Crime",
+   "Mystery"
+  ],
+  "overview": "Knives Out is a franchise of mystery-comedy films featuring detective Benoit Blanc as he investigates complex cases across different settings. Each movie blends sharp wit, clever storytelling, and a star-studded cast, offering a fresh take on the classic whodunnit genre with modern flair and unexpected twists.",
+  "posterPath": "/pkjW3K0UDnwYWDcUR83VzfHNQA4.jpg",
+  "backdropPath": "/G7qYINSq5xyDd0I0zn3DpAssA0.jpg",
+  "palette": {
+   "dark": "#1c160e",
+   "vivid": "#be9d28",
+   "light": "#cba66b"
+  },
+  "parts": 3,
+  "children": [
+   {
+    "tmdbId": 546554,
+    "title": "Knives Out",
+    "year": 2019,
+    "posterPath": "/pThyQovXQrw2m0s9x82twj48Jq4.jpg",
+    "imdbId": "tt8946378"
+   },
+   {
+    "tmdbId": 661374,
+    "title": "Glass Onion: A Knives Out Mystery",
+    "year": 2022,
+    "posterPath": "/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg",
+    "imdbId": "tt11564570"
+   },
+   {
+    "tmdbId": 1127110,
+    "title": "Diablo",
+    "year": 2025,
+    "posterPath": "/uFQduVyYIinJy3eLjozgfl6Xtcn.jpg",
+    "imdbId": "tt27757546"
+   }
+  ],
+  "myRating": 10,
+  "myReview": "",
+  "tag": "WHODUNIT",
+  "originalOrder": 137,
+  "addedAt": 1735697820000
+ },
+ {
+  "id": "col-mission-impossible",
+  "kind": "collection",
+  "tmdbId": 87359,
+  "imdbId": "",
+  "title": "Mission: Impossible Collection",
+  "sourceTitle": "MISSION: IMPOSSIBLE COLLECTION",
+  "year": 1996,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Adventure",
+   "Action",
+   "Thriller"
+  ],
+  "overview": "Mission: Impossible is a series of a secret agent thriller films based on the popular 1966–73 television series. They chronicle the missions of a team of secret government agents known as the Impossible Missions Force (IMF) under the leadership of agent Ethan Hunt.",
+  "posterPath": "/geEjCGfdmRAA1skBPwojcdvnZ8A.jpg",
+  "backdropPath": "/mroWh717g0Ah2c0rrPGW6f3EWMM.jpg",
+  "palette": {
+   "dark": "#131212",
+   "vivid": "#ca1b1c",
+   "light": "#d6d6d4"
+  },
+  "parts": 7,
+  "children": [
+   {
+    "tmdbId": 954,
+    "title": "Mission: Impossible",
+    "year": 1996,
+    "posterPath": "/l5uxY5m5OInWpcExIpKG6AR3rgL.jpg",
+    "imdbId": "tt0117060"
+   },
+   {
+    "tmdbId": 955,
+    "title": "Mission: Impossible II",
+    "year": 2000,
+    "posterPath": "/hfnrual76gPeNFduhD4xzHWpfTw.jpg",
+    "imdbId": "tt0120755"
+   },
+   {
+    "tmdbId": 956,
+    "title": "Mission: Impossible III",
+    "year": 2006,
+    "posterPath": "/vKGYCpmQyV9uHybWDzXuII8Los5.jpg",
+    "imdbId": "tt0317919"
+   },
+   {
+    "tmdbId": 57201,
+    "title": "The Lone Ranger",
+    "year": 2013,
+    "posterPath": "/yDuJGq8biNMW7zM3w95UaDJv0KG.jpg",
+    "imdbId": "tt1210819"
+   },
+   {
+    "tmdbId": 177677,
+    "title": "Mission: Impossible - Rogue Nation",
+    "year": 2015,
+    "posterPath": "/mXwC63mlpijqllhoeGnKBGgPtBa.jpg",
+    "imdbId": "tt2381249"
+   },
+   {
+    "tmdbId": 353081,
+    "title": "Mission: Impossible - Fallout",
+    "year": 2018,
+    "posterPath": "/AkJQpZp9WoNdj7pLYSj1L0RcMMN.jpg",
+    "imdbId": "tt4912910"
+   },
+   {
+    "tmdbId": 575264,
+    "title": "Mission: Impossible - Dead Reckoning Part One",
+    "year": 2023,
+    "posterPath": "/NNxYkU70HPurnNCSiCjYAmacwm.jpg",
+    "imdbId": "tt9603212"
+   }
+  ],
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 138,
+  "addedAt": 1735697880000
+ },
+ {
+  "id": "col-james-bond-daniel-craig",
+  "kind": "collection",
+  "tmdbId": 0,
+  "imdbId": "",
+  "title": "James Bond — Daniel Craig Collection",
+  "sourceTitle": "JAMES BOND — DANIEL CRAIG COLLECTION",
+  "year": 2006,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Adventure",
+   "Action",
+   "Thriller"
+  ],
+  "overview": "Le Chiffre, a banker to the world's terrorists, is scheduled to participate in a high-stakes poker game in Montenegro, where he intends to use his winnings to establish his financial grip on the terrorist market. M sends Bond—on his maiden mission as a 00 Agent—to attend this game and prevent Le Chiffre from winning. With the help of Vesper Lynd and Felix Leiter, Bond enters the most important poker game in his already dangerous career.",
+  "posterPath": "/lMrxYKKhd4lqRzwUHAy5gcx9PSO.jpg",
+  "backdropPath": "/klJMCIblHLFwCuGjKz7tyOpekIC.jpg",
+  "palette": {
+   "dark": "#07161a",
+   "vivid": "#2e9bb7",
+   "light": "#e7eadf"
+  },
+  "parts": 5,
+  "children": [
+   {
+    "tmdbId": 36557,
+    "title": "Casino Royale",
+    "year": 2006,
+    "posterPath": "/lMrxYKKhd4lqRzwUHAy5gcx9PSO.jpg",
+    "imdbId": "tt0381061"
+   },
+   {
+    "tmdbId": 10764,
+    "title": "Quantum of Solace",
+    "year": 2008,
+    "posterPath": "/e3DXXLJHGqMx9yYpXsql1XNljmM.jpg",
+    "imdbId": "tt0830515"
+   },
+   {
+    "tmdbId": 37724,
+    "title": "Skyfall",
+    "year": 2012,
+    "posterPath": "/d0IVecFQvsGdSbnMAHqiYsNYaJT.jpg",
+    "imdbId": "tt1074638"
+   },
+   {
+    "tmdbId": 206647,
+    "title": "Spectre",
+    "year": 2015,
+    "posterPath": "/zj8ongFhtWNsVlfjOGo8pSr7PQg.jpg",
+    "imdbId": "tt2379713"
+   },
+   {
+    "tmdbId": 370172,
+    "title": "No Time to Die",
+    "year": 2021,
+    "posterPath": "/iUgygt3fscRoKWCV1d0C7FbM9TP.jpg",
+    "imdbId": "tt2382320"
+   }
+  ],
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 139,
+  "addedAt": 1735697940000
+ },
+ {
+  "id": "col-the-incredibles",
+  "kind": "collection",
+  "tmdbId": 468222,
+  "imdbId": "",
+  "title": "The Incredibles Collection",
+  "sourceTitle": "THE INCREDIBLES COLLECTION",
+  "year": 2004,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Action",
+   "Adventure",
+   "Animation",
+   "Family"
+  ],
+  "overview": "The Incredibles Collection is an American animated film series produced by Disney and created by Pixar Animation Studios.",
+  "posterPath": "/l7GqbzkJwowYRIXAtUz2iCPi64a.jpg",
+  "backdropPath": "/6oi6V1O9MJRNnfV8E9JMntmFqBD.jpg",
+  "palette": {
+   "dark": "#251512",
+   "vivid": "#d5101e",
+   "light": "#d39f9a"
+  },
+  "parts": 2,
+  "children": [
+   {
+    "tmdbId": 9806,
+    "title": "The Incredibles",
+    "year": 2004,
+    "posterPath": "/2LqaLgk4Z226KkgPJuiOQ58wvrm.jpg",
+    "imdbId": "tt0317705"
+   },
+   {
+    "tmdbId": 260513,
+    "title": "Incredibles 2",
+    "year": 2018,
+    "posterPath": "/9lFKBtaVIhP7E2Pk0IY1CwTKTMZ.jpg",
+    "imdbId": "tt3606756"
+   }
+  ],
+  "myRating": 9,
+  "myReview": "",
+  "tag": "ANIMATED",
+  "originalOrder": 140,
+  "addedAt": 1735698000000
+ },
+ {
+  "id": "col-adam-sandler",
+  "kind": "collection",
+  "tmdbId": 0,
+  "imdbId": "",
+  "title": "Adam Sandler Collection",
+  "sourceTitle": "ADAM SANDLER COLLECTION",
+  "year": 1995,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "Billy Madison is the 27 year-old son of Bryan Madison, a very rich man who has made his living in the hotel industry. Billy stands to inherit his father's empire, but only if he can make it through all 12 grades, 2 weeks per grade, to prove that he has what it takes to run the family business.",
+  "posterPath": "/sOdgtJdFalL9kRKaeJItARLTAEq.jpg",
+  "backdropPath": "/xtgQkD280doGaFOL3c2LVokz3tt.jpg",
+  "palette": {
+   "dark": "#0a2920",
+   "vivid": "#23c291",
+   "light": "#f5f3f1"
+  },
+  "parts": 16,
+  "children": [
+   {
+    "tmdbId": 11017,
+    "title": "Billy Madison",
+    "year": 1995,
+    "posterPath": "/sOdgtJdFalL9kRKaeJItARLTAEq.jpg",
+    "imdbId": "tt0112508"
+   },
+   {
+    "tmdbId": 9614,
+    "title": "Happy Gilmore",
+    "year": 1996,
+    "posterPath": "/4RnCeRzvI1xk5tuNWjpDKzSnJDk.jpg",
+    "imdbId": "tt0116483"
+   },
+   {
+    "tmdbId": 9032,
+    "title": "Big Daddy",
+    "year": 1999,
+    "posterPath": "/lEYg1X8RjqNB5NWEtodcbK7vm1G.jpg",
+    "imdbId": "tt0142342"
+   },
+   {
+    "tmdbId": 2022,
+    "title": "Mr. Deeds",
+    "year": 2002,
+    "posterPath": "/7gGk3pkpRsNlJ4PrJgEfgY9PG43.jpg",
+    "imdbId": "tt0280590"
+   },
+   {
+    "tmdbId": 8051,
+    "title": "Punch-Drunk Love",
+    "year": 2002,
+    "posterPath": "/htYp4yqFu4rzBEIa6j9jP8miDm3.jpg",
+    "imdbId": "tt0272338"
+   },
+   {
+    "tmdbId": 1824,
+    "title": "50 First Dates",
+    "year": 2004,
+    "posterPath": "/lzUI2Cg7OMfcUNv3f7MywYNBjs6.jpg",
+    "imdbId": "tt0343660"
+   },
+   {
+    "tmdbId": 9339,
+    "title": "Click",
+    "year": 2006,
+    "posterPath": "/oL0k5JA53PyoHSZqKb3cNkhwBCE.jpg",
+    "imdbId": "tt0389860"
+   },
+   {
+    "tmdbId": 10661,
+    "title": "You Don't Mess with the Zohan",
+    "year": 2008,
+    "posterPath": "/gBhLQmpCPoKFMCGsulMbIFzrBID.jpg",
+    "imdbId": "tt0960144"
+   },
+   {
+    "tmdbId": 38365,
+    "title": "Grown Ups",
+    "year": 2010,
+    "posterPath": "/cQGM5k1NtU85n4TUlrOrwijSCcm.jpg",
+    "imdbId": "tt1375670"
+   },
+   {
+    "tmdbId": 38317,
+    "title": "Zookeeper",
+    "year": 2011,
+    "posterPath": "/y3b4AYw8dr4hIKTfEAjxUxx0z8G.jpg",
+    "imdbId": "tt1222817"
+   },
+   {
+    "tmdbId": 87428,
+    "title": "That's My Boy",
+    "year": 2012,
+    "posterPath": "/oaLhdRsZ5Mq8VfZtA4Wlvjzzn0X.jpg",
+    "imdbId": "tt1232200"
+   },
+   {
+    "tmdbId": 109418,
+    "title": "Grown Ups 2",
+    "year": 2013,
+    "posterPath": "/hT6ijOtjtYrnyDhN7VA2QWyGFAm.jpg",
+    "imdbId": "tt2191701"
+   },
+   {
+    "tmdbId": 514999,
+    "title": "Murder Mystery",
+    "year": 2019,
+    "posterPath": "/bSMSO9xupd4R4vwTPqigHn2quLN.jpg",
+    "imdbId": "tt1618434"
+   },
+   {
+    "tmdbId": 638974,
+    "title": "Murder Mystery 2",
+    "year": 2023,
+    "posterPath": "/s1VzVhXlqsevi8zeCMG9A16nEUf.jpg",
+    "imdbId": "tt15255288"
+   },
+   {
+    "tmdbId": 636706,
+    "title": "Spaceman",
+    "year": 2024,
+    "posterPath": "/f46WvKEsBn98WJbPJcO47ZoKn6B.jpg",
+    "imdbId": "tt11097384"
+   },
+   {
+    "tmdbId": 1263256,
+    "title": "Happy Gilmore 2",
+    "year": 2025,
+    "posterPath": "/E3dPHPJigkXwuiE0n1vzz0se8a.jpg",
+    "imdbId": "tt31868189"
+   }
+  ],
+  "myRating": 9,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 141,
+  "addedAt": 1735698060000
+ },
+ {
+  "id": "col-kung-fu-panda",
+  "kind": "collection",
+  "tmdbId": 77816,
+  "imdbId": "",
+  "title": "Kung Fu Panda Collection",
+  "sourceTitle": "KUNG FU PANDA COLLECTION",
+  "year": 2008,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Action",
+   "Animation",
+   "Comedy",
+   "Family"
+  ],
+  "overview": "The Kung Fu Panda series are computer-animated action comedy films set in a version of China populated by humanoid talking animals, the plot revolves around a bumbling humanoid panda named Po who aspires to be a kung fu master.",
+  "posterPath": "/xoYc0RYKSc3xC4S9OpPZxKocKtj.jpg",
+  "backdropPath": "/2nbtv33hEk2CTnuMhTGZgsFdi3K.jpg",
+  "palette": {
+   "dark": "#160d13",
+   "vivid": "#d91b16",
+   "light": "#f5ebdc"
+  },
+  "parts": 4,
+  "children": [
+   {
+    "tmdbId": 9502,
+    "title": "Kung Fu Panda",
+    "year": 2008,
+    "posterPath": "/wWt4JYXTg5Wr3xBW2phBrMKgp3x.jpg",
+    "imdbId": "tt0441773"
+   },
+   {
+    "tmdbId": 49444,
+    "title": "Kung Fu Panda 2",
+    "year": 2011,
+    "posterPath": "/mtqqD00vB4PGRt20gWtGqFhrkd0.jpg",
+    "imdbId": "tt1302011"
+   },
+   {
+    "tmdbId": 140300,
+    "title": "Kung Fu Panda 3",
+    "year": 2016,
+    "posterPath": "/oajNi4Su39WAByHI6EONu8G8HYn.jpg",
+    "imdbId": "tt2267968"
+   },
+   {
+    "tmdbId": 1011985,
+    "title": "Kung Fu Panda 4",
+    "year": 2024,
+    "posterPath": "/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg",
+    "imdbId": "tt21692408"
+   }
+  ],
+  "myRating": 9,
+  "myReview": "",
+  "tag": "ANIMATED",
+  "originalOrder": 142,
+  "addedAt": 1735698120000
+ },
+ {
+  "id": "movie-2109",
+  "kind": "movie",
+  "tmdbId": 2109,
+  "imdbId": "tt0120812",
+  "title": "Rush Hour",
+  "year": 1998,
+  "director": "Brett Ratner",
+  "runtime": 97,
+  "genres": [
+   "Action",
+   "Comedy",
+   "Crime"
+  ],
+  "overview": "When Hong Kong Inspector Lee is summoned to Los Angeles to investigate a kidnapping, the FBI doesn't want any outside help and assigns cocky LAPD Detective James Carter to distract Lee from the case. Not content to watch the action from the sidelines, Lee and Carter form an unlikely partnership and investigate the case themselves.",
+  "posterPath": "/3WsLE6FtxEPRa6U9sbY1ckrn39s.jpg",
+  "backdropPath": "/9FrpAtF87VKblKkDEiIZzYgO40K.jpg",
+  "palette": {
+   "dark": "#1e1815",
+   "vivid": "#e2dc1e",
+   "light": "#e0352f"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 143,
+  "addedAt": 1735698180000
+ },
+ {
+  "id": "col-rush-hour-2-3",
+  "kind": "collection",
+  "tmdbId": 0,
+  "imdbId": "",
+  "title": "Rush Hour 2 & 3",
+  "sourceTitle": "RUSH HOUR 2 & 3",
+  "year": 2001,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Action",
+   "Comedy",
+   "Crime"
+  ],
+  "overview": "It's vacation time for Carter as he finds himself alongside Lee in Hong Kong wishing for more excitement. While Carter wants to party and meet the ladies, Lee is out to track down a Triad gang lord who may be responsible for killing two men at the American Embassy. Things get complicated as the pair stumble onto a counterfeiting plot. The boys are soon up to their necks in fist fights and life-threatening situations. A trip back to the U.S. may provide the answers about the bombing, the counterfeiting, and the true allegiance of sexy customs agent Isabella.",
+  "posterPath": "/aBQf2vMiCINeVC9v6BGVYKXurTh.jpg",
+  "backdropPath": "/vPJwn9pp5f58CqdaXU3eOSLoJkl.jpg",
+  "palette": {
+   "dark": "#0a1a27",
+   "vivid": "#2b74bb",
+   "light": "#f6f4f7"
+  },
+  "parts": 2,
+  "children": [
+   {
+    "tmdbId": 5175,
+    "title": "Rush Hour 2",
+    "year": 2001,
+    "posterPath": "/aBQf2vMiCINeVC9v6BGVYKXurTh.jpg",
+    "imdbId": "tt0266915"
+   },
+   {
+    "tmdbId": 5174,
+    "title": "Rush Hour 3",
+    "year": 2007,
+    "posterPath": "/mp9CzKxLa2i7yblMXUrzVfGqsCo.jpg",
+    "imdbId": "tt0293564"
+   }
+  ],
+  "myRating": 9,
+  "myReview": "",
+  "tag": "FAST PACED ACTION",
+  "originalOrder": 144,
+  "addedAt": 1735698240000
+ },
+ {
+  "id": "col-ghost-rider",
+  "kind": "collection",
+  "tmdbId": 90306,
+  "imdbId": "",
+  "title": "Ghost Rider Collection",
+  "sourceTitle": "GHOST RIDER COLLECTION",
+  "year": 2007,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Thriller",
+   "Action",
+   "Fantasy"
+  ],
+  "overview": "Ghost Rider is an American superhero horror film series based on the character of the same name which appeared in Marvel Comics, the films star Nicolas Cage as Johnny Blaze, a stunt motorcyclist who sells his soul to the Devil and transforms into the vigilante Ghost Rider.",
+  "posterPath": "/feaMFCuO6ToJ6fd4kkTTg2xuAyc.jpg",
+  "backdropPath": "/cNRAWtbItigb2oFwXpcDi6mjMQm.jpg",
+  "palette": {
+   "dark": "#1d1214",
+   "vivid": "#f6c555",
+   "light": "#fcf4d5"
+  },
+  "parts": 2,
+  "children": [
+   {
+    "tmdbId": 1250,
+    "title": "Ghost Rider",
+    "year": 2007,
+    "posterPath": "/4quwR1VwZouD0YF9AaD72kQAjxH.jpg",
+    "imdbId": "tt0259324"
+   },
+   {
+    "tmdbId": 71676,
+    "title": "Ghost Rider: Spirit of Vengeance",
+    "year": 2011,
+    "posterPath": "/xEoBT6lYfQNpSpTm8gJMTrQytiw.jpg",
+    "imdbId": "tt1071875"
+   }
+  ],
+  "myRating": 10,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 145,
+  "addedAt": 1735698300000
+ },
+ {
+  "id": "col-pirates-of-the-caribbean",
+  "kind": "collection",
+  "tmdbId": 295,
+  "imdbId": "",
+  "title": "Pirates of the Caribbean Collection",
+  "sourceTitle": "PIRATES OF THE CARIBBEAN COLLECTION",
+  "year": 2003,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Adventure",
+   "Fantasy",
+   "Action"
+  ],
+  "overview": "A series of fantasy swashbuckler films based on Walt Disney's theme park ride of the same name. The films follow the adventures of Captain Jack Sparrow and take place in a world ruled by the British Empire, the East India Trading Company and the Spanish Empire, with pirates representing freedom from the ruling powers.",
+  "posterPath": "/zRBaZxS5YauLvRYjAdL4AUCwlht.jpg",
+  "backdropPath": "/wxgD3fB5lQ2sGJLog0rvXW049Pf.jpg",
+  "palette": {
+   "dark": "#261c14",
+   "vivid": "#ae3a37",
+   "light": "#a5a58a"
+  },
+  "parts": 5,
+  "children": [
+   {
+    "tmdbId": 22,
+    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "year": 2003,
+    "posterPath": "/poHwCZeWzJCShH7tOjg8RIoyjcw.jpg",
+    "imdbId": "tt0325980"
+   },
+   {
+    "tmdbId": 58,
+    "title": "Pirates of the Caribbean: Dead Man's Chest",
+    "year": 2006,
+    "posterPath": "/uXEqmloGyP7UXAiphJUu2v2pcuE.jpg",
+    "imdbId": "tt0383574"
+   },
+   {
+    "tmdbId": 285,
+    "title": "Pirates of the Caribbean: At World's End",
+    "year": 2007,
+    "posterPath": "/jGWpG4YhpQwVmjyHEGkxEkeRf0S.jpg",
+    "imdbId": "tt0449088"
+   },
+   {
+    "tmdbId": 1865,
+    "title": "Pirates of the Caribbean: On Stranger Tides",
+    "year": 2011,
+    "posterPath": "/keGfSvCmYj7CvdRx36OdVrAEibE.jpg",
+    "imdbId": "tt1298650"
+   },
+   {
+    "tmdbId": 166426,
+    "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
+    "year": 2017,
+    "posterPath": "/6lAPOAFYFWIO3SQRemEY2wInQMC.jpg",
+    "imdbId": "tt1790809"
+   }
+  ],
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ACTION ADVENTURE",
+  "originalOrder": 146,
+  "addedAt": 1735698360000
+ },
+ {
+  "id": "col-star-wars-original-trilogy",
+  "kind": "collection",
+  "tmdbId": 0,
+  "imdbId": "",
+  "title": "Star Wars: Episodes IV–VI",
+  "sourceTitle": "STAR WARS: EPISODES IV–VI",
+  "year": 1977,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Adventure",
+   "Action",
+   "Science Fiction"
+  ],
+  "overview": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
+  "posterPath": "/fai0rspsNeJCS69wHNjOdWxcI7P.jpg",
+  "backdropPath": "/zqkmTXzjkAgXmEWLRsY4UpTWCeo.jpg",
+  "palette": {
+   "dark": "#0a1021",
+   "vivid": "#b9452c",
+   "light": "#e3dedc"
+  },
+  "parts": 3,
+  "children": [
+   {
+    "tmdbId": 11,
+    "title": "Star Wars",
+    "year": 1977,
+    "posterPath": "/fai0rspsNeJCS69wHNjOdWxcI7P.jpg",
+    "imdbId": "tt0076759"
+   },
+   {
+    "tmdbId": 1891,
+    "title": "The Empire Strikes Back",
+    "year": 1980,
+    "posterPath": "/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
+    "imdbId": "tt0080684"
+   },
+   {
+    "tmdbId": 1892,
+    "title": "Return of the Jedi",
+    "year": 1983,
+    "posterPath": "/jQYlydvHm3kUix1f8prMucrplhm.jpg",
+    "imdbId": "tt0086190"
+   }
+  ],
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 147,
+  "addedAt": 1735698420000
+ },
+ {
+  "id": "col-star-wars-prequel-trilogy",
+  "kind": "collection",
+  "tmdbId": 0,
+  "imdbId": "",
+  "title": "Star Wars: Episodes I–III",
+  "sourceTitle": "STAR WARS: EPISODES I–III",
+  "year": 1999,
+  "director": "",
+  "runtime": 0,
+  "genres": [
+   "Adventure",
+   "Action",
+   "Science Fiction"
+  ],
+  "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+  "posterPath": "/6wkfovpn7Eq8dYNKaG5PY3q2oq6.jpg",
+  "backdropPath": "/3TeGmKJfkik1D1rIoqGb1aR4k9c.jpg",
+  "palette": {
+   "dark": "#100c0a",
+   "vivid": "#da4f0b",
+   "light": "#f2cc98"
+  },
+  "parts": 3,
+  "children": [
+   {
+    "tmdbId": 1893,
+    "title": "Star Wars: Episode I - The Phantom Menace",
+    "year": 1999,
+    "posterPath": "/6wkfovpn7Eq8dYNKaG5PY3q2oq6.jpg",
+    "imdbId": "tt0120915"
+   },
+   {
+    "tmdbId": 1894,
+    "title": "Star Wars: Episode II - Attack of the Clones",
+    "year": 2002,
+    "posterPath": "/oZNPzxqM2s5DyVWab09NTQScDQt.jpg",
+    "imdbId": "tt0121765"
+   },
+   {
+    "tmdbId": 1895,
+    "title": "Star Wars: Episode III - Revenge of the Sith",
+    "year": 2005,
+    "posterPath": "/xfSAoBEm9MNBjmlNcDYLvLSMlnq.jpg",
+    "imdbId": "tt0121766"
+   }
+  ],
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 148,
+  "addedAt": 1735698480000
+ },
+ {
+  "id": "tv-40008",
+  "kind": "tv",
+  "tmdbId": 40008,
+  "imdbId": "tt2243973",
+  "title": "Hannibal",
+  "year": 2013,
+  "director": "",
+  "creator": "Bryan Fuller",
+  "runtime": 45,
+  "seasons": 3,
+  "episodes": 39,
+  "genres": [
+   "Drama",
+   "Crime"
+  ],
+  "overview": "Both a gift and a curse, Graham has the extraordinary ability to think like his prey—he sees what they see, feels what they feel. But while Graham is pursuing an especially troubling, cannibalistic murderer, Special Agent Jack Crawford teams him with a highly respected psychiatrist – a man with a taste for the criminal minded – Dr. Hannibal Lecter.",
+  "posterPath": "/pbV2eLnKSIm1epSZt473UYfqaeZ.jpg",
+  "backdropPath": "/mCwQJqyuCFlbFyJR5sWg3PqtHEN.jpg",
+  "palette": {
+   "dark": "#191a1a",
+   "vivid": "#7ec2ce",
+   "light": "#cedadb"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "DARK GRITTY CRIME THRILLER",
+  "originalOrder": 149,
+  "addedAt": 1735698540000
+ },
+ {
+  "id": "tv-78191",
+  "kind": "tv",
+  "tmdbId": 78191,
+  "imdbId": "tt7335184",
+  "title": "You",
+  "year": 2018,
+  "director": "",
+  "creator": "Greg Berlanti & Sera Gamble",
+  "runtime": 0,
+  "seasons": 5,
+  "episodes": 50,
+  "genres": [
+   "Mystery",
+   "Crime",
+   "Drama"
+  ],
+  "overview": "A dangerously charming, obsessive man goes to extreme measures to insert himself into the lives of women who fascinate him.",
+  "posterPath": "/oANi0vEE92nuijiZQgPZ88FSxqQ.jpg",
+  "backdropPath": "/wY1US9I51xxkwDJXQp6ktmhfh2Z.jpg",
+  "palette": {
+   "dark": "#1c0707",
+   "vivid": "#da160b",
+   "light": "#a29999"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "CRIME THRILLER",
+  "originalOrder": 150,
+  "addedAt": 1735698600000
+ },
+ {
+  "id": "tv-46648",
+  "kind": "tv",
+  "tmdbId": 46648,
+  "imdbId": "tt2356777",
+  "title": "True Detective",
+  "year": 2014,
+  "director": "",
+  "creator": "Nic Pizzolatto & Issa López",
+  "runtime": 0,
+  "seasons": 5,
+  "episodes": 30,
+  "genres": [
+   "Drama",
+   "Mystery"
+  ],
+  "overview": "An American anthology police detective series utilizing multiple timelines in which investigations seem to unearth personal and professional secrets of those involved, both within or outside the law.",
+  "posterPath": "/cuV2O5ZyDLHSOWzg3nLVljp1ubw.jpg",
+  "backdropPath": "/v8YFr8BbU9qsO8PYIulzTeM6Qk.jpg",
+  "palette": {
+   "dark": "#0c1d31",
+   "vivid": "#2176c4",
+   "light": "#8da1b3"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "DARK GRITTY CRIME THRILLER",
+  "originalOrder": 151,
+  "addedAt": 1735698660000
+ },
+ {
+  "id": "tv-1429",
+  "kind": "tv",
+  "tmdbId": 1429,
+  "imdbId": "tt2560140",
+  "title": "Attack on Titan",
+  "year": 2013,
+  "director": "",
+  "runtime": 0,
+  "seasons": 4,
+  "episodes": 87,
+  "genres": [
+   "Animation",
+   "Sci-Fi & Fantasy",
+   "Action & Adventure"
+  ],
+  "overview": "100 years ago, the last remnants of humanity were forced to retreat behind the towering walls of a fortified city to escape the massive, man-eating Titans that roamed the land outside their fortress. Only the members of the Scouting Legion dared to stray beyond the safety of the walls – but even those brave warriors seldom returned alive. Those within the city clung to the illusion of a peaceful existence until the day that dream was shattered, and their slim chance at survival was reduced to one horrifying choice: kill – or be devoured!",
+  "posterPath": "/hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg",
+  "backdropPath": "/rqbCbjB19amtOtFQbb3K2lgm2zv.jpg",
+  "palette": {
+   "dark": "#161b27",
+   "vivid": "#3a75ab",
+   "light": "#d4eae4"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ANIME",
+  "originalOrder": 152,
+  "addedAt": 1735698720000
+ },
+ {
+  "id": "tv-31911",
+  "kind": "tv",
+  "tmdbId": 31911,
+  "imdbId": "tt1355642",
+  "title": "Fullmetal Alchemist: Brotherhood",
+  "year": 2009,
+  "director": "",
+  "runtime": 0,
+  "seasons": 1,
+  "episodes": 64,
+  "genres": [
+   "Animation",
+   "Action & Adventure",
+   "Sci-Fi & Fantasy",
+   "Drama"
+  ],
+  "overview": "Disregard for alchemy’s laws ripped half of Edward Elric’s limbs from his body and left his brother Alphonse’s soul clinging to a suit of armor. To restore what was lost, the brothers seek the Philosopher’s Stone. Enemies and allies – the corrupt military, the Homunculi, and foreign alchemists – will alter the Elric brothers course, but their purpose will remain unchanged and their bond unbreakable.",
+  "posterPath": "/5ZFUEOULaVml7pQuXxhpR2SmVUw.jpg",
+  "backdropPath": "/2UG177tWHy7xRmMKWJHB7nAUmKd.jpg",
+  "palette": {
+   "dark": "#1d1b1e",
+   "vivid": "#dabe71",
+   "light": "#f3eed8"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ANIME",
+  "originalOrder": 153,
+  "addedAt": 1735698780000
+ },
+ {
+  "id": "tv-61223",
+  "kind": "tv",
+  "tmdbId": 61223,
+  "imdbId": "tt3742982",
+  "title": "Akame ga Kill!",
+  "year": 2014,
+  "director": "",
+  "runtime": 24,
+  "seasons": 1,
+  "episodes": 24,
+  "genres": [
+   "Animation",
+   "Drama",
+   "Action & Adventure"
+  ],
+  "overview": "Young Tatsumi travels to the capital of the Empire in order to earn money for his starving people and encounters a world of unimaginable depravity, dominated by the ruthless Prime Minister who controls the child Emperor. Tatsumi is recruited by Night Raid, a group of assassins dedicated to eliminating corruption by mercilessly killing officials and privileged nobles.",
+  "posterPath": "/rMpvMbSlPbm5QYfFem9fx2Jnttq.jpg",
+  "backdropPath": "/3XAGgklKkJhv5M9m5NkfhBYb7l8.jpg",
+  "palette": {
+   "dark": "#251819",
+   "vivid": "#de281e",
+   "light": "#a39e9f"
+  },
+  "myRating": 11,
+  "myReview": "",
+  "tag": "ANIME",
+  "originalOrder": 154,
+  "addedAt": 1735698840000
+ },
+ {
+  "id": "tv-110492",
+  "kind": "tv",
+  "tmdbId": 110492,
+  "imdbId": "tt13146488",
+  "title": "Peacemaker",
+  "year": 2022,
+  "director": "",
+  "creator": "James Gunn",
+  "runtime": 0,
+  "seasons": 2,
+  "episodes": 16,
+  "genres": [
+   "Action & Adventure",
+   "Sci-Fi & Fantasy",
+   "Comedy"
+  ],
+  "overview": "The continuing story of Peacemaker, a vainglorious superhero/supervillain who believes in peace at any cost — no matter how many people he has to kill. After a miraculous recovery from his duel with Bloodsport, Peacemaker soon discovers that his freedom comes at a price.",
+  "posterPath": "/yb4F1Oocq8GfQt6iIuAgYEBokhG.jpg",
+  "backdropPath": "/aJcUU3LMlqMKBi8L3eaxGfAbd4G.jpg",
+  "palette": {
+   "dark": "#181925",
+   "vivid": "#e29220",
+   "light": "#e8e7e7"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SUPE GENRE REIMAGINED",
+  "originalOrder": 155,
+  "addedAt": 1735698900000
+ },
+ {
+  "id": "tv-127532",
+  "kind": "tv",
+  "tmdbId": 127532,
+  "imdbId": "tt21209876",
+  "title": "Solo Leveling",
+  "year": 2024,
+  "director": "",
+  "runtime": 24,
+  "seasons": 1,
+  "episodes": 25,
+  "genres": [
+   "Animation",
+   "Action & Adventure",
+   "Sci-Fi & Fantasy"
+  ],
+  "overview": "They say whatever doesn’t kill you makes you stronger, but that’s not the case for the world’s weakest hunter Sung Jinwoo. After being brutally slaughtered by monsters in a high-ranking dungeon, Jinwoo came back with the System, a program only he could see, that’s leveling him up in every way. Now, he’s inspired to discover the secrets behind his powers and the dungeon that spawned them.",
+  "posterPath": "/geCRueV3ElhRTr0xtJuEWJt6dJ1.jpg",
+  "backdropPath": "/xMNH87maNLt9n2bMDYeI6db5VFm.jpg",
+  "palette": {
+   "dark": "#16181c",
+   "vivid": "#55d2f6",
+   "light": "#edf4f3"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "ANIME",
+  "originalOrder": 156,
+  "addedAt": 1735698960000
+ },
+ {
+  "id": "tv-114410",
+  "kind": "tv",
+  "tmdbId": 114410,
+  "imdbId": "tt13616990",
+  "title": "Chainsaw Man",
+  "year": 2022,
+  "director": "",
+  "runtime": 24,
+  "seasons": 1,
+  "episodes": 12,
+  "genres": [
+   "Animation",
+   "Action & Adventure",
+   "Sci-Fi & Fantasy"
+  ],
+  "overview": "Denji has a simple dream—to live a happy and peaceful life, spending time with a girl he likes. This is a far cry from reality, however, as Denji is forced by the yakuza into killing devils in order to pay off his crushing debts. Using his pet devil Pochita as a weapon, he is ready to do anything for a bit of cash.",
+  "posterPath": "/npdB6eFzizki0WaZ1OvKcJrWe97.jpg",
+  "backdropPath": "/fOUKSCbZzaoQKsO39enivHnWDid.jpg",
+  "palette": {
+   "dark": "#1d1825",
+   "vivid": "#3f65a6",
+   "light": "#d1d1d4"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ANIME",
+  "originalOrder": 157,
+  "addedAt": 1735699020000
+ },
+ {
+  "id": "tv-13916",
+  "kind": "tv",
+  "tmdbId": 13916,
+  "imdbId": "tt0877057",
+  "title": "Death Note",
+  "year": 2006,
+  "director": "",
+  "runtime": 22,
+  "seasons": 1,
+  "episodes": 37,
+  "genres": [
+   "Animation",
+   "Mystery",
+   "Sci-Fi & Fantasy"
+  ],
+  "overview": "Light Yagami is an ace student with great prospects—and he’s bored out of his mind. But all that changes when he finds the Death Note, a notebook dropped by a rogue Shinigami death god. Any human whose name is written in the notebook dies, and Light has vowed to use the power of the Death Note to rid the world of evil. But will Light succeed in his noble goal, or will the Death Note turn him into the very thing he fights against?",
+  "posterPath": "/tCZFfYTIwrR7n94J6G14Y4hAFU6.jpg",
+  "backdropPath": "/z8IPicmEKXUO4I2UDdMEqw7RqOE.jpg",
+  "palette": {
+   "dark": "#141112",
+   "vivid": "#f66554",
+   "light": "#dae2e1"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ANIME",
+  "originalOrder": 158,
+  "addedAt": 1735699080000
+ },
+ {
+  "id": "tv-85937",
+  "kind": "tv",
+  "tmdbId": 85937,
+  "imdbId": "tt9335498",
+  "title": "Demon Slayer: Kimetsu no Yaiba",
+  "year": 2019,
+  "director": "",
+  "runtime": 0,
+  "seasons": 5,
+  "episodes": 63,
+  "genres": [
+   "Animation",
+   "Action & Adventure",
+   "Sci-Fi & Fantasy"
+  ],
+  "overview": "After a demon attack leaves his family slain and his sister cursed, Tanjiro embarks upon a perilous journey to find a cure and avenge those he's lost.",
+  "posterPath": "/xUfRZu2mi8jH6SzQEJGP6tjBuYj.jpg",
+  "backdropPath": "/nTvM4mhqNlHIvUkI1gVnW6XP7GG.jpg",
+  "palette": {
+   "dark": "#12141e",
+   "vivid": "#a63f4f",
+   "light": "#d9d6d5"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "ANIME",
+  "originalOrder": 159,
+  "addedAt": 1735699140000
+ },
+ {
+  "id": "tv-62104",
+  "kind": "tv",
+  "tmdbId": 62104,
+  "imdbId": "tt3909224",
+  "title": "The Seven Deadly Sins",
+  "year": 2014,
+  "director": "",
+  "runtime": 24,
+  "seasons": 4,
+  "episodes": 96,
+  "genres": [
+   "Animation",
+   "Action & Adventure",
+   "Sci-Fi & Fantasy"
+  ],
+  "overview": "The “Seven Deadly Sins”—a group of evil knights who conspired to overthrow the kingdom of Britannia—were said to have been eradicated by the Holy Knights, although some claim that they still live. Ten years later, the Holy Knights have staged a Coup d'état and assassinated the king, becoming the new, tyrannical rulers of the kingdom. Elizabeth, the king's only daughter, sets out on a journey to find the “Seven Deadly Sins,” and to enlist their help in taking back the kingdom.",
+  "posterPath": "/gxTojpKEOtue85EEFlozwRbDXwJ.jpg",
+  "backdropPath": "/cmziOVMQrqvVfrjjQdadMdi2bGL.jpg",
+  "palette": {
+   "dark": "#231916",
+   "vivid": "#a65c3f",
+   "light": "#a2955c"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "ANIME",
+  "originalOrder": 160,
+  "addedAt": 1735699200000
+ },
+ {
+  "id": "tv-95479",
+  "kind": "tv",
+  "tmdbId": 95479,
+  "imdbId": "tt12343534",
+  "title": "JUJUTSU KAISEN",
+  "year": 2020,
+  "director": "",
+  "runtime": 24,
+  "seasons": 1,
+  "episodes": 59,
+  "genres": [
+   "Animation",
+   "Sci-Fi & Fantasy",
+   "Action & Adventure"
+  ],
+  "overview": "Yuji Itadori is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to save a classmate who has been attacked by curses, he eats the finger of Ryomen Sukuna, taking the curse into his own soul. From then on, he shares one body with Ryomen Sukuna. Guided by the most powerful of sorcerers, Satoru Gojo, Itadori is admitted to Tokyo Jujutsu High School, an organization that fights the curses... and thus begins the heroic tale of a boy who became a curse to exorcise a curse, a life from which he could never turn back.",
+  "posterPath": "/6qQzMJG27XOJsyAEEIisoJB45j2.jpg",
+  "backdropPath": "/flgn0jXbg8GIe2qaWfd70A0uzfp.jpg",
+  "palette": {
+   "dark": "#1d1429",
+   "vivid": "#9c73ca",
+   "light": "#d1cbe4"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "ANIME",
+  "originalOrder": 161,
+  "addedAt": 1735699260000
+ },
+ {
+  "id": "tv-30991",
+  "kind": "tv",
+  "tmdbId": 30991,
+  "imdbId": "tt0213338",
+  "title": "Cowboy Bebop",
+  "year": 1998,
+  "director": "",
+  "runtime": 25,
+  "seasons": 1,
+  "episodes": 26,
+  "genres": [
+   "Animation",
+   "Action & Adventure",
+   "Sci-Fi & Fantasy",
+   "Western"
+  ],
+  "overview": "In 2071, roughly fifty years after an accident with a hyperspace gateway made the Earth almost uninhabitable, humanity has colonized most of the rocky planets and moons of the Solar System. Amid a rising crime rate, the Inter Solar System Police (ISSP) set up a legalized contract system, in which registered bounty hunters, also referred to as \"Cowboys\", chase criminals and bring them in alive in return for a reward.",
+  "posterPath": "/xDiXDfZwC6XYC6fxHI1jl3A3Ill.jpg",
+  "backdropPath": "/A4PHx94G7mvM3b8vsDJ5HEaQ6uv.jpg",
+  "palette": {
+   "dark": "#0c0907",
+   "vivid": "#da9c0b",
+   "light": "#cecece"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "ANIME",
+  "originalOrder": 162,
+  "addedAt": 1735699320000
+ },
+ {
+  "id": "tv-42509",
+  "kind": "tv",
+  "tmdbId": 42509,
+  "imdbId": "tt1910272",
+  "title": "Steins;Gate",
+  "year": 2011,
+  "director": "",
+  "runtime": 24,
+  "seasons": 1,
+  "episodes": 24,
+  "genres": [
+   "Animation",
+   "Sci-Fi & Fantasy",
+   "Mystery",
+   "Comedy"
+  ],
+  "overview": "A group of friends have customized their microwave so that it can send text messages to the past. As they perform different experiments, an organization named SERN who has been doing their own research on time travel tracks them down and now the characters have to find a way to avoid being captured by them.",
+  "posterPath": "/96R4bV7dB8ramaWceNKsxvJgCUd.jpg",
+  "backdropPath": "/36Ech63X2KU8JUXIBAo167kIC2k.jpg",
+  "palette": {
+   "dark": "#221c1b",
+   "vivid": "#7e8ace",
+   "light": "#d9dbe0"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "ANIME",
+  "originalOrder": 163,
+  "addedAt": 1735699380000
+ },
+ {
+  "id": "movie-368006",
+  "kind": "movie",
+  "tmdbId": 368006,
+  "imdbId": "tt4981966",
+  "title": "24",
+  "year": 2016,
+  "director": "Vikram Kumar",
+  "runtime": 164,
+  "genres": [
+   "Action",
+   "Science Fiction",
+   "Thriller"
+  ],
+  "overview": "Scientist turned Entrepreneur Dr. Sethuraman tries to safeguard his newly invented time travel device from falling into the hands of his Evil Twin Brother Aathreya.",
+  "posterPath": "/8d8TTADw3p75Zr4ypNWD66oqUXI.jpg",
+  "backdropPath": "/7SaemP7orK8rREdl7MpATNQ3szY.jpg",
+  "palette": {
+   "dark": "#2d100d",
+   "vivid": "#db9537",
+   "light": "#de9a4d"
+  },
+  "myRating": 8,
+  "myReview": "",
+  "tag": "BOLLYWOOD",
+  "originalOrder": 164,
+  "addedAt": 1735699440000
+ },
+ {
+  "id": "tv-19885",
+  "kind": "tv",
+  "tmdbId": 19885,
+  "imdbId": "tt1475582",
+  "title": "Sherlock",
+  "year": 2010,
+  "director": "",
+  "creator": "Mark Gatiss & Steven Moffat",
+  "runtime": 90,
+  "seasons": 4,
+  "episodes": 12,
+  "genres": [
+   "Crime",
+   "Drama",
+   "Mystery"
+  ],
+  "overview": "A modern update finds the famous sleuth and his doctor partner solving crime in 21st century London.",
+  "posterPath": "/7WTsnHkbA0FaG6R9twfFde0I9hl.jpg",
+  "backdropPath": "/8rvLEmdI4gLrMO1rLqbNdnNcPFE.jpg",
+  "palette": {
+   "dark": "#091a24",
+   "vivid": "#168ed0",
+   "light": "#99928e"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "WHODUNIT",
+  "originalOrder": 165,
+  "addedAt": 1735699500000
+ },
+ {
+  "id": "tv-92749",
+  "kind": "tv",
+  "tmdbId": 92749,
+  "imdbId": "tt10234724",
+  "title": "Moon Knight",
+  "year": 2022,
+  "director": "",
+  "creator": "Jeremy Slater",
+  "runtime": 0,
+  "seasons": 1,
+  "episodes": 6,
+  "genres": [
+   "Sci-Fi & Fantasy",
+   "Mystery",
+   "Action & Adventure"
+  ],
+  "overview": "When Steven Grant, a mild-mannered gift-shop employee, becomes plagued with blackouts and memories of another life, he discovers he has dissociative identity disorder and shares a body with mercenary Marc Spector. As Steven/Marc’s enemies converge upon them, they must navigate their complex identities while thrust into a deadly mystery among the powerful gods of Egypt.",
+  "posterPath": "/9K3lbMf8TKvL9xGEbzi7TggWCNQ.jpg",
+  "backdropPath": "/1uegR4uAxRxiMyX4nQnpzbXhrTw.jpg",
+  "palette": {
+   "dark": "#211f1c",
+   "vivid": "#a67c3f",
+   "light": "#d8d6d6"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 166,
+  "addedAt": 1735699560000
+ },
+ {
+  "id": "tv-61889",
+  "kind": "tv",
+  "tmdbId": 61889,
+  "imdbId": "tt3322312",
+  "title": "Marvel's Daredevil",
+  "year": 2015,
+  "director": "",
+  "creator": "Drew Goddard",
+  "runtime": 0,
+  "seasons": 3,
+  "episodes": 39,
+  "genres": [
+   "Crime",
+   "Drama",
+   "Action & Adventure"
+  ],
+  "overview": "Lawyer-by-day Matt Murdock uses his heightened senses from being blinded as a young boy to fight crime at night on the streets of Hell’s Kitchen as Daredevil.",
+  "posterPath": "/QWbPaDxiB6LW2LjASknzYBvjMj.jpg",
+  "backdropPath": "/pPALpad1Fh14g7ejyQjqKzlhrBw.jpg",
+  "palette": {
+   "dark": "#170e0b",
+   "vivid": "#bc292b",
+   "light": "#9b5a58"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 167,
+  "addedAt": 1735699620000
+ },
+ {
+  "id": "tv-67178",
+  "kind": "tv",
+  "tmdbId": 67178,
+  "imdbId": "tt5675620",
+  "title": "Marvel's The Punisher",
+  "year": 2017,
+  "director": "",
+  "creator": "Steve Lightfoot",
+  "runtime": 53,
+  "seasons": 2,
+  "episodes": 26,
+  "genres": [
+   "Action & Adventure",
+   "Crime",
+   "Drama"
+  ],
+  "overview": "A former Marine out to punish the criminals responsible for his family's murder finds himself ensnared in a military conspiracy.",
+  "posterPath": "/tM6xqRKXoloH9UchaJEyyRE9O1w.jpg",
+  "backdropPath": "/jBGjbSDRxOEudW9rmQbWDzJUKq9.jpg",
+  "palette": {
+   "dark": "#161714",
+   "vivid": "#959283",
+   "light": "#9f9d9a"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "MARVELOUS",
+  "originalOrder": 168,
+  "addedAt": 1735699680000
+ },
+ {
+  "id": "tv-76479",
+  "kind": "tv",
+  "tmdbId": 76479,
+  "imdbId": "tt1190634",
+  "title": "The Boys",
+  "year": 2019,
+  "director": "",
+  "creator": "Eric Kripke",
+  "runtime": 0,
+  "seasons": 5,
+  "episodes": 40,
+  "genres": [
+   "Sci-Fi & Fantasy",
+   "Action & Adventure"
+  ],
+  "overview": "A group of vigilantes known informally as “The Boys” set out to take down corrupt superheroes with no more than blue-collar grit and a willingness to fight dirty.",
+  "posterPath": "/in1R2dDc421JxsoRWaIIAqVI2KE.jpg",
+  "backdropPath": "/bq28ajZaoMyzEIm6REelqyqtEDZ.jpg",
+  "palette": {
+   "dark": "#1b2222",
+   "vivid": "#cea77e",
+   "light": "#e2e1d8"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "SUPE GENRE REIMAGINED",
+  "originalOrder": 169,
+  "addedAt": 1735699740000
+ },
+ {
+  "id": "tv-1421",
+  "kind": "tv",
+  "tmdbId": 1421,
+  "imdbId": "tt1442437",
+  "title": "Modern Family",
+  "year": 2009,
+  "director": "",
+  "creator": "Steven Levitan & Christopher Lloyd",
+  "runtime": 0,
+  "seasons": 11,
+  "episodes": 250,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "The Pritchett-Dunphy-Tucker clan is a wonderfully large and blended family. They give us an honest and often hilarious look into the sometimes warm, sometimes twisted, embrace of the modern family.",
+  "posterPath": "/k5Qg5rgPoKdh3yTJJrLtyoyYGwC.jpg",
+  "backdropPath": "/nO7EzksrBzlNpAg5rgv8HzaBIkx.jpg",
+  "palette": {
+   "dark": "#261d17",
+   "vivid": "#ce9a7e",
+   "light": "#efeeed"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 170,
+  "addedAt": 1735699800000
+ },
+ {
+  "id": "tv-1668",
+  "kind": "tv",
+  "tmdbId": 1668,
+  "imdbId": "tt0108778",
+  "title": "Friends",
+  "year": 1994,
+  "director": "",
+  "creator": "Marta Kauffman & David Crane",
+  "runtime": 0,
+  "seasons": 10,
+  "episodes": 228,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "Six young people from New York City, on their own and struggling to survive in the real world, find the companionship, comfort and support they get from each other to be the perfect antidote to the pressures of life.",
+  "posterPath": "/2koX1xLkpTQM4IZebYvKysFW1Nh.jpg",
+  "backdropPath": "/l0qVZIpXtIo7km9u5Yqh0nKPOr5.jpg",
+  "palette": {
+   "dark": "#1f1e20",
+   "vivid": "#c13324",
+   "light": "#d8d7d6"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 171,
+  "addedAt": 1735699860000
+ },
+ {
+  "id": "tv-61222",
+  "kind": "tv",
+  "tmdbId": 61222,
+  "imdbId": "tt3398228",
+  "title": "BoJack Horseman",
+  "year": 2014,
+  "director": "",
+  "creator": "Raphael Bob-Waksberg",
+  "runtime": 0,
+  "seasons": 6,
+  "episodes": 76,
+  "genres": [
+   "Animation",
+   "Comedy",
+   "Drama"
+  ],
+  "overview": "Meet the most beloved sitcom horse of the '90s , 20 years later. He's a curmudgeon with a heart of...not quite gold...but something like gold. Copper?",
+  "posterPath": "/6JFWzlChcGgLiIUo2COgNlWGFKy.jpg",
+  "backdropPath": "/81BCTObfPk0EvarJpUgnGXHvM9x.jpg",
+  "palette": {
+   "dark": "#272616",
+   "vivid": "#69cbe2",
+   "light": "#e9e8e2"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "ANIMATED",
+  "originalOrder": 172,
+  "addedAt": 1735699920000
+ },
+ {
+  "id": "tv-60625",
+  "kind": "tv",
+  "tmdbId": 60625,
+  "imdbId": "tt2861424",
+  "title": "Rick and Morty",
+  "year": 2013,
+  "director": "",
+  "creator": "Dan Harmon & Justin Roiland",
+  "runtime": 0,
+  "seasons": 9,
+  "episodes": 91,
+  "genres": [
+   "Animation",
+   "Comedy",
+   "Sci-Fi & Fantasy",
+   "Action & Adventure"
+  ],
+  "overview": "Follows a sociopathic genius scientist who drags his inherently timid grandson on adventures across the universe.",
+  "posterPath": "/owhkU6KRqdXoUQpjV8uyZGPtX58.jpg",
+  "backdropPath": "/iFOkrSrJRwE27PwbyQeYLlMJXzw.jpg",
+  "palette": {
+   "dark": "#070b0e",
+   "vivid": "#d71b0e",
+   "light": "#d8f6ee"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "SCI-FI",
+  "originalOrder": 173,
+  "addedAt": 1735699980000
+ },
+ {
+  "id": "tv-59186",
+  "kind": "tv",
+  "tmdbId": 59186,
+  "imdbId": "tt2100976",
+  "title": "Impractical Jokers",
+  "year": 2011,
+  "director": "",
+  "creator": "Joe Gatto & Sal Vulcano & Brian Quinn & James Murray",
+  "runtime": 30,
+  "seasons": 13,
+  "episodes": 293,
+  "genres": [
+   "Reality",
+   "Comedy"
+  ],
+  "overview": "This hidden-camera series follows four lifelong friends -- Brian \"Q\"' Quinn, James \"Murr\"' Murray, Joe Gatto and Sal Vulcano -- who take dares to an outrageous level. To find out who is best under pressure, the guys compete in awkward and outrageous hidden-camera hijinks with the loser performing what is deemed to be the most-mortifying challenge yet.",
+  "posterPath": "/tRLj19YXH9GPiaqlU7GwWyd6G5K.jpg",
+  "backdropPath": "/9I7aHbHlXwsQais5wBcccWnboTx.jpg",
+  "palette": {
+   "dark": "#1d1f20",
+   "vivid": "#71b8db",
+   "light": "#d4d4d1"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 174,
+  "addedAt": 1735700040000
+ },
+ {
+  "id": "tv-2316",
+  "kind": "tv",
+  "tmdbId": 2316,
+  "imdbId": "tt0386676",
+  "title": "The Office",
+  "year": 2005,
+  "director": "",
+  "creator": "Greg Daniels",
+  "runtime": 0,
+  "seasons": 9,
+  "episodes": 186,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "The everyday lives of office employees in the Scranton, Pennsylvania branch of the fictional Dunder Mifflin Paper Company.",
+  "posterPath": "/7DJKHzAi83BmQrWLrYYOqcoKfhR.jpg",
+  "backdropPath": "/9vMzIrMIncPmtalcxh1MOrgcE6C.jpg",
+  "palette": {
+   "dark": "#1f1d20",
+   "vivid": "#ce977e",
+   "light": "#ececec"
+  },
+  "myRating": 9.5,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 175,
+  "addedAt": 1735700100000
+ },
+ {
+  "id": "tv-1399",
+  "kind": "tv",
+  "tmdbId": 1399,
+  "imdbId": "tt0944947",
+  "title": "Game of Thrones",
+  "year": 2011,
+  "director": "",
+  "creator": "David Benioff & D.B. Weiss",
+  "runtime": 0,
+  "seasons": 8,
+  "episodes": 73,
+  "genres": [
+   "Sci-Fi & Fantasy",
+   "Drama",
+   "Action & Adventure"
+  ],
+  "overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+  "posterPath": "/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg",
+  "backdropPath": "/zZqpAXxVSBtxV9qPBcscfXBcL2w.jpg",
+  "palette": {
+   "dark": "#1e1f1f",
+   "vivid": "#868f92",
+   "light": "#535353"
+  },
+  "myRating": 8.5,
+  "myReview": "",
+  "tag": "ACTION ADVENTURE",
+  "originalOrder": 176,
+  "addedAt": 1735700160000
+ },
+ {
+  "id": "movie-1215439",
+  "kind": "movie",
+  "tmdbId": 1215439,
+  "imdbId": "tt18278698",
+  "title": "Dave Chappelle: The Dreamer",
+  "year": 2023,
+  "director": "Stan Lathan",
+  "runtime": 57,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "From his onstage tackle to the slap heard round the world, Dave Chappelle lets loose in this freewheeling and unfiltered stand-up comedy special.",
+  "posterPath": "/AfRIwykHu9taHgq9DHktdwVLmWC.jpg",
+  "backdropPath": "/7cFqrkl1CGOGYyGntgPRqQqbafn.jpg",
+  "palette": {
+   "dark": "#070515",
+   "vivid": "#3a2fb6",
+   "light": "#555054"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 177,
+  "addedAt": 1735700220000
+ },
+ {
+  "id": "movie-701687",
+  "kind": "movie",
+  "tmdbId": 701687,
+  "imdbId": "tt12334820",
+  "title": "Mark Normand: Out To Lunch",
+  "year": 2020,
+  "director": "Jakob Markovits",
+  "runtime": 54,
+  "genres": [
+   "Comedy"
+  ],
+  "overview": "In Mark’s third comedy hour he covers it all: Drinking, anxiety, gays, naughty words, trans, race & the ladies.",
+  "posterPath": "/jU2CBN9CTBuiDkTnMauQqg46KzY.jpg",
+  "backdropPath": "/qhf5uVKv1wVi3E9fNUZyGWbCr2c.jpg",
+  "palette": {
+   "dark": "#161b27",
+   "vivid": "#dbab63",
+   "light": "#d1ced4"
+  },
+  "myRating": 10,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 178,
+  "addedAt": 1735700280000
+ },
+ {
+  "id": "movie-624932",
+  "kind": "movie",
+  "tmdbId": 624932,
+  "imdbId": "tt10810424",
+  "title": "Dave Chappelle: Sticks & Stones",
+  "year": 2019,
+  "director": "Stan Lathan",
+  "runtime": 65,
+  "genres": [
+   "Comedy",
+   "TV Movie"
+  ],
+  "overview": "Dave Chappelle takes on gun culture, the opioid crisis and the tidal wave of celebrity scandals in this defiant stand-up special.",
+  "posterPath": "/onTLKNYvTQ7f86LQZEj6EAUmpjt.jpg",
+  "backdropPath": "/qs4YtPoCTLiv9V2w8oaAOAliF6W.jpg",
+  "palette": {
+   "dark": "#201924",
+   "vivid": "#ae6042",
+   "light": "#a89f99"
+  },
+  "myRating": 9,
+  "myReview": "",
+  "tag": "COMEDY GOLD",
+  "originalOrder": 179,
+  "addedAt": 1735700340000
+ }
+]

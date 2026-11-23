@@ -152,3 +152,29 @@
     animation: none;
   }
 }
+
+/* ---------- arc depth: cast shadow, edge ------------------------------- */
+
+/* shadow from the nearer case, darkest on the edge facing the centre */
+.item__cast {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: var(--case-r, 2.2%);
+}
+
+.item__cast--left {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.35) 22%, rgba(0, 0, 0, 0) 50%);
+}
+
+.item__cast--right {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.35) 22%, rgba(0, 0, 0, 0) 50%);
+}
+
+/* slight rounding + a 1px light edge keeps a front case distinct from the one behind */
+.item .case {
+  border-radius: 3%;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 18px 40px -18px rgba(0, 0, 0, 0.9);
+}

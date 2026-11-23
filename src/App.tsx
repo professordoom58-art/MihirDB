@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { AnimatePresence, motion, useMotionValue, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion, useMotionValue, useReducedMotion, useTransform } from 'framer-motion'
 import { Backdrop } from './components/Backdrop'
 import { Caption } from './components/Caption'
 import { Carousel, type CarouselHandle } from './components/Carousel'
@@ -12,9 +12,10 @@ import { TopBar } from './components/TopBar'
 import { getPalette } from './lib/accent'
 import { DEFAULT_PALETTE, readableTint, type Palette } from './lib/palette'
 import { db, useLive } from './lib/db'
-import { computeLayout } from './lib/layout'
+import { computeLayout, wrap } from './lib/layout'
+import { CHOREO } from './lib/motion'
 import { blobUrl } from './lib/posters'
-import { sortShelf } from './lib/sort'
+import { formatRange, inRange, sortShelf } from './lib/sort'
 import { deleteMovie } from './lib/store'
 import { syncPending } from './lib/sync'
 import { startTilt, tiltWanted } from './lib/tilt'
@@ -38,9 +39,14 @@ function paletteSource(m: Movie): string | null {
 
 export default function App() {
   const all = useLive(() => db.movies.toArray(), [], null as Movie[] | null)
-  const [filter, setFilter] = useState<Filter>(NO_FILTER)
+  const [filter, setFilterState] = useState<Filter>(NO_FILTER)
+  const filterChanged = useRef(false)
+  const setFilter = useCallback((f: Filter) => {
+    filterChanged.current = true
+    setFilterState(f)
+  }, [])
   const shelf = useMemo(
-    () => (all ? sortShelf(all).filter((m) => m.myRating >= filter.min && m.myRating <= filter.max) : []),
+    () => (all ? sortShelf(all).filter((m) => inRange(m.myRating, filter.min, filter.max)) : []),
     [all, filter],
   )
   const shelfRef = useRef(shelf)
@@ -65,6 +71,10 @@ export default function App() {
   const [detailId, setDetailId] = useState<string | null>(null)
   const [freshId, setFreshId] = useState<string | null>(null)
   const pendingFocus = useRef<string | null>(null)
+  // 0..1 while the detail view is open: neighbours make room, caption/top bar fade, background dims
+  const room = useMotionValue(0)
+  const chromeOpacity = useTransform(room, (r) => 1 - r)
+  const bgDim = useTransform(room, (r) => r * CHOREO.bgDim)
   const [computed, setComputed] = useState<Record<string, Palette>>({})
 
   // ---------------------------------------------------------------- glare input
@@ -112,8 +122,10 @@ export default function App() {
     },
     [reduceMotion],
   )
-  const onActiveChange = useCallback((i: number) => {
+  const [activeSlot, setActiveSlot] = useState(0)
+  const onActiveChange = useCallback((i: number, slot: number) => {
     setActive(i)
+    setActiveSlot(slot)
     const id = shelfRef.current[i]?.id ?? null
     activeId.current = id
     // leaving the centre re-arms the sweep for when it settles again
@@ -126,7 +138,7 @@ export default function App() {
     if (!n) return
     const cur = activeId.current ? shelf.findIndex((m) => m.id === activeId.current) : -1
     const keep = cur >= 0 ? cur : Math.min(active, n - 1)
-    if (keep !== Math.round(pos.get()) || keep !== active) {
+    if (keep !== wrap(Math.round(pos.get()), n) || keep !== active) {
       carousel.current?.jumpTo(keep)
       setActive(keep)
     }
@@ -139,7 +151,12 @@ export default function App() {
       lastSwept.current = null
       // let the new case mount, then glide to its sorted position
       requestAnimationFrame(() => carousel.current?.goTo(target))
+    } else if (filterChanged.current) {
+      // rating filter changed: glide to the highest-rated remaining case
+      lastSwept.current = null
+      requestAnimationFrame(() => carousel.current?.goTo(0))
     }
+    filterChanged.current = false
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shelf])
 
@@ -148,7 +165,7 @@ export default function App() {
   useEffect(() => {
     if (launched.current || !shelf.length) return
     launched.current = true
-    const t = window.setTimeout(() => onSettle(Math.round(pos.get())), 450)
+    const t = window.setTimeout(() => onSettle(wrap(Math.round(pos.get()), shelf.length)), 450)
     return () => window.clearTimeout(t)
   }, [shelf.length, onSettle, pos])
 
@@ -213,8 +230,12 @@ export default function App() {
 
   return (
     <div className={`app${detailId ? ' has-detail' : ''}`} style={{ ['--accent' as string]: accent }}>
-      {!empty && (
-        <Backdrop movie={activeMovie} index={active} palette={palette} pos={pos} layout={layout} glareX={glareX} glareY={glareY} />
+      {all && all.length > 0 && (
+        <div className="backdrop-wrap">
+          <Backdrop movie={activeMovie} index={activeSlot} palette={palette} pos={pos} layout={layout} glareX={glareX} glareY={glareY} />
+          {/* extra dim while the detail view is open: an opacity-only overlay (a blur filter here re-rasterised every frame) */}
+          <motion.div className="backdrop-dim" style={{ opacity: bgDim }} />
+        </div>
       )}
       {shelf.length > 0 && (
         <Carousel
@@ -223,7 +244,6 @@ export default function App() {
           layout={layout}
           caseStyle={caseStyle}
           pos={pos}
-          activeIndex={active}
           onActiveChange={onActiveChange}
           onSettle={onSettle}
           onTapCentre={onTapCentre}
@@ -232,15 +252,32 @@ export default function App() {
           glareY={glareY}
           hiddenId={detailId}
           freshId={freshId}
+          room={room}
+          locked={!!detailId}
         />
       )}
       {shelf.length > 0 && (
-        <Caption movie={activeMovie} top={layout.cy + layout.h / 2 + Math.max(26, layout.h * 0.26)} accent={accent} />
+        <Caption
+          movie={activeMovie}
+          position={active + 1}
+          total={shelf.length}
+          top={layout.cy + layout.h / 2 + Math.max(26, layout.h * 0.26)}
+          accent={accent}
+          opacity={chromeOpacity}
+        />
       )}
 
       <AnimatePresence>
-        {empty && (
-          <motion.div className="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        {empty && all && all.length > 0 && (
+          <motion.div className="nomatch" key="nomatch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <span>Nothing rated {formatRange(filter.min, filter.max)} yet</span>
+            <button className="textbtn" onClick={() => setFilter(NO_FILTER)}>
+              Reset
+            </button>
+          </motion.div>
+        )}
+        {empty && all?.length === 0 && (
+          <motion.div className="empty" key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <div className="empty__case" aria-hidden>
               <div className="case case--cd">
                 <div className="case__tray" />
@@ -248,34 +285,26 @@ export default function App() {
                 <div className="case__plastic" />
               </div>
             </div>
-            {all && all.length > 0 ? (
-              <>
-                <p>
-                  Nothing rated between {filter.min} and {filter.max}.
-                </p>
-                <button className="btn" onClick={() => setFilter(NO_FILTER)}>
-                  Show all
-                </button>
-              </>
-            ) : (
-              <>
-                <p>Your shelf is empty.</p>
-                <button className="btn btn--primary" onClick={() => setEditor({ open: true, editing: null })}>
-                  Add your first movie
-                </button>
-                <button className="textbtn" onClick={() => setSettingsOpen(true)}>
-                  Import a catalog
-                </button>
-              </>
-            )}
+            <p>Your shelf is empty.</p>
+            <button className="btn btn--primary" onClick={() => setEditor({ open: true, editing: null })}>
+              Add your first movie
+            </button>
+            <button className="textbtn" onClick={() => setSettingsOpen(true)}>
+              Import a catalog
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
 
       <TopBar
+        opacity={chromeOpacity}
         filtered={isFiltered(filter)}
         onSearch={() => setPanelOpen((o) => !o)}
         onAdd={() => setEditor({ open: true, editing: null })}
+        onHome={() => {
+          lastSwept.current = null
+          carousel.current?.goTo(0)
+        }}
       />
 
       <SearchPanel
@@ -297,7 +326,10 @@ export default function App() {
           movie={detailMovie}
           caseStyle={caseStyle}
           accent={accent}
-          originRect={() => (detailIndex >= 0 ? (carousel.current?.caseRect(detailIndex) ?? null) : null)}
+          getOrigin={() => (detailIndex >= 0 ? (carousel.current?.pose(detailIndex) ?? null) : null)}
+          room={room}
+          glareX={glareX}
+          glareY={glareY}
           onClosed={() => setDetailId(null)}
           onEdit={(m) => setEditor({ open: true, editing: m })}
           onDelete={async (m) => {

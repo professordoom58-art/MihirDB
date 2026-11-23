@@ -1,14 +1,18 @@
 /**
- * API keys are baked in at build time from .env (or the GitHub Actions secret for
- * the IPA). The app never asks for a key.
+ * API keys, compiled into the app.
  *
- *   VITE_TMDB_API_KEY     v3 key            (either one works)
- *   VITE_TMDB_READ_TOKEN  v4 Bearer token
- *   VITE_OMDB_KEY         optional, critic scores
- *   VITE_TMDB_BASE        optional extra TMDB proxy, tried first
+ * The TMDB key below is deliberately hard-coded: this is a personal, private build,
+ * so there is no .env file, GitHub secret or in-app setup to do. A `.env` value
+ * (`VITE_TMDB_API_KEY` / `VITE_TMDB_READ_TOKEN`) or a repo secret still wins, which
+ * makes rotating the key possible without editing this file.
  *
- * NOTE: personal app, so the keys end up in the client bundle.
+ * If this repository ever becomes public, rotate the key at
+ * https://www.themoviedb.org/settings/api — it is in the git history.
  */
+const BUILT_IN_TMDB_KEY = '4e44d9029b1270a757cddc766a1bcb63'
+/** Optional; empty until an OMDb key is added (critic scores stay hidden without it). */
+const BUILT_IN_OMDB_KEY = ''
+
 const env = import.meta.env
 
 export interface ApiConfig {
@@ -18,8 +22,8 @@ export interface ApiConfig {
 
 export function getConfig(): ApiConfig {
   return {
-    tmdbKey: (env.VITE_TMDB_API_KEY || env.VITE_TMDB_READ_TOKEN || env.VITE_TMDB_KEY || '').trim(),
-    omdbKey: (env.VITE_OMDB_KEY || '').trim(),
+    tmdbKey: (env.VITE_TMDB_API_KEY || env.VITE_TMDB_READ_TOKEN || env.VITE_TMDB_KEY || BUILT_IN_TMDB_KEY).trim(),
+    omdbKey: (env.VITE_OMDB_API_KEY || env.VITE_OMDB_KEY || BUILT_IN_OMDB_KEY).trim(),
   }
 }
 

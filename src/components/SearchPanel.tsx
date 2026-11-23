@@ -1,10 +1,11 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { Movie } from '../types'
-import { formatRating } from '../lib/sort'
+import { formatRange, formatRating } from '../lib/sort'
 import { similarity } from '../lib/importer'
 import { posterFor } from '../lib/posters'
 import { useEscape } from './ui'
+import { RangeSlider } from './RangeSlider'
 
 export interface Filter {
   min: number
@@ -14,7 +15,15 @@ export interface Filter {
 export const NO_FILTER: Filter = { min: 1, max: 10 }
 export const isFiltered = (f: Filter) => f.min > 1 || f.max < 10
 
-const VALUES = Array.from({ length: 19 }, (_, i) => 1 + i / 2)
+/** quick presets above the slider */
+const CHIPS: { label: string; min: number; max: number }[] = [
+  { label: 'All', min: 1, max: 10 },
+  { label: '10', min: 10, max: 10 },
+  { label: '9+', min: 9, max: 10 },
+  { label: '8+', min: 8, max: 10 },
+  { label: '7+', min: 7, max: 10 },
+  { label: 'Under 7', min: 1, max: 6.5 },
+]
 
 interface Props {
   open: boolean
@@ -32,6 +41,7 @@ export function SearchPanel(props: Props) {
 
 function PanelInner({ movies, filter, onFilter, onPick, onSettings, onClose }: Props) {
   const [q, setQ] = useState('')
+  const [dragging, setDragging] = useState(false)
   const input = useRef<HTMLInputElement>(null)
   useEscape(onClose)
   useLayoutEffect(() => {
@@ -103,39 +113,30 @@ function PanelInner({ movies, filter, onFilter, onPick, onSettings, onClose }: P
         )}
         {q.trim() && hits.length === 0 && <div className="panel__note">Not on your shelf.</div>}
 
-        <div className="panel__row">
-          <span>My rating</span>
-          <div className="range">
-            <select
-              aria-label="Minimum rating"
-              value={filter.min}
-              onChange={(e) => onFilter({ min: Number(e.target.value), max: Math.max(filter.max, Number(e.target.value)) })}
-            >
-              {VALUES.map((v) => (
-                <option key={v} value={v}>
-                  {formatRating(v)}
-                </option>
-              ))}
-            </select>
-            <span className="range__dash">to</span>
-            <select
-              aria-label="Maximum rating"
-              value={filter.max}
-              onChange={(e) => onFilter({ max: Number(e.target.value), min: Math.min(filter.min, Number(e.target.value)) })}
-            >
-              {VALUES.map((v) => (
-                <option key={v} value={v}>
-                  {formatRating(v)}
-                </option>
-              ))}
-            </select>
+        <div className="panel__filter">
+          <div className="panel__filterhead">
+            <span>My rating</span>
+            <span className="panel__range" aria-live="polite">
+              {dragging ? '' : formatRange(filter.min, filter.max, ' – ')}
+            </span>
           </div>
+          <div className="chips-row" role="group" aria-label="Rating presets">
+            {CHIPS.map((c) => {
+              const on = filter.min === c.min && filter.max === c.max
+              return (
+                <button key={c.label} className={`qchip${on ? ' is-on' : ''}`} aria-pressed={on} onClick={() => onFilter({ min: c.min, max: c.max })}>
+                  {c.label}
+                </button>
+              )
+            })}
+          </div>
+          <RangeSlider
+            value={[filter.min, filter.max] as [number, number]}
+            onChange={([min, max]) => onFilter({ min, max })}
+            label="My rating"
+            onDragging={setDragging}
+          />
         </div>
-        {(filter.min > 1 || filter.max < 10) && (
-          <button className="textbtn panel__clear" onClick={() => onFilter(NO_FILTER)}>
-            Show all ratings
-          </button>
-        )}
       </motion.div>
     </>
   )

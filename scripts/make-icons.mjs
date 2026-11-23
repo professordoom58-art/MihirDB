@@ -1,94 +1,43 @@
-// Generates the app icon + splash sources (assets/) for @capacitor/assets,
-// and the PWA icons (public/icons/). Run: npm run icons
+// Builds every app icon + the splash from ONE source image: assets/icon-source.png
+// (1024×1024, opaque, full-bleed). Run: npm run icons
+//   → assets/icon-only.png, assets/splash*.png   (inputs for @capacitor/assets → iOS)
+//   → public/icons/*                               (PWA, home screen, favicon)
 import { mkdirSync, writeFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 
-const root = new URL('..', import.meta.url)
-const out = (p) => new URL(p, root)
-mkdirSync(out('assets'), { recursive: true })
-mkdirSync(out('public/icons'), { recursive: true })
+const p = (rel) => fileURLToPath(new URL(`../${rel}`, import.meta.url))
+const SRC = p('assets/icon-source.png')
+const APP_BG = '#050506' // the app's background, so launch → app has no colour jump
+mkdirSync(p('public/icons'), { recursive: true })
 
-/** A tilted-light jewel case with a hinge spine on near-black. `pad` = safe margin. */
-function iconSvg(size = 1024, pad = 0.2, bg = true) {
-  const s = size
-  const c = s * (1 - pad * 2) // case size
-  const x = (s - c) / 2
-  const y = (s - c) / 2
-  const r = c * 0.035
-  const spine = c * 0.11
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}" viewBox="0 0 ${s} ${s}">
-  <defs>
-    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
-      <stop offset="0" stop-color="#26232e"/>
-      <stop offset="0.55" stop-color="#0d0c11"/>
-      <stop offset="1" stop-color="#050506"/>
-    </radialGradient>
-    <linearGradient id="insert" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#e8a54b"/>
-      <stop offset="0.5" stop-color="#b5452f"/>
-      <stop offset="1" stop-color="#3a1630"/>
-    </linearGradient>
-    <linearGradient id="spine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#3a3a42"/>
-      <stop offset="0.25" stop-color="#121215"/>
-      <stop offset="0.45" stop-color="#2a2a31"/>
-      <stop offset="0.7" stop-color="#0d0d10"/>
-      <stop offset="1" stop-color="#1d1d22"/>
-    </linearGradient>
-    <linearGradient id="glare" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0.28" stop-color="#fff" stop-opacity="0"/>
-      <stop offset="0.42" stop-color="#fff" stop-opacity="0.38"/>
-      <stop offset="0.47" stop-color="#fff" stop-opacity="0.08"/>
-      <stop offset="0.56" stop-color="#fff" stop-opacity="0"/>
-    </linearGradient>
-    <radialGradient id="shadow" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#000" stop-opacity="0.8"/>
-      <stop offset="1" stop-color="#000" stop-opacity="0"/>
-    </radialGradient>
-    <clipPath id="clip"><rect x="${x}" y="${y}" width="${c}" height="${c}" rx="${r}"/></clipPath>
-  </defs>
-  ${bg ? `<rect width="${s}" height="${s}" fill="url(#bg)"/>` : ''}
-  <ellipse cx="${s / 2}" cy="${y + c + c * 0.06}" rx="${c * 0.46}" ry="${c * 0.07}" fill="url(#shadow)"/>
-  <g clip-path="url(#clip)">
-    <rect x="${x}" y="${y}" width="${c}" height="${c}" fill="#101013"/>
-    <rect x="${x + spine + c * 0.008}" y="${y + c * 0.018}" width="${c - spine - c * 0.026}" height="${c - c * 0.036}" fill="url(#insert)"/>
-    <circle cx="${x + spine + (c - spine) * 0.5}" cy="${y + c * 0.5}" r="${c * 0.2}" fill="#0b0b0d" opacity="0.55"/>
-    <circle cx="${x + spine + (c - spine) * 0.5}" cy="${y + c * 0.5}" r="${c * 0.05}" fill="#f4d6a0" opacity="0.7"/>
-    <rect x="${x}" y="${y}" width="${spine}" height="${c}" fill="url(#spine)"/>
-    <rect x="${x + spine * 0.2}" y="${y + c * 0.03}" width="${spine * 0.58}" height="${c * 0.07}" rx="2" fill="#3b3b44"/>
-    <rect x="${x + spine * 0.2}" y="${y + c * 0.9}" width="${spine * 0.58}" height="${c * 0.07}" rx="2" fill="#3b3b44"/>
-    <rect x="${x}" y="${y}" width="${c}" height="${c}" fill="url(#glare)"/>
-  </g>
-  <rect x="${x + 1}" y="${y + 1}" width="${c - 2}" height="${c - 2}" rx="${r}" fill="none" stroke="#fff" stroke-opacity="0.22" stroke-width="${Math.max(2, s * 0.003)}"/>
-</svg>`
+const meta = await sharp(SRC).metadata()
+if (meta.width !== meta.height) throw new Error(`icon-source.png must be square (is ${meta.width}×${meta.height})`)
+
+// iOS applies its own rounded mask, and wants an opaque square
+const square = (size) => sharp(SRC).resize(size, size, { kernel: 'lanczos3' }).flatten({ background: APP_BG }).png()
+await square(1024).toFile(p('assets/icon-only.png'))
+
+// splash: the icon (with iOS-like rounded corners) centred on the app background
+async function splash(file) {
+  const S = 2732
+  const icon = Math.round(S * 0.17)
+  const r = Math.round(icon * 0.2237) // iOS icon corner ratio
+  const mask = Buffer.from(`<svg width="${icon}" height="${icon}"><rect width="${icon}" height="${icon}" rx="${r}" ry="${r}"/></svg>`)
+  const rounded = await sharp(SRC).resize(icon, icon).composite([{ input: mask, blend: 'dest-in' }]).png().toBuffer()
+  await sharp({ create: { width: S, height: S, channels: 4, background: APP_BG } })
+    .composite([{ input: rounded, left: Math.round((S - icon) / 2), top: Math.round((S - icon) / 2) }])
+    .png()
+    .toFile(p(file))
 }
+await splash('assets/splash.png')
+await splash('assets/splash-dark.png')
 
-function splashSvg(size = 2732) {
-  const icon = iconSvg(size * 0.22, 0.0, false).replace(/^<svg[^>]*>|<\/svg>$/g, '')
-  const off = size * 0.39
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
-  <rect width="${size}" height="${size}" fill="#050506"/>
-  <g transform="translate(${off} ${off})">${icon}</g>
-</svg>`
-}
-
-const png = (svg, file, size) =>
-  sharp(Buffer.from(svg)).resize(size, size).png().toFile(out(file).pathname.replace(/^\/([A-Za-z]:)/, '$1'))
-
-// Capacitor assets sources
-await png(iconSvg(1024, 0.17), 'assets/icon-only.png', 1024)
-await png(iconSvg(1024, 0.26, false), 'assets/icon-foreground.png', 1024)
-await sharp({ create: { width: 1024, height: 1024, channels: 4, background: '#050506' } })
-  .png()
-  .toFile(out('assets/icon-background.png').pathname.replace(/^\/([A-Za-z]:)/, '$1'))
-await png(splashSvg(), 'assets/splash.png', 2732)
-await png(splashSvg(), 'assets/splash-dark.png', 2732)
-
-// PWA / favicon
-await png(iconSvg(512, 0.17), 'public/icons/icon-512.png', 512)
-await png(iconSvg(192, 0.17), 'public/icons/icon-192.png', 192)
-await png(iconSvg(512, 0.27), 'public/icons/icon-maskable-512.png', 512)
-await png(iconSvg(180, 0.15), 'public/icons/apple-touch-icon.png', 180)
-await png(iconSvg(64, 0.1), 'public/icons/favicon.png', 64)
-writeFileSync(out('public/icons/README.txt'), 'Generated by scripts/make-icons.mjs. Do not edit by hand.\n')
-console.log('icons written')
+// PWA / home screen / favicon
+await square(512).toFile(p('public/icons/icon-512.png'))
+await square(192).toFile(p('public/icons/icon-192.png'))
+await square(512).toFile(p('public/icons/icon-maskable-512.png')) // full-bleed artwork is already maskable-safe
+await square(180).toFile(p('public/icons/apple-touch-icon.png'))
+await square(64).toFile(p('public/icons/favicon.png'))
+writeFileSync(p('public/icons/README.txt'), 'Generated from assets/icon-source.png by scripts/make-icons.mjs. Do not edit by hand.\n')
+console.log('icons written from assets/icon-source.png')

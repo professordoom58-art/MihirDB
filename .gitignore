@@ -5,3 +5,9 @@ dist
 *.log
 .DS_Store
 *.tsbuildinfo
+
+# import cache (raw TMDB/OMDb responses)
+scripts/.cache
+
+# local motion captures / verification artifacts
+captures/

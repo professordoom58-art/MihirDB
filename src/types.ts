@@ -23,6 +23,18 @@ export interface Movie {
   tag?: string
   /** number of films (collections) */
   parts?: number
+  /** films inside a collection, in the old catalog's order */
+  children?: CollectionFilm[]
+  /** TMDB synopsis */
+  overview?: string
+  /** TV: creator(s), seasons, episodes */
+  creator?: string
+  seasons?: number
+  episodes?: number
+  /** collections: the label exactly as written in the old repo (e.g. "OCEAN'S COLLECTION") */
+  sourceTitle?: string
+  /** position in the old ILOVEMOVIES list ("// 24. Inception"); rating ties sort by it */
+  originalOrder?: number
   /** locally cached high-res poster for offline use */
   posterBlob?: Blob
   posterCachedAt?: number
@@ -42,6 +54,19 @@ export type MovieInfo = Pick<
   Movie,
   'tmdbId' | 'imdbId' | 'title' | 'year' | 'director' | 'runtime' | 'genres' | 'posterPath' | 'posterUrl' | 'backdropPath'
 >
+
+export interface CollectionFilm {
+  tmdbId: number
+  title: string
+  year: number
+  posterPath?: string
+  imdbId?: string
+  /** only if I rated this film on its own */
+  myRating?: number
+  myReview?: string
+  /** marked in favoriteMovieIds (e.g. Fast Five in Fast & Furious) */
+  favorite?: boolean
+}
 
 export interface Scores {
   imdbRating?: number

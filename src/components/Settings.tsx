@@ -4,7 +4,9 @@ import { exportJson, getLastBackup, importJson } from '../lib/backup'
 import { db, useLive } from '../lib/db'
 import { syncPending } from '../lib/sync'
 import { disableTilt, enableTilt, tiltNeedsPermission, tiltSupported, tiltWanted } from '../lib/tilt'
-import { Sheet, Spinner } from './ui'
+import { mergeSeed } from '../lib/seed'
+import { importOldReviews, OLD_REVIEWS_SNIPPET } from '../lib/reviews'
+import { Confirm, Sheet, Spinner } from './ui'
 
 interface Props {
   open: boolean
@@ -30,6 +32,8 @@ function SettingsBody({ caseStyle, onCaseStyle, onOpenImporter }: Props) {
   const [msg, setMsg] = useState('')
   const [busy, setBusy] = useState('')
   const [tilt, setTilt] = useState(tiltWanted())
+  const [confirmSeed, setConfirmSeed] = useState(false)
+  const [reviewsJson, setReviewsJson] = useState('')
   const file = useRef<HTMLInputElement>(null)
 
 
@@ -143,11 +147,82 @@ function SettingsBody({ caseStyle, onCaseStyle, onOpenImporter }: Props) {
 
       <section>
         <h2>Old catalog</h2>
-        <p className="muted">Bring in the movies, ratings and reviews from your previous site.</p>
-        <button className="btn" onClick={onOpenImporter}>
-          Import old catalog…
+        <p className="muted">
+          Your ILOVEMOVIES catalog ships with the app. Re-import merges it back in: missing titles are added and
+          details refreshed, but ratings or reviews you changed here, and movies you added, are kept.
+        </p>
+        <div className="btnrow">
+          <button className="btn" disabled={!!busy} onClick={() => setConfirmSeed(true)}>
+            {busy === 'seed' ? <Spinner size={16} /> : 'Re-import seed'}
+          </button>
+          <button className="btn" onClick={onOpenImporter}>
+            Import another list…
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <h2>Import old reviews</h2>
+        <p className="muted">
+          Your written reviews were saved in the old site's browser storage. Open the old site, press F12 → Console,
+          run this line (it copies them to the clipboard), then paste below.
+        </p>
+        <div className="snippet" data-noswipe>
+          <code>{OLD_REVIEWS_SNIPPET}</code>
+          <button
+            className="btn btn--small"
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(OLD_REVIEWS_SNIPPET)
+                setMsg('Snippet copied.')
+              } catch {
+                setMsg('Select the line and copy it manually.')
+              }
+            }}
+          >
+            Copy
+          </button>
+        </div>
+        <textarea
+          className="paste"
+          rows={5}
+          placeholder='{"mfm_review_27205": {"tmdbId": 27205, "reviewText": "…", "mihirScore": 10}}'
+          value={reviewsJson}
+          onChange={(e) => setReviewsJson(e.target.value)}
+        />
+        <button
+          className="btn btn--primary"
+          style={{ marginTop: 10 }}
+          disabled={!reviewsJson.trim() || !!busy}
+          onClick={() =>
+            run('reviews', async () => {
+              const r = await importOldReviews(reviewsJson)
+              setReviewsJson('')
+              return `Imported ${r.matched + r.inCollections} reviews${r.inCollections ? ` (${r.inCollections} on films inside collections)` : ''}.${
+                r.unmatched.length ? ` Not on the shelf: TMDB ${r.unmatched.join(', ')}.` : ''
+              }`
+            })
+          }
+        >
+          {busy === 'reviews' ? <Spinner size={16} /> : 'Import reviews'}
         </button>
       </section>
+
+      <Confirm
+        open={confirmSeed}
+        title="Re-import your old catalog?"
+        body="Adds anything missing and refreshes posters and details. Your own edits and additions stay."
+        confirmLabel="Re-import"
+        onCancel={() => setConfirmSeed(false)}
+        onConfirm={() => {
+          setConfirmSeed(false)
+          run('seed', async () => {
+            const r = await mergeSeed()
+            void syncPending()
+            return `Added ${r.added}, refreshed ${r.refreshed}${r.keptEdits ? ` (kept your edits on ${r.keptEdits})` : ''}.`
+          })
+        }}
+      />
 
       {msg && <div className="toast" role="status">{msg}</div>}
     </div>

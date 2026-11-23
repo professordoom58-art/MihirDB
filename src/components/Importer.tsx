@@ -6,6 +6,7 @@ import { detectScale, matchRow, normaliseRating, parseCatalog, type Match, type 
 import { formatRating } from '../lib/sort'
 import { syncPending } from '../lib/sync'
 import { Sheet, Spinner } from './ui'
+import { RangeSlider } from './RangeSlider'
 
 /**
  * One-time importer for the old catalog:
@@ -320,17 +321,14 @@ function ImporterBody({ onClose }: { onClose: () => void }) {
   )
 }
 
-const OPTIONS = Array.from({ length: 19 }, (_, i) => 1 + i / 2)
-
+/** compact version of the app's one rating control */
 function RatingPick({ value, onChange }: { value?: number; onChange: (v: number) => void }) {
   return (
-    <select className="ratingpick" aria-label="Rating" value={value ?? ''} onChange={(e) => onChange(Number(e.target.value))}>
-      {value == null && <option value="">–</option>}
-      {OPTIONS.map((v) => (
-        <option key={v} value={v}>
-          {formatRating(v)}
-        </option>
-      ))}
-    </select>
+    <div className="ratingpick">
+      <span className="ratingpick__value">{value != null ? formatRating(value) : '–'}</span>
+      <div className="ratingpick__slider">
+        <RangeSlider value={value ?? 5} onChange={onChange} label="Rating" />
+      </div>
+    </div>
   )
 }

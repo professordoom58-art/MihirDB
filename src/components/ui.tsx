@@ -1,7 +1,7 @@
-import { useEffect, useLayoutEffect, useRef, type ReactNode, type RefObject } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from 'react'
 import { AnimatePresence, animate, motion, useMotionValue, type MotionValue } from 'framer-motion'
 import { formatRating } from '../lib/sort'
-import { hapticTick } from '../lib/haptics'
+import { RangeSlider } from './RangeSlider'
 
 /**
  * Swipe down to dismiss. Only takes over when the scroller is at the top and the
@@ -146,68 +146,23 @@ function SheetInner({ onClose, children, title, action, tall = true, z = 20, lab
   )
 }
 
-// ------------------------------------------------------------------ Rating slider
+// ------------------------------------------------------------------ Rating slider (single thumb)
 
-const STEPS = 18 // 1..10 in 0.5 steps
-
+/** My rating in the add/edit sheet: big number + the same slider as the filter. */
 export function RatingSlider({ value, onChange }: { value: number; onChange: (v: number) => void }) {
-  const track = useRef<HTMLDivElement>(null)
-  const last = useRef(value)
-  const set = (v: number) => {
-    const c = Math.min(10, Math.max(1, Math.round(v * 2) / 2))
-    if (c !== last.current) {
-      last.current = c
-      hapticTick()
-      onChange(c)
-    }
-  }
-  const fromX = (clientX: number) => {
-    const r = track.current!.getBoundingClientRect()
-    const t = Math.min(1, Math.max(0, (clientX - r.left) / r.width))
-    set(1 + Math.round(t * STEPS) / 2)
-  }
-  useEffect(() => {
-    last.current = value
-  }, [value])
-  const pct = ((value - 1) / 9) * 100
+  // a few old entries are rated 11 on purpose: keep that reachable for them, 10 otherwise
+  const [max] = useState(value > 10 ? 11 : 10)
   return (
     <div className="rating" data-noswipe>
       <div className="rating__value" aria-hidden>
         {formatRating(value)}
         <span>/10</span>
       </div>
-      <div
-        ref={track}
-        className="rating__track"
-        role="slider"
-        tabIndex={0}
-        aria-label="My rating"
-        aria-valuemin={1}
-        aria-valuemax={10}
-        aria-valuenow={value}
-        aria-valuetext={formatRating(value)}
-        onPointerDown={(e) => {
-          ;(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
-          fromX(e.clientX)
-        }}
-        onPointerMove={(e) => e.buttons && fromX(e.clientX)}
-        onKeyDown={(e) => {
-          if (e.key === 'ArrowRight' || e.key === 'ArrowUp') (e.preventDefault(), set(value + 0.5))
-          if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') (e.preventDefault(), set(value - 0.5))
-        }}
-      >
-        <div className="rating__rail">
-          <div className="rating__fill" style={{ width: `${pct}%` }} />
-          {Array.from({ length: 10 }, (_, i) => (
-            <div key={i} className="rating__tick" style={{ left: `${(i / 9) * 100}%` }} />
-          ))}
-        </div>
-        <div className="rating__thumb" style={{ left: `${pct}%` }} />
-      </div>
+      <RangeSlider value={value} onChange={onChange} label="My rating" bubble={false} max={max} />
       <div className="rating__labels" aria-hidden>
         <span>1</span>
         <span>5</span>
-        <span>10</span>
+        <span>{max}</span>
       </div>
     </div>
   )
