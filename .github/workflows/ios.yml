@@ -2,6 +2,7 @@
 # Sign + install it from Windows with Sideloadly (or AltStore/SideStore) using a free
 # Apple ID. See README.
 #   - tag push (v1.2.3)  -> normal release "Shelf v1.2.3", marked latest
+#   - push to main       -> pre-release "build-<run>" (auto build on every push)
 #   - manual release run -> pre-release "build-<run>"
 #   - manual live run    -> pre-release "live-<run>"
 name: iOS IPA
@@ -19,7 +20,15 @@ on:
         type: string
         required: false
   push:
+    branches: [main]
     tags: ['v*']
+    paths-ignore: ['**/*.md'] # docs-only pushes don't need a new IPA
+
+# A newer push to main supersedes a build that's still running (saves macOS minutes).
+# Tags and manual runs each get their own group, so they're never cancelled.
+concurrency:
+  group: ios-${{ github.ref_type == 'branch' && github.event_name == 'push' && github.ref || github.run_id }}
+  cancel-in-progress: true
 
 permissions:
   contents: write # create the release and upload the IPA
@@ -122,6 +131,9 @@ jobs:
           REF_NAME: ${{ github.ref_name }}
           RUN: ${{ github.run_number }}
           LIVE_URL: ${{ github.event.inputs.live_url }}
+          EVENT: ${{ github.event_name }}
+          SHA: ${{ github.sha }}
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
         run: |
           # Tag push -> versioned release. Manual runs -> a per-run pre-release, so the
           # "latest" release always stays the versioned one.
@@ -139,7 +151,12 @@ jobs:
             tag="build-$RUN"
             name="Shelf build $RUN"
             prerelease=true
-            body="**Release build** (bundled, works offline) from manual run #$RUN."
+            if [ "$EVENT" = "push" ]; then
+              first_line=$(echo "$COMMIT_MSG" | head -n1)
+              body="**Auto build** (bundled, works offline) of \`${SHA:0:7}\`: $first_line"
+            else
+              body="**Release build** (bundled, works offline) from manual run #$RUN."
+            fi
           fi
           {
             echo "tag=$tag"
