@@ -1,6 +1,6 @@
 # Shelf
 
-A personal movie catalog for iPhone: a PS5-style cover-flow of CD jewel cases, sorted by my own rating. It's built with Vite, React and TypeScript, and wrapped for iOS with Capacitor. The IPA is built in GitHub Actions, so **no Mac or Xcode is needed**.
+A personal movie catalog for iPhone: a PS5-style arc of DVD keep cases, sorted by my own rating. It's built with Vite, React and TypeScript, and wrapped for iOS with Capacitor. The IPA is built in GitHub Actions, so **no Mac or Xcode is needed**.
 
 > **About the API key:** the TMDB key is hard-coded in `src/lib/config.ts`, so the app works with no `.env` file and no GitHub secret. It is compiled into the bundle — keep this repo private, and rotate the key if you ever publish it. A `.env` value or the `TMDB_API_KEY` secret still overrides the built-in key.
 
@@ -21,7 +21,6 @@ npm run dev
 
 **Regenerating the catalog (optional).** `npm run import:old` clones the old repo to `../ilovemovies-old` (or `--repo <path>`) and *executes* its `favoriteMovies.ts`, `mihirRatings.ts` and `customGenres.ts` (Node's built-in TypeScript support, so values are exact). It fetches TMDB details for all 179 entries, plus every film inside the 24 collections, extracts poster palettes, and writes `src/data/seed.json`. Responses are cached in `scripts/.cache`, so re-runs take about a second (`--fresh` clears the cache). It prints a summary and lists anything that failed to resolve. You only need this to refresh the bundled catalog; the app does not run it.
 
-In the app: Settings → **Re-import seed** merges the catalog back in without wiping your edits or additions. Settings → **Import old reviews** takes the JSON from the old site's browser storage (the snippet to run there is shown in that panel).
 
 ### If TMDB "can't be reached" (Jio / some Indian ISPs)
 
@@ -65,22 +64,15 @@ If TMDB still can't be reached and an OMDb key is set, search falls back to OMDb
 - **Shelf:** swipe through, tap a side case to centre it, tap the centre case to open it. Sorted by your rating (ties → most recently added).
 - **`+`:** search TMDB, pick the right film (posters and years tell remakes apart), set your rating (1–10, half steps) and review, then **Save**. The shelf glides to its spot and the glare plays on it.
 - **Detail:** swipe down (or tap the chevron) to close. Edit and Delete live here.
-- **Search icon (top-left):** find a movie on your shelf, or filter by a rating range. The **gear** opens Settings: CD/DVD case style, tilt glare, backup, import.
+- **Search icon (top-left):** find a movie on your shelf, or filter by a rating range. The **gear** opens Settings: lite mode, and backup (export / import).
 - **Offline:** every poster is saved on the device, so the shelf works without a connection. Critic scores that failed (offline or the OMDb limit) are retried automatically.
 
 ### Backups (important for sideloaded apps)
 
-Settings → **Export JSON** opens the share sheet. Save it to Files or iCloud Drive. **Import JSON** merges a backup back in (the newer edit wins). Settings shows when you last backed up.
+Settings → **Export backup** opens the share sheet. Save it to Files or iCloud Drive. **Import backup** merges a backup file back in (the newer edit wins). Settings shows when you last backed up.
 
-### Importing the old catalog
+**Lite mode** (Settings) turns off the heaviest effects. It switches on automatically after the WebView runs out of memory, and the switch is always there to turn it on or off yourself.
 
-Settings → **Import old catalog…** gives you three ways in:
-
-1. **URL:** paste your old site's address and tap Fetch (works while running `npm run dev`; the dev server fetches the page for you).
-2. **File:** a JSON/CSV export, a saved web page (.html), or a .txt list.
-3. **Paste:** e.g. `The Matrix (1999) - 9/10 - great`.
-
-The importer detects titles, years, ratings and reviews, and converts /5 or /100 scales to /10. It matches everything on TMDB and shows you **only the uncertain matches** to confirm (with posters), then saves.
 
 ---
 
@@ -138,22 +130,21 @@ src/
   App.tsx                 shelf state, sorting/filter, wiring
   components/
     Carousel.tsx          cover-flow: one motion value drives every case (60fps, virtualised)
-    JewelCase.tsx         CD / DVD case + glare sweep + tilt/mouse highlight
+    JewelCase.tsx         DVD keep case + glare sweep + mouse highlight
     Backdrop.tsx          blurred, crossfading background
     DetailView.tsx        lift-and-open detail, swipe down to close
     MovieEditor.tsx       add (TMDB search) / edit, rating slider, duplicate check
     SearchPanel.tsx       find + rating filter, gear → Settings
-    Settings.tsx          case style, tilt, backup, import
-    Importer.tsx          old-catalog importer (parse → match → review → save)
+    Settings.tsx          lite mode, backup (export / import)
   lib/
     db.ts                 Dexie (IndexedDB) schema
     config.ts             built-in TMDB key + TMDB host fallback
     seed.ts               first-launch bundled catalog + seed merge
     tmdb.ts, omdb.ts      API clients;  catalog.ts = TMDB with an OMDb fallback
     posters.ts, sync.ts   offline poster cache, background score retry
-    importer.ts           catalog parsing + fuzzy title matching
+    similarity.ts         fuzzy title matching (Find on my shelf)
     backup.ts             export/import JSON (share sheet on iOS)
-    haptics.ts, tilt.ts   Capacitor haptics, DeviceOrientation glare
+    haptics.ts            Capacitor haptics
 capacitor.config.ts       app id/name; CAP_LIVE=1 → live-reload server.url
 .github/workflows/ios.yml unsigned IPA on macOS
 proxy/tmdb-worker.js      optional TMDB proxy for blocked networks

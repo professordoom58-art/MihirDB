@@ -28,9 +28,42 @@ const SAFE_KEY = 'shelf.safeMode'
 const ALIVE_KEY = 'shelf.alive'
 const CRASHES_KEY = 'shelf.crashes'
 
+const MANUAL_KEY = 'shelf.liteManual' // 'on' | 'off': the user's explicit choice wins
+const EVENT = 'shelf:perf'
+
 function readLite(): boolean {
   try {
+    const manual = localStorage.getItem(MANUAL_KEY)
+    if (manual === 'on') return true
+    if (manual === 'off') return false
     return sessionStorage.getItem(KEY) === '1' || localStorage.getItem(SAFE_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
+/** Current lite-mode state (Settings switch). */
+export function isLiteMode(): boolean {
+  return readLite()
+}
+
+/** The Settings switch: applies immediately (no reload) and sticks, overriding auto-detection. */
+export function setLiteMode(on: boolean) {
+  try {
+    localStorage.setItem(MANUAL_KEY, on ? 'on' : 'off')
+    if (!on) {
+      localStorage.removeItem(SAFE_KEY)
+      sessionStorage.removeItem(KEY)
+    }
+  } catch {
+    /* ignore */
+  }
+  window.dispatchEvent(new Event(EVENT))
+}
+
+function manualChoice(): boolean {
+  try {
+    return localStorage.getItem(MANUAL_KEY) !== null
   } catch {
     return false
   }
@@ -49,6 +82,7 @@ export function guardAgainstCrashes() {
     const last = Number(localStorage.getItem(ALIVE_KEY) || 0)
     if (last && Date.now() - last < 20_000) {
       localStorage.setItem(SAFE_KEY, '1')
+      localStorage.removeItem(MANUAL_KEY) // a crash overrides an earlier "off"
       localStorage.setItem(CRASHES_KEY, String(Number(localStorage.getItem(CRASHES_KEY) || 0) + 1))
     }
     const beat = () => {
@@ -87,8 +121,15 @@ export function resetSafeMode() {
 export function useAutoPerf(pos: MotionValue<number>): boolean {
   const [lite, setLite] = useState(readLite)
 
+  // the Settings switch
   useEffect(() => {
-    if (lite) return
+    const on = () => setLite(readLite())
+    window.addEventListener(EVENT, on)
+    return () => window.removeEventListener(EVENT, on)
+  }, [])
+
+  useEffect(() => {
+    if (lite || manualChoice()) return // never auto-switch against the user's choice
 
     let raf = 0
     let last = 0

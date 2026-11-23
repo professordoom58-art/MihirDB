@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import {
   animate,
   motion,
@@ -10,7 +11,7 @@ import {
   type MotionValue,
   type Variants,
 } from 'framer-motion'
-import type { CaseStyle, Movie } from '../types'
+import type { Movie } from '../types'
 import { formatRating } from '../lib/sort'
 import { posterSrc } from '../lib/tmdb'
 import { hapticTick } from '../lib/haptics'
@@ -18,6 +19,10 @@ import { CHOREO, DISMISS, REDUCED, SPRING } from '../lib/motion'
 import { JewelCase } from './JewelCase'
 import { fmtRuntime } from './MovieEditor'
 import { Confirm } from './ui'
+
+/** #hero-layer (rendered by App inside .app): fixed, full-screen, overflow visible, no transform. */
+const heroLayer = () => document.getElementById('hero-layer') ?? document.body
+const appRoot = () => document.querySelector('.app') ?? document.body
 
 export interface CasePose {
   cx: number
@@ -28,7 +33,6 @@ export interface CasePose {
 
 interface Props {
   movie: Movie
-  caseStyle: CaseStyle
   accent: string
   /** where the case sits on the arc right now (re-queried on close) */
   getOrigin: () => CasePose | null
@@ -43,23 +47,45 @@ interface Props {
 
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v))
 
-export function DetailView({ movie, caseStyle, accent, getOrigin, room, glareX, glareY, onClosed, onEdit, onDelete }: Props) {
+export function DetailView({ movie, accent, getOrigin, room, glareX, glareY, onClosed, onEdit, onDelete }: Props) {
   const reduce = useReducedMotion() ?? false
   const card = useRef<HTMLDivElement>(null)
   const scroller = useRef<HTMLDivElement>(null)
   const slot = useRef<HTMLDivElement>(null)
-  const phase = useRef<'open' | 'closing' | 'closed'>('open')
+  /**
+   * One state machine, one owner per transition:
+   *   open      ← mount (the opening flight is just the visual entry of `open`; interruptible)
+   *   open      → dragging   drag gesture becomes active          (gesture handler)
+   *   dragging  → closing    release past distance / velocity     (gesture handler)
+   *   dragging  → open       release short of it: spring back     (gesture handler)
+   *   open      → closing    chevron / scrim / Escape / back      (close())
+   *   closing   → dragging   grabbing the card mid-close          (gesture handler)
+   *   closing   → closed     the flight home lands               (the ONLY animation callback)
+   * `closed` calls onClosed(): the shelf case reappears in the same commit the hero unmounts.
+   */
+  const phase = useRef<'open' | 'dragging' | 'closing' | 'closed'>('open')
   const anims = useRef<AnimationPlaybackControls[]>([])
   const [shown, setShown] = useState(false) // content rows in/out
   const [closing, setClosing] = useState(false)
   const [confirming, setConfirming] = useState(false)
   const [sweep, setSweep] = useState<number | null>(null)
   const pushed = useRef(false)
+  const ownBack = useRef(false)
 
   // ---------------------------------------------------------------- motion values
   const open = useMotionValue(0) // 0 = on the shelf, 1 = detail fully open
   const dragY = useMotionValue(0)
-  const hx = useMotionValue(0) // hero (the case) offset from its detail slot, in card space
+  // The hero (the case) lives in #hero-layer, OUTSIDE the card, so the card's
+  // overflow/transform can never clip it. Its position is still expressed in the card's
+  // own (untransformed) space as an offset from the placeholder, and the card's drag
+  // transform is applied to it mathematically (shared motion values), so while dragging
+  // the poster moves exactly as if it were part of the card.
+  const pcX = useMotionValue(0) // placeholder centre + size, card space
+  const pcY = useMotionValue(0)
+  const pw = useMotionValue(0)
+  const ph = useMotionValue(0)
+  const heroVis = useMotionValue(1) // 0 while the poster is scrolled off-screen
+  const hx = useMotionValue(0) // hero offset from the placeholder, card space
   const hy = useMotionValue(0)
   const hs = useMotionValue(1)
   const hr = useMotionValue(0)
@@ -93,19 +119,67 @@ export function DetailView({ movie, caseStyle, accent, getOrigin, room, glareX, 
   const run = (a: AnimationPlaybackControls) => (anims.current.push(a), a)
 
   // ---------------------------------------------------------------- geometry
-  /** Hero motion values that put the case exactly at a screen pose, given the card's current drag transform. */
-  const heroTarget = (pose: CasePose) => {
+  const centre = () => ({ x: window.innerWidth / 2, y: window.innerHeight / 2 })
+  /** screen point → card space (inverse of the card's drag: translateY(dragY) scale(s) about the screen centre) */
+  const toCard = (px: number, py: number) => {
+    const C = centre()
     const s = cardScale.get()
-    const dy = dragY.get()
-    const C = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
-    const toLocal = (px: number, py: number) => ({ x: C.x + (px - C.x) / s, y: C.y + (py - dy - C.y) / s })
-    const r = slot.current!.getBoundingClientRect()
-    const slotC = toLocal(r.left + r.width / 2, r.top + r.height / 2)
-    const t = toLocal(pose.cx, pose.cy)
-    return { x: t.x - slotC.x, y: t.y - slotC.y, scale: pose.w / (r.width / s) / s, rotate: pose.rotate }
+    return { x: C.x + (px - C.x) / s, y: C.y + (py - dragY.get() - C.y) / s }
   }
 
+  /** Read the placeholder's rect (re-run on mount, scroll and resize). */
+  const measure = () => {
+    const el = slot.current
+    if (!el) return
+    const r = el.getBoundingClientRect()
+    const s = cardScale.get()
+    const c = toCard(r.left + r.width / 2, r.top + r.height / 2)
+    pcX.set(c.x)
+    pcY.set(c.y)
+    pw.set(r.width / s)
+    ph.set(r.height / s)
+    // scrolled so far that the poster is off-screen: don't draw the hero
+    if (phase.current !== 'closing') heroVis.set(r.bottom > 0 ? 1 : 0)
+  }
+
+  /** Hero motion values that put the case exactly at a screen pose (centre, width, rotation). */
+  const heroTarget = (pose: CasePose) => {
+    measure()
+    const t = toCard(pose.cx, pose.cy)
+    return { x: t.x - pcX.get(), y: t.y - pcY.get(), scale: pose.w / (pw.get() * cardScale.get()), rotate: pose.rotate }
+  }
+
+  // The hero's actual screen transform: card-space position pushed through the card's drag.
+  const heroScreenX = useTransform([pcX, hx, cardScale, pw] as MotionValue<number>[], ([pc, x, s, w]: number[]) => {
+    const C = centre()
+    return C.x + s * (pc + x - C.x) - w / 2
+  })
+  const heroScreenY = useTransform([pcY, hy, cardScale, dragY, ph] as MotionValue<number>[], ([pc, y, s, dy, h]: number[]) => {
+    const C = centre()
+    return C.y + s * (pc + y - C.y) + dy - h / 2
+  })
+  const heroScreenScale = useTransform([hs, cardScale] as MotionValue<number>[], ([a, s]: number[]) => a * s)
+
+  // re-measure on scroll and resize
+  useEffect(() => {
+    const sc = scroller.current
+    let raf = 0
+    const on = () => {
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(measure)
+    }
+    sc?.addEventListener('scroll', on, { passive: true })
+    window.addEventListener('resize', on)
+    return () => {
+      cancelAnimationFrame(raf)
+      sc?.removeEventListener('scroll', on)
+      window.removeEventListener('resize', on)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   // ---------------------------------------------------------------- open
+  /** → open: content back in, the case springs to its detail slot from wherever it is */
   const toOpen = (velocityY = 0) => {
     phase.current = 'open'
     setClosing(false)
@@ -156,16 +230,19 @@ export function DetailView({ movie, caseStyle, accent, getOrigin, room, glareX, 
   }
 
   const close = (velocityY = 0) => {
-    if (phase.current !== 'open') return
+    if (phase.current !== 'open' && phase.current !== 'dragging') return
     stopAll()
     phase.current = 'closing'
     setClosing(true)
     setShown(false)
     if (history.state?.shelfDetail) {
       try {
+        // our own back(): its popstate arrives later (often after a finger has grabbed
+        // the card mid-close) and must not be mistaken for the user pressing Back
+        ownBack.current = true
         history.back()
       } catch {
-        /* ignore */
+        ownBack.current = false
       }
     }
     if (reduce) {
@@ -180,6 +257,17 @@ export function DetailView({ movie, caseStyle, accent, getOrigin, room, glareX, 
     }
     const t = heroTarget(pose)
     const s = cardScale.get()
+    if (heroVis.get() < 0.5) {
+      // poster was scrolled off-screen: don't fly it in from nowhere. Put it straight
+      // into the slot (invisible), fade it in there while the sheet goes away.
+      hx.set(t.x)
+      hy.set(t.y)
+      hs.set(t.scale)
+      hr.set(t.rotate)
+      run(animate(heroVis, 1, SPRING.content))
+      run(animate(open, 0, SPRING.main)).finished.then(finish)
+      return
+    }
     run(animate(hx, t.x, SPRING.main))
     run(animate(hs, t.scale, SPRING.main))
     run(animate(hr, t.rotate, SPRING.main))
@@ -189,7 +277,13 @@ export function DetailView({ movie, caseStyle, accent, getOrigin, room, glareX, 
 
   // back button / Escape
   useEffect(() => {
-    const onPop = () => close()
+    const onPop = () => {
+      if (ownBack.current) {
+        ownBack.current = false
+        return
+      }
+      close()
+    }
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && !confirming && close()
     window.addEventListener('popstate', onPop)
     window.addEventListener('keydown', onKey)
@@ -202,7 +296,13 @@ export function DetailView({ movie, caseStyle, accent, getOrigin, room, glareX, 
   // The tap that opened us is followed by a synthetic click that lands on the new
   // overlay; ignore background taps for a moment so it doesn't close straight away.
   const openedAt = useRef(performance.now())
-  const closeFromBackground = () => performance.now() - openedAt.current > 350 && close()
+  // Likewise, releasing a drag fires a click on the common ancestor (often the empty
+  // background): that's the end of the drag, not a tap to close.
+  const lastDragEnd = useRef(0)
+  const closeFromBackground = () => {
+    const now = performance.now()
+    if (now - openedAt.current > 350 && now - lastDragEnd.current > 350) close()
+  }
 
   // ---------------------------------------------------------------- drag to dismiss
   const crossed = useRef(false)
@@ -224,11 +324,15 @@ export function DetailView({ movie, caseStyle, accent, getOrigin, room, glareX, 
     let active = false
     let samples: { t: number; y: number }[] = []
 
+    let tookOver = false
     const begin = (x: number, y: number, t: number) => {
-      // grabbing it mid-close takes over from where things are
+      // Grabbing it mid-close: freeze everything exactly where it is on screen and hand
+      // control to the finger. Nothing springs back until the release decides.
+      tookOver = false
       if (phase.current === 'closing') {
         stopAll()
-        toOpen()
+        phase.current = 'dragging'
+        tookOver = true
       }
       startX = x
       startY = y
@@ -244,26 +348,41 @@ export function DetailView({ movie, caseStyle, accent, getOrigin, room, glareX, 
         if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return
         decided = true
         const atTop = (scroller.current?.scrollTop ?? 0) <= 0
-        active = atTop && dy > 0 && Math.abs(dy) > Math.abs(dx)
-        // a real drag takes over any running spring (e.g. snapping back)
-        if (active) anims.current.filter(Boolean).forEach((a) => a.stop())
-        if (active && dragY.get() !== base) base = dragY.get()
+        // after a mid-close grab any direction counts (you can push it back up)
+        active = tookOver || (atTop && dy > 0 && Math.abs(dy) > Math.abs(dx))
+        if (active) {
+          // a real drag takes over any running spring (e.g. snapping back)
+          anims.current.forEach((a) => a.stop())
+          anims.current = []
+          phase.current = 'dragging'
+          base = dragY.get()
+        }
       }
       if (!active) return
       prevent()
-      dragY.set(Math.max(0, base + dy))
+      dragY.set(Math.max(0, base + (y - startY)))
       samples.push({ t, y })
       if (samples.length > 6) samples.shift()
     }
     const end = () => {
-      if (!active) return
+      if (!active && !tookOver) return // a tap: buttons handle it
+      if (active) lastDragEnd.current = performance.now()
+      if (!active && tookOver) {
+        // touched mid-close without dragging: carry on closing from where it froze
+        tookOver = false
+        close(0)
+        return
+      }
       active = false
+      tookOver = false
       const a = samples[0]
       const b = samples[samples.length - 1]
       const v = b && a && b.t > a.t ? ((b.y - a.y) / (b.t - a.t)) * 1000 : 0 // px/s
-      if (dragY.get() > DISMISS.distance || v > DISMISS.velocity) close(v)
-      else {
-        if (phase.current !== 'open') toOpen()
+      if (dragY.get() > DISMISS.distance || v > DISMISS.velocity) {
+        close(v) // dragging → closing, from the current on-screen rect, with the release velocity
+      } else {
+        // dragging → open: everything springs back from where it is, with the release velocity
+        toOpen(v)
         run(animate(dragY, 0, { ...SPRING.snapBack, velocity: v }))
       }
     }
@@ -361,13 +480,9 @@ export function DetailView({ movie, caseStyle, accent, getOrigin, room, glareX, 
             </motion.button>
           </div>
 
-          {/* the slot is the layout box; the hero inside it is the same case, flown in/out with springs */}
-          <div ref={slot} className={`detail__slot detail__slot--${caseStyle}`}>
-            <motion.div className="detail__hero" style={{ x: hx, y: hy, scale: hs, rotate: hr }}>
-              <motion.div className="detail__glow" style={{ opacity: glowOpacity, background: `radial-gradient(closest-side, ${accent}66, transparent)` }} />
-              <JewelCase movie={movie} style={caseStyle} distance={zero} glareX={glareX} glareY={glareY} sweepKey={sweep} live={sweep !== null} />
-            </motion.div>
-          </div>
+          {/* empty placeholder: where the poster sits in the card. The case itself is drawn
+              in #hero-layer (outside the card) and measured against this box. */}
+          <div ref={slot} className="detail__slot" aria-hidden />
 
           <div className="detail__content">
             <motion.div {...row()}>
@@ -437,18 +552,41 @@ export function DetailView({ movie, caseStyle, accent, getOrigin, room, glareX, 
           </div>
         </div>
       </motion.div>
-      <Confirm
-        open={confirming}
-        title={`Delete “${movie.title}”?`}
-        body="Your rating and review will be removed. This can't be undone."
-        confirmLabel="Delete"
-        danger
-        onCancel={() => setConfirming(false)}
-        onConfirm={() => {
-          setConfirming(false)
-          onDelete(movie)
-        }}
-      />
+      {/* the flying case: outside the card, so nothing can clip it */}
+      {createPortal(
+        <motion.div
+          className="hero-case"
+          style={{
+            x: heroScreenX,
+            y: heroScreenY,
+            scale: heroScreenScale,
+            rotate: hr,
+            width: pw,
+            height: ph,
+            opacity: reduce ? open : heroVis,
+          }}
+        >
+          <motion.div className="detail__glow" style={{ opacity: glowOpacity, background: `radial-gradient(closest-side, ${accent}66, transparent)` }} />
+          <JewelCase movie={movie} distance={zero} glareX={glareX} glareY={glareY} sweepKey={sweep} live={sweep !== null} />
+        </motion.div>,
+        heroLayer(),
+      )}
+      {/* rendered at the app level so it sits above the hero layer */}
+      {createPortal(
+        <Confirm
+          open={confirming}
+          title={`Delete “${movie.title}”?`}
+          body="Your rating and review will be removed. This can't be undone."
+          confirmLabel="Delete"
+          danger
+          onCancel={() => setConfirming(false)}
+          onConfirm={() => {
+            setConfirming(false)
+            onDelete(movie)
+          }}
+        />,
+        appRoot(),
+      )}
     </motion.div>
   )
 }

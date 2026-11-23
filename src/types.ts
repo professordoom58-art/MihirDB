@@ -86,4 +86,3 @@ export interface Candidate {
   overview?: string
 }
 
-export type CaseStyle = 'cd' | 'dvd'

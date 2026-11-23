@@ -4,7 +4,6 @@ import { Backdrop } from './components/Backdrop'
 import { Caption } from './components/Caption'
 import { Carousel, type CarouselHandle } from './components/Carousel'
 import { DetailView } from './components/DetailView'
-import { Importer } from './components/Importer'
 import { MovieEditor } from './components/MovieEditor'
 import { isFiltered, NO_FILTER, SearchPanel, type Filter } from './components/SearchPanel'
 import { Settings } from './components/Settings'
@@ -19,23 +18,13 @@ import { blobUrl } from './lib/posters'
 import { formatRange, inRange, sortShelf } from './lib/sort'
 import { deleteMovie } from './lib/store'
 import { syncPending } from './lib/sync'
-import { startTilt, tiltWanted } from './lib/tilt'
 import { corsUrl, posterSrc } from './lib/tmdb'
 import { useViewport } from './lib/useViewport'
-import type { CaseStyle, Movie } from './types'
+import type { Movie } from './types'
 
-const STYLE_KEY = 'shelf.caseStyle'
 /** Last movie the wheel came to rest on: a WebView reload (memory pressure in a
  *  sideloaded container) should come back to it instead of the first entry. */
 const ACTIVE_KEY = 'shelf.activeId'
-
-function loadCaseStyle(): CaseStyle {
-  try {
-    return localStorage.getItem(STYLE_KEY) === 'dvd' ? 'dvd' : 'cd'
-  } catch {
-    return 'cd'
-  }
-}
 
 function loadActiveId(): string | null {
   try {
@@ -65,8 +54,7 @@ export default function App() {
   shelfRef.current = shelf
 
   const { vw, vh } = useViewport()
-  const [caseStyle, setCaseStyle] = useState<CaseStyle>(loadCaseStyle)
-  const layout = useMemo(() => computeLayout(vw, vh, caseStyle), [vw, vh, caseStyle])
+  const layout = useMemo(() => computeLayout(vw, vh), [vw, vh])
 
   const pos = useMotionValue(0)
   const [active, setActive] = useState(0)
@@ -82,14 +70,14 @@ export default function App() {
 
   const [panelOpen, setPanelOpen] = useState(false)
   const [settingsOpen, setSettingsOpen] = useState(false)
-  const [importerOpen, setImporterOpen] = useState(false)
   const [editor, setEditor] = useState<{ open: boolean; editing: Movie | null }>({ open: false, editing: null })
   const [detailId, setDetailId] = useState<string | null>(null)
   const [freshId, setFreshId] = useState<string | null>(null)
   const pendingFocus = useRef<string | null>(null)
   // 0..1 while the detail view is open: neighbours make room, caption/top bar fade, background dims
   const room = useMotionValue(0)
-  const chromeOpacity = useTransform(room, (r) => 1 - r)
+  // title/year/rating (and the top bar) come back during the last ~40% of the flight home
+  const chromeOpacity = useTransform(room, (r) => 1 - Math.min(1, r / 0.4))
   const bgDim = useTransform(room, (r) => r * CHOREO.bgDim)
   const [computed, setComputed] = useState<Record<string, Palette>>({})
 
@@ -103,18 +91,7 @@ export default function App() {
       glareY.set((e.clientY / window.innerHeight) * 2 - 1)
     }
     window.addEventListener('pointermove', onMove)
-    let stopTilt: (() => void) | null = null
-    const applyTilt = () => {
-      stopTilt?.()
-      stopTilt = tiltWanted() ? startTilt(glareX, glareY) : null
-    }
-    applyTilt()
-    window.addEventListener('shelf:tilt', applyTilt)
-    return () => {
-      window.removeEventListener('pointermove', onMove)
-      window.removeEventListener('shelf:tilt', applyTilt)
-      stopTilt?.()
-    }
+    return () => window.removeEventListener('pointermove', onMove)
   }, [glareX, glareY])
 
   // ---------------------------------------------------------------- background sync
@@ -228,15 +205,6 @@ export default function App() {
   const accent = useMemo(() => readableTint(palette.vivid, palette.dark), [palette])
 
   // ---------------------------------------------------------------- actions
-  const changeStyle = (s: CaseStyle) => {
-    setCaseStyle(s)
-    try {
-      localStorage.setItem(STYLE_KEY, s)
-    } catch {
-      /* private mode */
-    }
-  }
-
   const onTapCentre = useCallback((i: number) => {
     const m = shelfRef.current[i]
     if (m) setDetailId(m.id)
@@ -284,7 +252,6 @@ export default function App() {
           ref={carousel}
           movies={shelf}
           layout={layout}
-          caseStyle={caseStyle}
           pos={pos}
           onActiveChange={onActiveChange}
           onSettle={onSettle}
@@ -322,7 +289,7 @@ export default function App() {
         {empty && all?.length === 0 && (
           <motion.div className="empty" key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <div className="empty__case" aria-hidden>
-              <div className="case case--cd">
+              <div className="case">
                 <div className="case__tray" />
                 <div className="case__spine" />
                 <div className="case__plastic" />
@@ -333,7 +300,7 @@ export default function App() {
               Add your first movie
             </button>
             <button className="textbtn" onClick={() => setSettingsOpen(true)}>
-              Import a catalog
+              Import a backup
             </button>
           </motion.div>
         )}
@@ -367,7 +334,6 @@ export default function App() {
         <DetailView
           key={detailMovie.id}
           movie={detailMovie}
-          caseStyle={caseStyle}
           accent={accent}
           getOrigin={() => (detailIndex >= 0 ? (carousel.current?.pose(detailIndex) ?? null) : null)}
           room={room}
@@ -382,6 +348,10 @@ export default function App() {
         />
       )}
 
+      {/* the detail view's flying case renders here: fixed, full-screen, overflow visible,
+          no transform/filter, so nothing clips it (above the detail card, below sheets) */}
+      <div id="hero-layer" className="hero-layer" />
+
       <MovieEditor
         open={editor.open}
         editing={editor.editing}
@@ -391,11 +361,7 @@ export default function App() {
       <Settings
         open={settingsOpen}
         onClose={() => setSettingsOpen(false)}
-        caseStyle={caseStyle}
-        onCaseStyle={changeStyle}
-        onOpenImporter={() => setImporterOpen(true)}
       />
-      <Importer open={importerOpen} onClose={() => setImporterOpen(false)} />
     </div>
   )
 }

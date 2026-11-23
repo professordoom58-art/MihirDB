@@ -1,4 +1,3 @@
-import type { CaseStyle } from '../types'
 import { CHOREO } from './motion'
 
 /**
@@ -74,10 +73,10 @@ export interface ShelfLayout {
   side: number
 }
 
-export function computeLayout(vw: number, vh: number, style: CaseStyle): ShelfLayout {
-  const aspect = style === 'cd' ? 1 : 1.5 // height / width
+export function computeLayout(vw: number, vh: number): ShelfLayout {
+  const aspect = 1.5 // DVD keep case, height / width
   let w = vw * ARC.caseWidth
-  const maxH = vh * (style === 'cd' ? 0.42 : 0.5)
+  const maxH = vh * 0.5
   if (w * aspect > maxH) w = maxH / aspect
   w = Math.min(w, 420)
   const h = w * aspect

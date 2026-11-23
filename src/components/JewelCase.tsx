@@ -1,11 +1,10 @@
 import { memo, useEffect, useState } from 'react'
 import { motion, useTransform, type MotionValue } from 'framer-motion'
-import type { CaseStyle, Movie } from '../types'
+import type { Movie } from '../types'
 import { displaySrc, thumbFor } from '../lib/posters'
 
 interface Props {
   movie: Movie
-  style: CaseStyle
   /** 0 when this case is centred, 1+ as it moves away */
   distance?: MotionValue<number>
   /** pointer / tilt position, -1..1 */
@@ -17,7 +16,7 @@ interface Props {
   live?: boolean
 }
 
-function JewelCaseImpl({ movie, style, distance, glareX, glareY, sweepKey = null, live = false }: Props) {
+function JewelCaseImpl({ movie, distance, glareX, glareY, sweepKey = null, live = false }: Props) {
   const src = displaySrc(movie)
   const lqip = thumbFor(movie)
   const [loaded, setLoaded] = useState(false)
@@ -27,7 +26,7 @@ function JewelCaseImpl({ movie, style, distance, glareX, glareY, sweepKey = null
   }, [src])
 
   return (
-    <div className={`case case--${style}`}>
+    <div className="case">
       <div className="case__tray" />
       <div className="case__insert">
         {src && !failed ? (

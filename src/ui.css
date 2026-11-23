@@ -1,5 +1,5 @@
 /* =========================================================================
-   Sheets, forms, detail view, settings, importer (Phases 2–4)
+   Sheets, forms, detail view, settings
    ========================================================================= */
 
 :root {
@@ -123,7 +123,6 @@
 .textbtn:focus-visible,
 .result:focus-visible,
 .hit:focus-visible,
-.cand:focus-visible,
 .rs__thumb:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
@@ -496,23 +495,28 @@ input[type='search']::-webkit-search-cancel-button {
 
 .detail__slot {
   position: relative;
-  width: min(74vw, 340px, 42dvh);
-  aspect-ratio: 1;
+  width: min(62vw, 280px, 34dvh);
+  aspect-ratio: 2 / 3;
   margin: 6px auto 0;
 }
 
-.detail__slot--dvd {
-  width: min(62vw, 280px, 34dvh);
-  aspect-ratio: 2 / 3;
+/* The flying case lives here, outside the detail card: fixed, full-screen, overflow
+   visible, and with no transform / filter / contain / will-change of its own, so no
+   ancestor can clip it. z: above the detail view (25), below sheets (30). */
+.hero-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 26;
+  overflow: visible;
+  pointer-events: none; /* taps and drags go to the card underneath */
 }
 
-/* the flying case: only transform animates */
-.detail__hero {
+.hero-case {
   position: absolute;
-  inset: 0;
+  left: 0;
+  top: 0;
   transform-origin: 50% 50%;
   will-change: transform;
-  z-index: 2;
 }
 
 .detail__glow {
@@ -522,7 +526,7 @@ input[type='search']::-webkit-search-cancel-button {
   will-change: opacity;
 }
 
-.detail__hero .case {
+.hero-case .case {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.06),
     0 30px 60px -20px rgba(0, 0, 0, 0.9);
@@ -537,6 +541,11 @@ input[type='search']::-webkit-search-cancel-button {
 
 .detail__scroll {
   touch-action: pan-y;
+  scrollbar-width: none; /* never show a scrollbar, especially mid-drag */
+}
+
+.detail__scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .detail__title {
@@ -857,148 +866,6 @@ input[type='search']::-webkit-search-cancel-button {
   font-size: 14px;
 }
 
-/* ---------- importer ---------------------------------------------------- */
-
-.importer {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  font-size: 15px;
-}
-
-.importer p {
-  margin: 0;
-}
-
-.importer code {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.importer--progress {
-  align-items: center;
-  text-align: center;
-  padding-top: 40px;
-}
-
-.or {
-  text-align: center;
-  font-size: 12px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.progress {
-  width: 100%;
-  max-width: 320px;
-  height: 6px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-}
-
-.progress div {
-  height: 100%;
-  background: var(--accent);
-  transition: width 0.25s ease;
-}
-
-.preview {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-
-.preview th {
-  text-align: left;
-  font-weight: 600;
-  color: var(--muted);
-  padding: 6px 4px;
-  border-bottom: 0.5px solid var(--line);
-}
-
-.preview td {
-  padding: 6px 4px;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.05);
-  font-variant-numeric: tabular-nums;
-}
-
-.review-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.review-item {
-  padding: 12px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.review-item__src {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.cands {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 2px;
-}
-
-.cand {
-  flex: none;
-  width: 76px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 4px;
-  border-radius: 10px;
-  text-align: center;
-  opacity: 0.6;
-}
-
-.cand.is-on {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 0 1.5px var(--accent);
-}
-
-.cand img,
-.cand__blank {
-  width: 64px;
-  height: 96px;
-  object-fit: cover;
-  border-radius: 5px;
-  background: #1c1c21;
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-}
-
-.cand__title {
-  font-size: 11px;
-  line-height: 1.2;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.cand__year {
-  font-size: 11px;
-  color: var(--muted);
-}
-
 /* ---------- empty state ------------------------------------------------- */
 
 .empty {
@@ -1022,15 +889,16 @@ input[type='search']::-webkit-search-cancel-button {
 
 .empty__case {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 165px; /* DVD keep case, 2:3 */
   opacity: 0.55;
   margin-bottom: 10px;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .btn,
-  .progress div {
+  .switch,
+  .switch__knob {
     transition: none;
   }
 }
@@ -1056,28 +924,6 @@ input[type='search']::-webkit-search-cancel-button {
   font-weight: 700;
   letter-spacing: 0.08em;
   opacity: 0.9;
-}
-
-.snippet {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-  padding: 8px 8px 8px 12px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.snippet code {
-  flex: 1;
-  min-width: 0;
-  font-family: var(--font);
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.7);
-  white-space: nowrap;
-  overflow-x: auto;
-  user-select: all;
-  -webkit-user-select: all;
 }
 
 .detail__overview {
@@ -1352,26 +1198,6 @@ input[type='search']::-webkit-search-cancel-button {
   outline-offset: 2px;
 }
 
-.ratingpick {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  width: 150px;
-  flex: none;
-}
-
-.ratingpick__value {
-  width: 30px;
-  text-align: right;
-  font-weight: 700;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-}
-
-.ratingpick__slider {
-  flex: 1;
-}
-
 /* room for the value bubble above the thumbs */
 .panel__filter .rs {
   padding-top: 18px;
@@ -1417,4 +1243,164 @@ input[type='search']::-webkit-search-cancel-button {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 8px;
+}
+
+/* =========================================================================
+   Liquid Glass: the add / edit sheet
+   A floating pane of frosted, colour-boosted glass: inset from the edges,
+   big continuous corners, a light rim that's brightest at the top edge, a soft
+   specular sheen, and glassy controls inside.
+   ========================================================================= */
+
+.sheet--glass {
+  left: calc(8px + var(--safe-l));
+  right: calc(8px + var(--safe-r));
+  bottom: calc(8px + var(--safe-b));
+  max-width: 620px;
+  border-radius: 34px;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.05) 38%, rgba(255, 255, 255, 0.04) 100%),
+    rgba(22, 22, 28, 0.42);
+  /* -webkit- first: in the other order the minifier drops the standard property */
+  -webkit-backdrop-filter: blur(34px) saturate(190%) brightness(1.04);
+  backdrop-filter: blur(34px) saturate(190%) brightness(1.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.16),
+    0 24px 70px rgba(0, 0, 0, 0.5),
+    0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.sheet--glass.sheet--tall {
+  height: calc(100dvh - var(--safe-t) - var(--safe-b) - 22px);
+}
+
+/* specular sheen across the top, and a rim that catches light at the top-left */
+.sheet--glass::before,
+.sheet--glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.sheet--glass::before {
+  background:
+    radial-gradient(120% 55% at 18% -8%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 60%),
+    radial-gradient(90% 40% at 100% 0%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0) 70%);
+}
+
+.sheet--glass::after {
+  padding: 1px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.08) 35%, rgba(255, 255, 255, 0.04) 65%, rgba(255, 255, 255, 0.22));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+}
+
+.sheet--glass .sheet__grab {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+/* glass controls */
+.sheet--glass .searchfield,
+.sheet--glass .review-input {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sheet--glass .searchfield:focus-within,
+.sheet--glass .review-input:focus {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+}
+
+.sheet--glass .result {
+  border-radius: 16px;
+}
+
+.sheet--glass .result:hover,
+.sheet--glass .result:active {
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.12);
+}
+
+.sheet--glass .result__thumb,
+.sheet--glass .picked__poster {
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.18),
+    0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.sheet--glass .notice {
+  background: rgba(255, 200, 80, 0.12);
+  backdrop-filter: none;
+}
+
+.sheet--glass .btn {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.16);
+}
+
+.sheet--glass .btn--primary {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(236, 236, 240, 0.9));
+  color: #0b0b0d;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.sheet--glass .rs__rail {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* iOS-style switch (Settings → Lite mode) */
+.switch {
+  position: relative;
+  flex: none;
+  width: 51px;
+  height: 31px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.16);
+  transition: background-color 0.2s ease;
+}
+
+.switch.is-on {
+  background: var(--accent);
+}
+
+.switch__knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.22s cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+
+.switch.is-on .switch__knob {
+  transform: translateX(20px);
+}
+
+.switch:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }

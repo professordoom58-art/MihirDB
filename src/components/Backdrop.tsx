@@ -3,8 +3,9 @@ import { motion, useTransform, type MotionValue } from 'framer-motion'
 import type { Movie } from '../types'
 import type { ShelfLayout } from '../lib/layout'
 import { alpha, DEFAULT_PALETTE, type Palette } from '../lib/palette'
-import { blobUrl, posterFor, thumbFor } from '../lib/posters'
-import { backdropSrc } from '../lib/tmdb'
+import { blobUrl, posterFor } from '../lib/posters'
+import { backdropSrc, corsUrl } from '../lib/tmdb'
+import { blurAsync } from '../lib/blur'
 
 interface Props {
   movie: Movie | undefined
@@ -64,12 +65,18 @@ export function Backdrop({ movie, index, palette, pos, layout, glareX, glareY }:
 }
 
 const FADE = { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const }
+/** the image extends 10% past every screen edge (must exceed parallax + tilt + drift) */
+const OVERSCAN = 1.2
+/** canvas resolution relative to CSS pixels: half-res, then GPU-stretched */
+const RES = 0.5
+/** blur strength in CSS px (the old CSS filter was 10px) */
+const BLUR_CSS_PX = 12
 
 /**
  * One backdrop scene = TWO composited layers (it used to be ~10, four of them
  * full-screen with a CSS blur, which is what exhausted the iOS WebView's memory):
- *  1. the image: the still drawn into a ~64px canvas and stretched to full screen,
- *     which is the blur, with no blur filter and no offscreen filter buffers. Parallax drives `transform`; the
+ *  1. the image: the still blurred once on a half-resolution canvas (JS box-blur passes)
+ *     and GPU-stretched, with no CSS filter and no offscreen filter buffers. Parallax drives `transform`; the
  *     Ken Burns drift animates the separate `scale`/`translate` properties on the same element.
  *  2. the grade: tint, wash, glow, beam, spot and floor painted as stacked backgrounds
  *     on one static element (rasterised once).
@@ -93,50 +100,78 @@ const Scene = memo(function Scene({
 }) {
   const { movie, index, palette = DEFAULT_PALETTE } = spec
   // Parallax: ~10% of the drag, opposite to the finger, plus a few px of tilt / mouse.
-  const x = useTransform([pos, glareX] as MotionValue<number>[], ([p, gx]: number[]) => (p - index) * layout.d1 * 0.1 + gx * 7)
+  // tanh keeps it bounded: a fast flick travels many cases before the scene switches,
+  // and an unbounded shift slid the image's edge into view
+  const x = useTransform([pos, glareX] as MotionValue<number>[], ([p, gx]: number[]) => Math.tanh(p - index) * layout.d1 * 0.1 + gx * 7)
   const y = useTransform(glareY, (gy) => gy * 5)
 
-  const primary = movie.backdropPath ? backdropSrc(movie.backdropPath, 'w300') : (thumbFor(movie, 'w185') ?? posterFor(movie))
+  const primary = movie.backdropPath ? backdropSrc(movie.backdropPath, 'w780') : posterFor(movie)
   const canvas = useRef<HTMLCanvasElement>(null)
   const [ready, setReady] = useState(false)
 
-  // Draw the still into a tiny canvas (cover-cropped to the screen's shape) and let the
-  // GPU stretch it: a 64px-wide image upscaled to full screen IS a heavy blur, at a few
-  // KB of memory instead of a full-screen blurred surface. Offline / missing backdrop →
-  // the poster (locally cached blob if we have it).
+  // Render the still ONCE into a half-resolution canvas with a real (Gaussian-ish) blur
+  // done on its pixels, then let the GPU stretch it 2×. Blurred content upscales without
+  // visible pixels, so it looks like the old CSS blur, but costs ~0.4MB instead of a
+  // full-screen blurred surface plus filter buffers (what ran the WebView out of memory).
+  // Offline / missing backdrop → the poster (locally cached blob if we have it).
   useEffect(() => {
     let alive = true
-    const sources = [primary, blobUrl(movie) ?? movie.posterUrl].filter((u, i, a): u is string => !!u && a.indexOf(u) === i)
+    const fallback = blobUrl(movie) ?? movie.posterUrl
+    const sources = [primary, fallback].filter((u, i, a): u is string => !!u && a.indexOf(u) === i)
     const draw = (img: HTMLImageElement) => {
       const c = canvas.current
       if (!c || !alive) return
-      const W = 64
-      const H = Math.max(1, Math.round((W * layout.vh) / layout.vw))
+      const W = Math.round(layout.vw * OVERSCAN * RES)
+      const H = Math.round(layout.vh * OVERSCAN * RES)
       c.width = W
       c.height = H
-      const ctx = c.getContext('2d')
+      const ctx = c.getContext('2d', { willReadFrequently: true })
       if (!ctx) return
       // object-fit: cover, anchored a little above centre
-      const s = Math.max(W / img.naturalWidth, H / img.naturalHeight)
-      const dw = img.naturalWidth * s
-      const dh = img.naturalHeight * s
+      const sc = Math.max(W / img.naturalWidth, H / img.naturalHeight)
+      const dw = img.naturalWidth * sc
+      const dh = img.naturalHeight * sc
       ctx.imageSmoothingEnabled = true
       ctx.imageSmoothingQuality = 'high'
       ctx.drawImage(img, (W - dw) / 2, (H - dh) * 0.35, dw, dh)
-      // two down/up passes = a soft box blur, so the upscale shows no blocks
-      for (let pass = 0; pass < 2; pass++) {
-        ctx.drawImage(c, 0, 0, W, H, 0, 0, W / 3, H / 3)
-        ctx.drawImage(c, 0, 0, W / 3, H / 3, 0, 0, W, H)
+      let px: ImageData
+      try {
+        px = ctx.getImageData(0, 0, W, H)
+      } catch {
+        // pixels not readable (no CORS): cheap fallback, downsample + upscale passes
+        for (let pass = 0; pass < 3; pass++) {
+          ctx.drawImage(c, 0, 0, W, H, 0, 0, W / 8, H / 8)
+          ctx.drawImage(c, 0, 0, W / 8, H / 8, 0, 0, W, H)
+        }
+        setReady(true)
+        return
       }
-      setReady(true)
+      // the blur itself runs in a worker; the canvas stays hidden until it's done
+      blurAsync(px, BLUR_CSS_PX * RES, 0.9, 1.05).then((out) => {
+        if (!alive || !canvas.current) return
+        try {
+          ctx.putImageData(out, 0, 0)
+        } catch {
+          // worker died after taking the pixels: redraw and use the cheap blur
+          ctx.drawImage(img, (W - dw) / 2, (H - dh) * 0.35, dw, dh)
+          for (let pass = 0; pass < 3; pass++) {
+            ctx.drawImage(c, 0, 0, W, H, 0, 0, W / 8, H / 8)
+            ctx.drawImage(c, 0, 0, W / 8, H / 8, 0, 0, W, H)
+          }
+        }
+        setReady(true)
+      })
     }
     const tryLoad = (i: number) => {
       if (i >= sources.length || !alive) return
       const img = new Image()
       img.decoding = 'async'
+      const url = sources[i]
+      // reading pixels back needs a CORS-clean image (separate cache entry, see corsUrl)
+      if (!url.startsWith('blob:')) img.crossOrigin = 'anonymous'
       img.onload = () => draw(img)
       img.onerror = () => tryLoad(i + 1)
-      img.src = sources[i]
+      img.src = url.startsWith('blob:') ? url : corsUrl(url)
     }
     tryLoad(0)
     return () => {
@@ -150,8 +185,10 @@ const Scene = memo(function Scene({
   const floorTop = cy + h / 2 + 2
   const px = (n: number) => `${Math.round(n)}px`
   const grade = [
-    // floor: a faint horizon where the cases stand
-    `linear-gradient(180deg, ${alpha(palette.light, 0.07)} 0px, ${alpha(palette.vivid, 0.05)} 2px, transparent 38%) 0 ${px(floorTop)} / 100% ${px(vh - floorTop)} no-repeat`,
+    // floor: a faint sheen where the cases stand. It dissolves IN from transparent over
+    // ~70px (eased, 4 intermediate stops). It used to start at full strength with a 2px
+    // highlight, which drew a hard line across the whole screen under the case.
+    `linear-gradient(180deg, transparent 0px, ${alpha(palette.light, 0.008)} 14px, ${alpha(palette.light, 0.022)} 30px, ${alpha(palette.vivid, 0.036)} 48px, ${alpha(palette.vivid, 0.045)} 70px, transparent 40%) 0 ${px(floorTop)} / 100% ${px(vh - floorTop)} no-repeat`,
     // stage light: an elliptical pool just above/behind the case…
     `radial-gradient(closest-side, ${alpha(palette.vivid, 0.35)}, ${alpha(palette.vivid, 0.1)} 60%, transparent) ${px(vw / 2 - w * 0.7)} ${px(caseTop - w * 0.32)} / ${px(w * 1.4)} ${px(w * 0.6)} no-repeat`,
     // …and a soft beam from above

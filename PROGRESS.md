@@ -84,6 +84,28 @@ Diagnosis (Chrome, 390×844 @3x, production build): no JS/DOM leak (heap ~7MB, n
 - **Recovery**: position is saved as each case reaches the top (throttled 250ms), not only at rest, so a kill mid-flick resumes there. `guardAgainstCrashes()` (main.tsx) writes a heartbeat while visible and clears it on hide; a fresh heartbeat at launch = the WebView was killed → persistent lite mode (`localStorage shelf.safeMode`) + crash count, shown in Settings with "Turn off". Verified: flick to 8/179 → simulated kill → relaunch at 8/179 in lite mode; clean reload not counted.
 - Not verifiable here: real iOS jetsam limits. If it still dies, Settings will say so (crash count), and the next launch is already in lite mode.
 
+## Backdrop quality (after crash pass 2)
+
+The 64px stretched canvas looked mosaic/grainy and the image edge showed on fast flicks. Now:
+- `w780` still drawn cover-cropped into a **half-resolution** canvas (`RES 0.5`, `OVERSCAN 1.2`), then blurred on its pixels with 3 box passes ≈ Gaussian (`lib/blur.ts`, `BLUR_CSS_PX 12`, brightness 0.9 / saturate 1.05), run in a **Web Worker** (`blur.worker.ts`, buffer transferred) so a no-JIT WebView doesn't stall. Falls back to main thread / cheap down-up passes if the worker or CORS read fails. ~0.4MB per scene, no CSS filter. Needs CORS-clean images (`corsUrl`).
+- Parallax bounded with `tanh(p - index)` (the scene only switches after settling, so a fast flick drifted past the overscan); overscan 10% per side. Verified: edge never on screen during fast flicks; no main-thread task > 50ms across 8 scene changes.
+- Static grain alpha 0.07 → 0.04.
+
+## Cleanup + drag-dismiss fix (2026-11-23)
+
+- **Empty slot after drag-close**: the lifted shelf case was hidden with `visibility: hidden ? 'hidden' : itemVisibility` (string ↔ motion value swap, which framer doesn't re-write until the value changes, plus WebKit's flaky repaint of `visibility` on 3D/backface-hidden layers). Now hidden via the item's OPACITY motion value with a `lifted` motion value set in a layout effect (restored in the same commit the hero unmounts). DetailView is an explicit state machine (`open | dragging | closing | closed`, documented in the file): grab mid-close freezes in place and the finger takes over; a touch without dragging resumes the close; only `closing → closed` happens in an animation callback. Caption/top bar return over the last 40% of the flight. Verified per-frame (~4,400 frames): slot never empty, never doubled, incl. 10× rapid open/drag-close.
+- **Floor line**: the floor gradient in the grade started at full strength with a 2px highlight. Now an eased ramp from transparent over ~70px. Contact shadow is a soft ~30% ellipse. (No backdrop-filter strip: no edge left to soften, and backdrop-filter costs iOS graphics memory.)
+- Removed: tilt glare (`lib/tilt.ts`), the CD jewel case (DVD keep case is the only style; `CaseStyle` / style props gone), old-catalog importer (`Importer.tsx`, `lib/importer.ts`; `similarity()` moved to `lib/similarity.ts`), old-reviews import (`lib/reviews.ts`), "Re-import seed". `npm run import:old` (dev script) still exists.
+- Settings: Shelf (Lite mode switch, always visible; `setLiteMode()` applies instantly, persists, overrides auto-detect; a crash still forces it on) and Backup (Export backup / Import backup).
+- Add/edit sheet: `Sheet variant="glass"` (Liquid Glass styles in ui.css). Gotcha: list `-webkit-backdrop-filter` BEFORE `backdrop-filter`; the other order makes the minifier drop the standard property (desktop then shows no blur).
+- Gotcha: the Bash and Write tools turn backslash-u escapes in written content into raw characters. Use `\p{M}` or the Edit tool for regexes that need them.
+
+## Detail hero moved out of the card (2026-11-23)
+
+- **Clipping on drag-close**: the flying case was a child of `.detail__card` (`overflow: hidden` + drag transform), so when the dragged card sat lower than the slot the case was cut by the card's top edge. Now the hero renders via `createPortal` into `#hero-layer` (App, inside `.app`, z 26: above the detail view (25), below sheets (30)): fixed, full-screen, overflow visible, no transform/filter/contain/will-change. Its ancestors are only `.app`/`#root`/`body`/`html`, which clip at the screen edges only. The card keeps an empty `.detail__slot` placeholder; `measure()` reads it (mount, scroll, resize) into card-space motion values, and the card's drag (y + scale about screen centre) is applied to the hero mathematically (`heroScreenX/Y/Scale`), so it moves with the card. Poster scrolled off-screen → hero opacity 0; closing from there fades it in AT the slot. Delete `Confirm` is portalled to `.app` so it sits above the hero. Scrollbar hidden on `.detail__scroll`.
+- Two more close bugs found from frame captures: (1) our own `history.back()`'s popstate arrived after a finger grabbed the card mid-close and re-closed it → `ownBack` flag; (2) releasing a drag fires a click on the scroll background ("tap to close") → ignored for 350ms after a drag.
+- Verified with CDP screencast frames (~50ms apart) for drag-dismiss, fast flick, cancelled drag, grab-mid-close; per-frame audit 1,903 frames: never empty/doubled; hand-off rect error ≤ 0.02px.
+
 ## Key decisions / gotchas
 
 - **Posters:** the TMDB image CDN only sends CORS headers when the request has an `Origin`. Display `<img>`s therefore load *without* `crossOrigin`. Canvas/blob reads use `corsUrl()` (`?cors=1`) for a separate cache entry. Mixing the two made every poster fail in Chrome after the first visit.

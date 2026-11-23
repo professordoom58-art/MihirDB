@@ -1,16 +1,17 @@
-import { memo, useCallback, useEffect, useImperativeHandle, useRef, useState, type Ref } from 'react'
+import { memo, useCallback, useEffect, useImperativeHandle, useLayoutEffect, useRef, useState, type Ref } from 'react'
 import {
   AnimatePresence,
   animate,
   motion,
   useAnimate,
+  useMotionValue,
   useMotionValueEvent,
   usePresence,
   useTransform,
   type AnimationPlaybackControls,
   type MotionValue,
 } from 'framer-motion'
-import type { CaseStyle, Movie } from '../types'
+import type { Movie } from '../types'
 import { ARC, clamp, depthAt, itemTransform, screenPose, wrap, type ShelfLayout } from '../lib/layout'
 import { hapticTick } from '../lib/haptics'
 import { JewelCase } from './JewelCase'
@@ -27,7 +28,6 @@ export interface CarouselHandle {
 interface Props {
   movies: Movie[]
   layout: ShelfLayout
-  caseStyle: CaseStyle
   /**
    * Position on the wheel in *slots* (unbounded when looping): slot k shows movie k mod n.
    * Shared with the backdrop for parallax.
@@ -67,7 +67,6 @@ function rubber(over: number) {
 export function Carousel({
   movies,
   layout,
-  caseStyle,
   pos,
   onActiveChange,
   onSettle,
@@ -285,7 +284,6 @@ export function Carousel({
         movie={m}
         pos={pos}
         layout={layout}
-        caseStyle={caseStyle}
         glareX={glareX}
         glareY={glareY}
         live={Math.abs(k - centre) <= 1}
@@ -335,7 +333,6 @@ interface ItemProps {
   movie: Movie
   pos: MotionValue<number>
   layout: ShelfLayout
-  caseStyle: CaseStyle
   glareX: MotionValue<number>
   glareY: MotionValue<number>
   live: boolean
@@ -354,7 +351,6 @@ const CarouselItem = memo(function CarouselItem({
   movie,
   pos,
   layout,
-  caseStyle,
   glareX,
   glareY,
   live,
@@ -388,7 +384,19 @@ const CarouselItem = memo(function CarouselItem({
   // WebKit re-rasterise the case every frame, which is the single most expensive
   // thing in the scene. Stepped values keep the look and re-raster ~twice per pass.
   const blur = useTransform(distance, (d) => (d < 0.5 ? 'none' : d < 1.2 ? 'blur(0.7px)' : `blur(${ARC.blurAt2}px)`))
-  const opacity = useTransform([distance, room] as MotionValue<number>[], ([d, r]: number[]) => depthAt(d).opacity * (d > 0.5 ? 1 - r : 1))
+  // The case lifted into the detail view is hidden through OPACITY, not visibility.
+  // Toggling `visibility` on a 3D, backface-hidden composited layer can fail to repaint
+  // in WebKit, and switching the style from a string back to a motion value never
+  // re-wrote the DOM until the value next changed: both left an empty slot after
+  // closing. One motion value, set in a layout effect, so it's restored in the same
+  // commit that removes the flying case (before paint: the slot is never empty).
+  const lifted = useMotionValue(hidden ? 1 : 0)
+  useLayoutEffect(() => {
+    lifted.set(hidden ? 1 : 0)
+  }, [hidden, lifted])
+  const opacity = useTransform([distance, room, lifted] as MotionValue<number>[], ([d, r, l]: number[]) =>
+    l ? 0 : depthAt(d).opacity * (d > 0.5 ? 1 - r : 1),
+  )
   // cast shadow from the nearer case: darkest on the edge that faces the centre
   const castLeft = useTransform(offset, (o) => (o > 0 ? depthAt(o).cast : 0)) // case on the right → its left edge
   const castRight = useTransform(offset, (o) => (o < 0 ? depthAt(-o).cast : 0))
@@ -414,7 +422,7 @@ const CarouselItem = memo(function CarouselItem({
         transform,
         zIndex,
         opacity,
-        visibility: hidden ? 'hidden' : itemVisibility,
+        visibility: itemVisibility,
       }}
     >
       <motion.div
@@ -428,7 +436,6 @@ const CarouselItem = memo(function CarouselItem({
         <motion.div className="item__press" style={{ filter: blur }}>
           <JewelCase
             movie={movie}
-            style={caseStyle}
             distance={distance}
             glareX={glareX}
             glareY={glareY}
@@ -442,7 +449,7 @@ const CarouselItem = memo(function CarouselItem({
         {reflect && (
           <motion.div className="item__reflect" style={{ opacity: reflectOpacity }} aria-hidden>
             <div className="item__reflect-flip">
-              <JewelCase movie={movie} style={caseStyle} />
+              <JewelCase movie={movie} />
             </div>
           </motion.div>
         )}

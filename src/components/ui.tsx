@@ -96,13 +96,15 @@ interface SheetProps {
   tall?: boolean
   z?: number
   label: string
+  /** 'glass': floating Liquid Glass panel (the add/edit sheet) */
+  variant?: 'glass'
 }
 
 export function Sheet(props: SheetProps) {
   return <AnimatePresence>{props.open && <SheetInner {...props} />}</AnimatePresence>
 }
 
-function SheetInner({ onClose, children, title, action, tall = true, z = 20, label }: SheetProps) {
+function SheetInner({ onClose, children, title, action, tall = true, z = 20, label, variant }: SheetProps) {
   const panel = useRef<HTMLDivElement>(null)
   const body = useRef<HTMLDivElement>(null)
   const y = useMotionValue(0)
@@ -123,7 +125,7 @@ function SheetInner({ onClose, children, title, action, tall = true, z = 20, lab
         role="dialog"
         aria-modal="true"
         aria-label={label}
-        className={`sheet${tall ? ' sheet--tall' : ''}`}
+        className={`sheet${tall ? ' sheet--tall' : ''}${variant === 'glass' ? ' sheet--glass' : ''}`}
         style={{ y, zIndex: z + 1 }}
         initial={{ y: '100%' }}
         animate={{ y: 0 }}

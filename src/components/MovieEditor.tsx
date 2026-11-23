@@ -17,7 +17,7 @@ interface Props {
 
 export function MovieEditor({ open, editing, onClose, onSaved }: Props) {
   return (
-    <Sheet open={open} onClose={onClose} label={editing ? 'Edit movie' : 'Add movie'} z={30}>
+    <Sheet open={open} onClose={onClose} label={editing ? 'Edit movie' : 'Add movie'} z={30} variant="glass">
       <EditorBody key={editing?.id ?? 'new'} editing={editing} onClose={onClose} onSaved={onSaved} />
     </Sheet>
   )

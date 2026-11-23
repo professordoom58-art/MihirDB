@@ -14,9 +14,9 @@
    `scale` / `translate` properties, so both live on this one layer. */
 .scene__img {
   position: absolute;
-  inset: -8%;
-  width: 116%;
-  height: 116%;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
   object-fit: cover;
   object-position: 50% 35%;
   animation: kenburns 20s ease-in-out infinite alternate;
@@ -45,7 +45,7 @@
   inset: 0;
   /* static film grain baked in (no extra layer); the animated grain is desktop-only */
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
     radial-gradient(120% 85% at 50% 42%, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 0.5) 72%, rgba(0, 0, 0, 0.88) 100%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 16%);
 }
