@@ -333,7 +333,6 @@ img {
   overflow: hidden;
   border-radius: var(--case-r);
   pointer-events: none;
-  will-change: opacity;
 }
 
 /* Faint highlight that stays while centred and drifts with pointer / tilt. */
@@ -344,7 +343,6 @@ img {
     linear-gradient(118deg, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, 0.07) 46%, rgba(255, 255, 255, 0) 54%);
   /* No mix-blend-mode: on a dark case `screen` is all but identical to plain alpha,
      and a blended layer forces the compositor to re-blend it on every frame. */
-  will-change: transform;
 }
 
 /* One-shot specular sweep across the plastic. */

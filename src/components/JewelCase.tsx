@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react'
 import { motion, useTransform, type MotionValue } from 'framer-motion'
 import type { CaseStyle, Movie } from '../types'
-import { posterFor, thumbFor } from '../lib/posters'
+import { displaySrc, thumbFor } from '../lib/posters'
 
 interface Props {
   movie: Movie
@@ -18,7 +18,7 @@ interface Props {
 }
 
 function JewelCaseImpl({ movie, style, distance, glareX, glareY, sweepKey = null, live = false }: Props) {
-  const src = posterFor(movie)
+  const src = displaySrc(movie)
   const lqip = thumbFor(movie)
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)

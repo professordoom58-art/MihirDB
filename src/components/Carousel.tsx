@@ -3,7 +3,9 @@ import {
   AnimatePresence,
   animate,
   motion,
+  useAnimate,
   useMotionValueEvent,
+  usePresence,
   useTransform,
   type AnimationPlaybackControls,
   type MotionValue,
@@ -48,6 +50,8 @@ interface Props {
   room: MotionValue<number>
   /** ignore swipes / wheel / keys (detail view open) */
   locked?: boolean
+  /** true on the render where a rating-filter change removes cases: only then do they animate out */
+  animateExits?: boolean
   ref?: Ref<CarouselHandle>
 }
 
@@ -75,8 +79,14 @@ export function Carousel({
   freshId,
   room,
   locked = false,
+  animateExits = false,
   ref,
 }: Props) {
+  // Read by cases as they leave: a filter change animates them out; a case that merely
+  // scrolls out of the 7-case window leaves at once (animating those kept up to 2× the
+  // cases, posters and layers alive mid-flick, which is the memory spike that killed the iOS WebView).
+  const exitAnimated = useRef(animateExits)
+  exitAnimated.current = animateExits
   const n = movies.length
   // Loop like a wheel (179 sits before 1) whenever there are enough cases to fill the
   // visible window without showing the same case twice; otherwise a bounded row.
@@ -287,6 +297,7 @@ export function Carousel({
         hidden={hiddenId === m.id}
         fresh={freshId === m.id}
         room={room}
+        exitAnimated={exitAnimated}
       />,
     )
   }
@@ -334,6 +345,7 @@ interface ItemProps {
   hidden: boolean
   fresh: boolean
   room: MotionValue<number>
+  exitAnimated: { current: boolean }
 }
 
 const CarouselItem = memo(function CarouselItem({
@@ -351,7 +363,17 @@ const CarouselItem = memo(function CarouselItem({
   hidden,
   fresh,
   room,
+  exitAnimated,
 }: ItemProps) {
+  const [isPresent, safeToRemove] = usePresence()
+  const [scope, animateDrop] = useAnimate()
+  // (must be a passive effect: framer ignores safeToRemove called during the layout phase)
+  useEffect(() => {
+    if (isPresent) return
+    if (!exitAnimated.current || !scope.current) return safeToRemove()
+    animateDrop(scope.current, { opacity: 0, scale: 0.86 }, { type: 'spring', stiffness: 500, damping: 40 }).then(safeToRemove)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPresent])
   // Every depth cue is a continuous function of `offset` (no steps, no thresholds).
   const offset = useTransform(pos, (p) => slot - p)
   const distance = useTransform(offset, (o) => Math.abs(o))
@@ -396,10 +418,10 @@ const CarouselItem = memo(function CarouselItem({
       }}
     >
       <motion.div
+        ref={scope}
         className="item__drop"
         initial={fresh ? { opacity: 0, y: -70, scale: 1.12 } : { opacity: 0, scale: 0.86 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.86, transition: { type: 'spring', stiffness: 500, damping: 40 } }}
         transition={fresh ? { type: 'spring', stiffness: 220, damping: 22, delay: 0.25 } : { type: 'spring', stiffness: 420, damping: 34 }}
       >
         <motion.div className="item__shadow" style={{ opacity: contact, scale: contactScale }} />

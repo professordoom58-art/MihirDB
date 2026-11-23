@@ -24,11 +24,63 @@ const WINDOW = 50
 /** Keep sampling this long after the last movement, so a flick is fully measured. */
 const TAIL_MS = 1400
 
+const SAFE_KEY = 'shelf.safeMode'
+const ALIVE_KEY = 'shelf.alive'
+const CRASHES_KEY = 'shelf.crashes'
+
 function readLite(): boolean {
   try {
-    return sessionStorage.getItem(KEY) === '1'
+    return sessionStorage.getItem(KEY) === '1' || localStorage.getItem(SAFE_KEY) === '1'
   } catch {
     return false
+  }
+}
+
+/**
+ * Crash-loop guard. iOS kills the WebView's content process when it runs out of
+ * memory; the app then reloads from scratch (black screen → back to the start).
+ * While visible we write a heartbeat; a clean exit (backgrounding/closing) clears it.
+ * If the next launch still finds a fresh heartbeat, the last session was killed, so
+ * switch to lite mode *persistently* (sessionStorage doesn't survive that reload).
+ * Call once, before the first render.
+ */
+export function guardAgainstCrashes() {
+  try {
+    const last = Number(localStorage.getItem(ALIVE_KEY) || 0)
+    if (last && Date.now() - last < 20_000) {
+      localStorage.setItem(SAFE_KEY, '1')
+      localStorage.setItem(CRASHES_KEY, String(Number(localStorage.getItem(CRASHES_KEY) || 0) + 1))
+    }
+    const beat = () => {
+      if (document.visibilityState === 'visible') localStorage.setItem(ALIVE_KEY, String(Date.now()))
+    }
+    const clear = () => localStorage.removeItem(ALIVE_KEY)
+    beat()
+    setInterval(beat, 3000)
+    document.addEventListener('visibilitychange', () => (document.visibilityState === 'hidden' ? clear() : beat()))
+    window.addEventListener('pagehide', clear)
+  } catch {
+    /* storage unavailable */
+  }
+}
+
+/** How many times the WebView has been killed (for Settings / debugging). */
+export function crashCount(): number {
+  try {
+    return Number(localStorage.getItem(CRASHES_KEY) || 0)
+  } catch {
+    return 0
+  }
+}
+
+/** Leave lite mode (Settings). */
+export function resetSafeMode() {
+  try {
+    localStorage.removeItem(SAFE_KEY)
+    localStorage.removeItem(CRASHES_KEY)
+    sessionStorage.removeItem(KEY)
+  } catch {
+    /* ignore */
   }
 }
 

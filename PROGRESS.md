@@ -73,6 +73,17 @@ Reported: very laggy in LiveContainer on an iPhone 13, and it sometimes went bla
   - `blobUrl()` object URLs are LRU-capped at 32 instead of one per cached poster for the session.
 - **Adaptive lite mode** (`lib/perf.ts`, `useAutoPerf(pos)`): samples `requestAnimationFrame` deltas while `pos` is moving, judges the median of 50 frames, and adds `.app.perf-lite` if it exceeds 26 ms (~38fps), persisted in `sessionStorage` for that session only. `perf-lite` (in `stage.css`) stops Ken Burns and the grain animation, drops the remaining depth blur and both blend overlays. Screenshot at rest is indistinguishable; capable devices never enter it.
 
+## Crash pass 2 (iPhone 13 / LiveContainer: black screen after 5–7 movies → back to 1/179)
+
+Diagnosis (Chrome, 390×844 @3x, production build): no JS/DOM leak (heap ~7MB, nodes flat over 30 moves). The WebView was being killed for graphics memory: ~33 composited layers, est. ~217MB of surfaces mid-crossfade, mostly the backdrop.
+- **Backdrop scene = 2 layers** (was ~10): the still is drawn into a ~64px `<canvas>` (cover-cropped, two down/up passes) and stretched: a GPU-upscaled tiny canvas *is* the blur, with no `filter`. Parallax on `transform`, Ken Burns on the separate `scale`/`translate` properties of the same element. All six grade overlays are stacked backgrounds on one static element. Crossfade animates those two elements (no group-opacity wrapper). Source image is `w300`.
+- **Grain**: static, baked into the vignette; the animated grain element is desktop-only (`hover:hover and pointer:fine`). Dropped `will-change` from glare, highlight, reflection, backdrop dim.
+- Estimated layers now 17 / ~84MB in Chrome emulation, less on a phone (no animated grain; the arc container paints nothing).
+- **Exit pile-up**: AnimatePresence kept every case that scrolled out of the 7-case window alive for its exit animation, so up to 2× cases/posters/layers mid-flick. Exits now animate only when a rating-filter change removes cases (`animateExits`, `usePresence` in CarouselItem, released in a *passive* effect: framer ignores `safeToRemove` from a layout effect, which leaked cases). Captions likewise: one at a time (8 were stacking mid-flick). Soak: 24 fast flicks across 110 movies → items 7, imgs 10, nodes 172 constant.
+- **One decode per poster**: `displaySrc()` pins the URL a movie is first shown with for the session (case + reflection share it; caching mid-session no longer swaps src = re-decodes 3.6MB).
+- **Recovery**: position is saved as each case reaches the top (throttled 250ms), not only at rest, so a kill mid-flick resumes there. `guardAgainstCrashes()` (main.tsx) writes a heartbeat while visible and clears it on hide; a fresh heartbeat at launch = the WebView was killed → persistent lite mode (`localStorage shelf.safeMode`) + crash count, shown in Settings with "Turn off". Verified: flick to 8/179 → simulated kill → relaunch at 8/179 in lite mode; clean reload not counted.
+- Not verifiable here: real iOS jetsam limits. If it still dies, Settings will say so (crash count), and the next launch is already in lite mode.
+
 ## Key decisions / gotchas
 
 - **Posters:** the TMDB image CDN only sends CORS headers when the request has an `Origin`. Display `<img>`s therefore load *without* `crossOrigin`. Canvas/blob reads use `corsUrl()` (`?cors=1`) for a separate cache entry. Mixing the two made every poster fail in Chrome after the first visit.

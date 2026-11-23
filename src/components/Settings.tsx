@@ -5,6 +5,7 @@ import { db, useLive } from '../lib/db'
 import { syncPending } from '../lib/sync'
 import { disableTilt, enableTilt, tiltNeedsPermission, tiltSupported, tiltWanted } from '../lib/tilt'
 import { mergeSeed } from '../lib/seed'
+import { crashCount, resetSafeMode } from '../lib/perf'
 import { importOldReviews, OLD_REVIEWS_SNIPPET } from '../lib/reviews'
 import { Confirm, Sheet, Spinner } from './ui'
 
@@ -86,6 +87,27 @@ function SettingsBody({ caseStyle, onCaseStyle, onOpenImporter }: Props) {
                 Enable
               </button>
             )}
+          </div>
+        )}
+        {(crashCount() > 0 || document.querySelector('.app.perf-lite')) && (
+          <div className="row">
+            <span>
+              Lite mode is on
+              <small>
+                {crashCount() > 0
+                  ? `The app ran out of memory ${crashCount()}× on this device, so heavy effects are off.`
+                  : 'Turned on because animation was running slowly on this device.'}
+              </small>
+            </span>
+            <button
+              className="btn btn--small"
+              onClick={() => {
+                resetSafeMode()
+                location.reload()
+              }}
+            >
+              Turn off
+            </button>
           </div>
         )}
         <div className="row">

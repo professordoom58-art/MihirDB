@@ -3,6 +3,9 @@ import { createRoot } from 'react-dom/client'
 import { Capacitor } from '@capacitor/core'
 import App from './App'
 import { ensureSeeded } from './lib/seed'
+import { guardAgainstCrashes } from './lib/perf'
+
+guardAgainstCrashes()
 import './fonts.css'
 import './styles.css'
 import './ui.css'

@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, type MotionValue } from 'framer-motion'
+import { motion, type MotionValue } from 'framer-motion'
 import type { Movie } from '../types'
 import { formatRating } from '../lib/sort'
 
@@ -16,15 +16,15 @@ interface Props {
 export function Caption({ movie, position, total, top, accent, opacity }: Props) {
   return (
     <motion.div className="caption" style={{ top, opacity }}>
-      <AnimatePresence initial={false} mode="popLayout">
-        {movie && (
+      {/* One caption at a time: the new one fades in and the old one is removed at once.
+          (Exit animations stacked up to ~8 captions mid-flick.) */}
+      {movie && (
           <motion.div
             key={movie.id}
             className="caption__inner"
-            initial={{ opacity: 0, y: 6 }}
+            initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -4 }}
-            transition={{ duration: 0.22, ease: [0.2, 0.7, 0.2, 1] }}
+            transition={{ duration: 0.18, ease: [0.2, 0.7, 0.2, 1] }}
           >
             <div className="caption__count" aria-label={`${position} of ${total}`}>
               {position}
@@ -36,8 +36,7 @@ export function Caption({ movie, position, total, top, accent, opacity }: Props)
               {formatRating(movie.myRating)}
             </div>
           </motion.div>
-        )}
-      </AnimatePresence>
+      )}
     </motion.div>
   )
 }

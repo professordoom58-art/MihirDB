@@ -7,82 +7,45 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  will-change: opacity;
 }
 
-.scene__parallax {
+/* the backdrop: a small (w300) still, upscaled = soft without a blur filter.
+   Parallax uses `transform` (framer); the Ken Burns drift uses the separate
+   `scale` / `translate` properties, so both live on this one layer. */
+.scene__img {
   position: absolute;
-  inset: -7%;
-  will-change: transform;
-}
-
-/* Ken Burns: slow drift, alternating */
-.scene__kb {
-  position: absolute;
-  inset: 0;
-  animation: kenburns 20s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-.scene__kb img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
   object-fit: cover;
   object-position: 50% 35%;
-  filter: blur(10px) saturate(1.05) brightness(0.9);
+  animation: kenburns 20s ease-in-out infinite alternate;
 }
 
 @keyframes kenburns {
   0% {
-    transform: scale(1.08) translate3d(-2%, -1%, 0);
+    scale: 1.04;
+    translate: -1.5% -1%;
   }
   100% {
-    transform: scale(1.15) translate3d(2%, 1.5%, 0);
+    scale: 1.1;
+    translate: 1.5% 1%;
   }
 }
 
-.scene__tint {
+/* tint, wash, glow, beam, spot and floor in one static painted layer */
+.scene__grade {
   position: absolute;
   inset: 0;
-  /* Plain translucent colour instead of `mix-blend-mode: soft-light`. A full-screen
-     blend forces the compositor to re-blend the whole scene every frame while the
-     backdrop parallaxes; at 15% over an already-washed, blurred still it reads the same. */
-  opacity: 0.15;
-}
-
-.scene__wash,
-.scene__floor {
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-
-.scene__wash {
-  top: 0;
-  bottom: 0;
-}
-
-.scene__floor {
-  bottom: 0;
-}
-
-.scene__glow,
-.scene__spot,
-.scene__beam {
-  position: absolute;
   pointer-events: none;
-}
-
-.scene__beam {
-  top: 0;
 }
 
 .backdrop__vignette {
   position: absolute;
   inset: 0;
+  /* static film grain baked in (no extra layer); the animated grain is desktop-only */
   background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
     radial-gradient(120% 85% at 50% 42%, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 0.5) 72%, rgba(0, 0, 0, 0.88) 100%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 16%);
 }
@@ -94,8 +57,16 @@
   opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation: grain 0.9s steps(6) infinite;
-  will-change: transform;
   pointer-events: none;
+  /* an animated full-screen layer is ~12–17MB of GPU memory at 3x: phones get the static grain in the vignette */
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .backdrop__grain {
+    display: block;
+    will-change: transform;
+  }
 }
 
 @keyframes grain {
@@ -131,7 +102,6 @@
   pointer-events: none;
   -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.35) 18%, rgba(0, 0, 0, 0) 46%);
   mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.35) 18%, rgba(0, 0, 0, 0) 46%);
-  will-change: opacity;
 }
 
 .item__reflect-flip {
@@ -146,9 +116,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scene__kb {
+  .scene__img {
     animation: none;
-    transform: scale(1.1);
+    scale: 1.06;
   }
   .backdrop__grain {
     animation: none;
@@ -186,13 +156,14 @@
    sideloaded WebView). Everything here is decoration: layout, swiping, taps,
    search, the detail view and the case artwork itself are untouched. */
 
-.perf-lite .scene__kb {
+.perf-lite .scene__img {
   animation: none;
-  transform: scale(1.1);
+  scale: 1.06;
 }
 
-.perf-lite .scene__kb img {
-  filter: blur(7px) brightness(0.9);
+/* the floor reflection is a second copy of each nearby case */
+.perf-lite .item__reflect {
+  display: none;
 }
 
 .perf-lite .backdrop__grain {

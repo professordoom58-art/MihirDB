@@ -42,6 +42,36 @@ export function forgetPoster(id: string) {
   urls.delete(id)
 }
 
+/**
+ * The URL a case should DISPLAY. Chosen once per movie and reused for the session by
+ * the case and its floor reflection, so they share one decoded image, and a poster
+ * that finishes caching mid-session doesn't swap src (= decode the same 780px image
+ * again, ~3.6MB each, which is what pushes a WebView over its memory limit).
+ */
+const shown = new Map<string, { key: string; url: string }>()
+const MAX_SHOWN = 48
+
+function isLive(url: string) {
+  if (!url.startsWith('blob:')) return true
+  for (const v of urls.values()) if (v.url === url) return true
+  return false // revoked by the LRU: pick again
+}
+
+export function displaySrc(m: Movie): string {
+  const key = `${m.posterPath ?? ''}|${m.posterUrl}`
+  const hit = shown.get(m.id)
+  if (hit && hit.key === key && isLive(hit.url)) return hit.url
+  const url = posterFor(m)
+  shown.delete(m.id)
+  shown.set(m.id, { key, url })
+  while (shown.size > MAX_SHOWN) {
+    const oldest = shown.keys().next()
+    if (oldest.done) break
+    shown.delete(oldest.value)
+  }
+  return url
+}
+
 /** Best available hi-res poster: local blob first, then the network. */
 export function posterFor(m: Movie): string {
   return blobUrl(m) ?? m.posterUrl

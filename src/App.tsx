@@ -146,11 +146,24 @@ export default function App() {
     [reduceMotion],
   )
   const [activeSlot, setActiveSlot] = useState(0)
+  const saveTimer = useRef<number | undefined>(undefined)
   const onActiveChange = useCallback((i: number, slot: number) => {
     setActive(i)
     setActiveSlot(slot)
     const id = shelfRef.current[i]?.id ?? null
     activeId.current = id
+    // Remember position as each case reaches the top (not only at rest), so a WebView
+    // relaunch mid-flick still comes back here. Throttled: a fast flick crosses many.
+    if (id && restored.current) {
+      window.clearTimeout(saveTimer.current)
+      saveTimer.current = window.setTimeout(() => {
+        try {
+          localStorage.setItem(ACTIVE_KEY, id)
+        } catch {
+          /* private mode */
+        }
+      }, 250)
+    }
     // leaving the centre re-arms the sweep for when it settles again
     if (id !== lastSwept.current) lastSwept.current = null
   }, [])
@@ -283,6 +296,7 @@ export default function App() {
           freshId={freshId}
           room={room}
           locked={!!detailId}
+          animateExits={filterChanged.current}
         />
       )}
       {shelf.length > 0 && (
