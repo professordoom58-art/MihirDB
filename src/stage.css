@@ -31,7 +31,7 @@
   height: 100%;
   object-fit: cover;
   object-position: 50% 35%;
-  filter: blur(13px) saturate(1.05) brightness(0.9);
+  filter: blur(10px) saturate(1.05) brightness(0.9);
 }
 
 @keyframes kenburns {
@@ -46,8 +46,10 @@
 .scene__tint {
   position: absolute;
   inset: 0;
-  mix-blend-mode: soft-light;
-  opacity: 0.5;
+  /* Plain translucent colour instead of `mix-blend-mode: soft-light`. A full-screen
+     blend forces the compositor to re-blend the whole scene every frame while the
+     backdrop parallaxes; at 15% over an already-washed, blurred still it reads the same. */
+  opacity: 0.15;
 }
 
 .scene__wash,
@@ -88,7 +90,7 @@
 /* film grain: tiled SVG noise, jittered in steps (cheap: transform only) */
 .backdrop__grain {
   position: absolute;
-  inset: -50%;
+  inset: -10%;
   opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation: grain 0.9s steps(6) infinite;
@@ -177,4 +179,33 @@
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.14),
     0 18px 40px -18px rgba(0, 0, 0, 0.9);
+}
+
+/* ---------- adaptive lite mode ------------------------------------------
+   Switched on by useAutoPerf() only when measured frame pacing is poor (e.g. a
+   sideloaded WebView). Everything here is decoration: layout, swiping, taps,
+   search, the detail view and the case artwork itself are untouched. */
+
+.perf-lite .scene__kb {
+  animation: none;
+  transform: scale(1.1);
+}
+
+.perf-lite .scene__kb img {
+  filter: blur(7px) brightness(0.9);
+}
+
+.perf-lite .backdrop__grain {
+  animation: none;
+}
+
+/* the stepped depth blur still forces a raster per step; drop it and lean on dim */
+.perf-lite .item__press {
+  filter: none !important;
+}
+
+/* blend-mode overlays are the other per-frame compositor cost */
+.perf-lite .case__highlight,
+.perf-lite .case__sweep {
+  display: none;
 }

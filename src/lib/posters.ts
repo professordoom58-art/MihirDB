@@ -8,15 +8,31 @@ import { corsUrl, posterSrc, type PosterSize } from './tmdb'
  * same record (Dexie hands back a fresh Blob each query) reuses one URL.
  */
 const urls = new Map<string, { key: string; url: string }>()
+/** Keep only a window of object URLs alive: a full shelf would otherwise pin every
+ *  cached poster in the WebView's memory for the whole session. Revoking a URL an
+ *  <img> already painted is harmless; the blob itself lives on in IndexedDB. */
+const MAX_URLS = 32
 
 export function blobUrl(m: Movie): string | undefined {
   if (!m.posterBlob) return undefined
   const key = `${m.posterCachedAt ?? 0}:${m.posterBlob.size}`
   const hit = urls.get(m.id)
-  if (hit && hit.key === key) return hit.url
+  if (hit && hit.key === key) {
+    urls.delete(m.id) // refresh LRU position
+    urls.set(m.id, hit)
+    return hit.url
+  }
   if (hit) URL.revokeObjectURL(hit.url)
+  urls.delete(m.id)
   const url = URL.createObjectURL(m.posterBlob)
   urls.set(m.id, { key, url })
+  while (urls.size > MAX_URLS) {
+    const oldest = urls.keys().next()
+    if (oldest.done) break
+    const stale = urls.get(oldest.value)
+    if (stale) URL.revokeObjectURL(stale.url)
+    urls.delete(oldest.value)
+  }
   return url
 }
 
@@ -44,16 +60,27 @@ export function backdropFor(m: Movie): string | undefined {
 
 /** Download the hi-res poster into IndexedDB so the shelf works offline. */
 export async function cachePoster(m: Movie): Promise<boolean> {
-  if (!m.posterUrl) return false
+  const blob = await downloadPoster(m)
+  if (!blob) return false
+  await db.movies.update(m.id, { posterBlob: blob, posterCachedAt: Date.now() })
+  return true
+}
+
+/**
+ * Fetch the poster bytes without touching the database. Bulk callers (the
+ * background sync) batch the writes, so the live shelf query isn't re-read —
+ * with every blob — once per movie.
+ */
+export async function downloadPoster(m: Movie): Promise<Blob | null> {
+  if (!m.posterUrl) return null
   try {
     const res = await fetch(corsUrl(m.posterUrl), { mode: 'cors' })
-    if (!res.ok) return false
+    if (!res.ok) return null
     const blob = await res.blob()
-    if (!blob.type.startsWith('image/')) return false
-    await db.movies.update(m.id, { posterBlob: blob, posterCachedAt: Date.now() })
-    return true
+    if (!blob.type.startsWith('image/')) return null
+    return blob
   } catch {
-    return false
+    return null
   }
 }
 

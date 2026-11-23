@@ -57,6 +57,22 @@ Spec: `movie-shelf-prompt.md`. User guide: `README.md`.
 - **Workflow publishes the IPA to Releases** (`contents: write`): tag `v*` → normal release `Shelf v1.2.3` with generated notes; manual `release` → pre-release `build-<run>`; manual `live` → pre-release `live-<run>`; `target_commitish` = the built SHA. The run artifact (`Shelf-<mode>-<run>`) is still uploaded. Uses `softprops/action-gh-release@v3`; release-details shell tested for all three cases.
 - README: setup is now `npm install && npm run dev` (no `.env`, no import), the repo-secret step is optional, and "Install on iPhone" downloads `Shelf.ipa` from **Releases**. Also removed a stray UTF-16 `# MihirDB` tail that made README read as a binary file.
 
+## Performance pass (2026-11-23)
+
+Reported: very laggy in LiveContainer on an iPhone 13, and it sometimes went black and reset to `1/179`.
+
+- **Freeze cause found**: `lib/sync.ts` cached each missing poster with its own `db.movies.update`, and the live shelf query (`useLive(() => db.movies.toArray())`) re-read *every* record, blobs included, after each write — ~180 full re-reads during the first sync. Now posters download 2 at a time and flush into IndexedDB in batches of 12 (`WRITE_BATCH`), using `downloadPoster()` so bytes are fetched outside the write. That stall is the likely black/relaunch trigger in a WebView with a memory cap.
+- **Reset cause**: nothing remembered the position, so a WebView reload started at entry 1. `onSettle` now writes `shelf.activeId`, and the first data load restores it (verified: 3/179 → reload → 3/179).
+- **Per-frame cost removed** (all verified in a production preview, 390×844):
+  - `zIndex` quantised to 0.25 steps (`10000 - round(d*4)`) — was 0.001 steps, i.e. a compositor layer re-order every frame.
+  - Depth blur stepped (none / 0.7px / `blurAt2`) instead of continuous — animating `filter` re-rasterises the case each frame.
+  - Floor reflection rendered only for the centred case; it was mounted 7×.
+  - Cases beyond 2.25 steps get `visibility: hidden` (they were already opacity 0).
+  - Backdrop tint is a plain 15% colour instead of `mix-blend-mode: soft-light` (no full-screen blend per frame); backdrops are `w780` (was `w1280`, ¼ the decoded memory); grain overscan 50% → 10%; backdrop blur 13px → 10px.
+  - `.case__highlight` no longer uses `mix-blend-mode: screen`.
+  - `blobUrl()` object URLs are LRU-capped at 32 instead of one per cached poster for the session.
+- **Adaptive lite mode** (`lib/perf.ts`, `useAutoPerf(pos)`): samples `requestAnimationFrame` deltas while `pos` is moving, judges the median of 50 frames, and adds `.app.perf-lite` if it exceeds 26 ms (~38fps), persisted in `sessionStorage` for that session only. `perf-lite` (in `stage.css`) stops Ken Burns and the grain animation, drops the remaining depth blur and both blend overlays. Screenshot at rest is indistinguishable; capable devices never enter it.
+
 ## Key decisions / gotchas
 
 - **Posters:** the TMDB image CDN only sends CORS headers when the request has an `Origin`. Display `<img>`s therefore load *without* `crossOrigin`. Canvas/blob reads use `corsUrl()` (`?cors=1`) for a separate cache entry. Mixing the two made every poster fail in Chrome after the first visit.

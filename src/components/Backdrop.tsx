@@ -83,7 +83,9 @@ const Scene = memo(function Scene({
   const x = useTransform([pos, glareX] as MotionValue<number>[], ([p, gx]: number[]) => (p - index) * layout.d1 * 0.1 + gx * 7)
   const y = useTransform(glareY, (gy) => gy * 5)
 
-  const primary = movie.backdropPath ? backdropSrc(movie.backdropPath, 'w1280') : posterFor(movie)
+  // w780 is already blurred beyond recognition at 10px, and decodes to a quarter of
+  // the memory of w1280 — which matters in a WebView with a strict memory budget.
+  const primary = movie.backdropPath ? backdropSrc(movie.backdropPath, 'w780') : posterFor(movie)
   const [src, setSrc] = useState(primary)
   const fellBack = useRef(false)
   useEffect(() => {

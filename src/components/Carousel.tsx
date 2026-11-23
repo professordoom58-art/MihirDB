@@ -279,6 +279,9 @@ export function Carousel({
         glareX={glareX}
         glareY={glareY}
         live={Math.abs(k - centre) <= 1}
+        // The floor reflection is only ever visible under the centred case (its opacity
+        // reaches zero at |offset| 0.625), so the other six copies were pure cost.
+        reflect={k === centre}
         sweepKey={sweep && sweep.id === m.id ? sweep.key : null}
         hidden={hiddenId === m.id}
         fresh={freshId === m.id}
@@ -324,6 +327,8 @@ interface ItemProps {
   glareX: MotionValue<number>
   glareY: MotionValue<number>
   live: boolean
+  /** render the glossy floor reflection (only the centred case ever shows one) */
+  reflect: boolean
   sweepKey: number | null
   hidden: boolean
   fresh: boolean
@@ -340,6 +345,7 @@ const CarouselItem = memo(function CarouselItem({
   glareX,
   glareY,
   live,
+  reflect,
   sweepKey,
   hidden,
   fresh,
@@ -350,10 +356,15 @@ const CarouselItem = memo(function CarouselItem({
   const distance = useTransform(offset, (o) => Math.abs(o))
   const transform = useTransform([offset, room] as MotionValue<number>[], ([o, r]: number[]) => itemTransform(o, layout, r))
   // Paint order follows distance, so it swaps exactly at |progress| = 0.5, where both
-  // cases are equally bright/large/shadowed (fine-grained so it never ties early).
-  const zIndex = useTransform(distance, (d) => 10000 - Math.round(d * 1000))
+  // cases are equally bright/large/shadowed. Quantised to 0.25 steps: z-index is a
+  // discrete property, and writing it on every animation frame forces a layer
+  // re-order each frame. Ties break by DOM order, which looks identical.
+  const zIndex = useTransform(distance, (d) => 10000 - Math.round(d * 4))
   const dim = useTransform(distance, (d) => 1 - depthAt(d).brightness)
-  const blur = useTransform(distance, (d) => (d < 0.02 ? 'none' : `blur(${depthAt(d).blur.toFixed(2)}px)`))
+  // Depth blur, in three steps rather than continuously: animating `filter` makes
+  // WebKit re-rasterise the case every frame, which is the single most expensive
+  // thing in the scene. Stepped values keep the look and re-raster ~twice per pass.
+  const blur = useTransform(distance, (d) => (d < 0.5 ? 'none' : d < 1.2 ? 'blur(0.7px)' : `blur(${ARC.blurAt2}px)`))
   const opacity = useTransform([distance, room] as MotionValue<number>[], ([d, r]: number[]) => depthAt(d).opacity * (d > 0.5 ? 1 - r : 1))
   // cast shadow from the nearer case: darkest on the edge that faces the centre
   const castLeft = useTransform(offset, (o) => (o > 0 ? depthAt(o).cast : 0)) // case on the right → its left edge
@@ -362,7 +373,10 @@ const CarouselItem = memo(function CarouselItem({
   const contact = useTransform(distance, (d) => 0.75 * (1 - Math.min(d, 2) * 0.3))
   const contactScale = useTransform(distance, (d) => 1 - Math.min(d, 2) * 0.12)
   // glossy floor reflection: only under the top case, fading out as it leaves the top
-  const reflect = useTransform(distance, (d) => 0.25 * Math.max(0, 1 - d * 1.6))
+  const reflectOpacity = useTransform(distance, (d) => 0.25 * Math.max(0, 1 - d * 1.6))
+  // Beyond the fade-out the case is invisible; hide it outright so the far slots
+  // (there for a smooth entry) don't keep a filtered 3D layer alive.
+  const itemVisibility = useTransform(distance, (d) => (d > 2.25 ? 'hidden' : 'visible'))
 
   return (
     <motion.div
@@ -377,7 +391,7 @@ const CarouselItem = memo(function CarouselItem({
         transform,
         zIndex,
         opacity,
-        visibility: hidden ? 'hidden' : 'visible',
+        visibility: hidden ? 'hidden' : itemVisibility,
       }}
     >
       <motion.div
@@ -402,11 +416,13 @@ const CarouselItem = memo(function CarouselItem({
           <motion.div className="item__cast item__cast--left" style={{ opacity: castLeft }} />
           <motion.div className="item__cast item__cast--right" style={{ opacity: castRight }} />
         </motion.div>
-        <motion.div className="item__reflect" style={{ opacity: reflect }} aria-hidden>
-          <div className="item__reflect-flip">
-            <JewelCase movie={movie} style={caseStyle} />
-          </div>
-        </motion.div>
+        {reflect && (
+          <motion.div className="item__reflect" style={{ opacity: reflectOpacity }} aria-hidden>
+            <div className="item__reflect-flip">
+              <JewelCase movie={movie} style={caseStyle} />
+            </div>
+          </motion.div>
+        )}
       </motion.div>
     </motion.div>
   )

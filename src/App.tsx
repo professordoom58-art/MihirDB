@@ -14,6 +14,7 @@ import { DEFAULT_PALETTE, readableTint, type Palette } from './lib/palette'
 import { db, useLive } from './lib/db'
 import { computeLayout, wrap } from './lib/layout'
 import { CHOREO } from './lib/motion'
+import { useAutoPerf } from './lib/perf'
 import { blobUrl } from './lib/posters'
 import { formatRange, inRange, sortShelf } from './lib/sort'
 import { deleteMovie } from './lib/store'
@@ -24,12 +25,23 @@ import { useViewport } from './lib/useViewport'
 import type { CaseStyle, Movie } from './types'
 
 const STYLE_KEY = 'shelf.caseStyle'
+/** Last movie the wheel came to rest on: a WebView reload (memory pressure in a
+ *  sideloaded container) should come back to it instead of the first entry. */
+const ACTIVE_KEY = 'shelf.activeId'
 
 function loadCaseStyle(): CaseStyle {
   try {
     return localStorage.getItem(STYLE_KEY) === 'dvd' ? 'dvd' : 'cd'
   } catch {
     return 'cd'
+  }
+}
+
+function loadActiveId(): string | null {
+  try {
+    return localStorage.getItem(ACTIVE_KEY)
+  } catch {
+    return null
   }
 }
 
@@ -59,6 +71,10 @@ export default function App() {
   const pos = useMotionValue(0)
   const [active, setActive] = useState(0)
   const activeId = useRef<string | null>(null)
+  // Where we left off last time (survives a WebView reload; see ACTIVE_KEY).
+  const [savedId] = useState(loadActiveId)
+  const restored = useRef(false)
+  const lite = useAutoPerf(pos)
   const [sweep, setSweep] = useState<{ id: string; key: number } | null>(null)
   const lastSwept = useRef<string | null>(null)
   const carousel = useRef<CarouselHandle>(null)
@@ -116,7 +132,14 @@ export default function App() {
   const onSettle = useCallback(
     (i: number) => {
       const id = shelfRef.current[i]?.id
-      if (!id || id === lastSwept.current) return
+      if (!id) return
+      // Remember the resting place, so a WebView relaunch resumes here.
+      try {
+        localStorage.setItem(ACTIVE_KEY, id)
+      } catch {
+        /* private mode */
+      }
+      if (id === lastSwept.current) return
       lastSwept.current = id
       if (!reduceMotion) setSweep((s) => ({ id, key: (s?.key ?? 0) + 1 }))
     },
@@ -136,6 +159,12 @@ export default function App() {
   useLayoutEffect(() => {
     const n = shelf.length
     if (!n) return
+    // First data load: resume the movie the shelf was last resting on (survives a
+    // WebView reload, which is what made it look like the app "reset to 1/179").
+    if (!restored.current) {
+      restored.current = true
+      if (savedId && shelf.some((m) => m.id === savedId)) activeId.current = savedId
+    }
     const cur = activeId.current ? shelf.findIndex((m) => m.id === activeId.current) : -1
     const keep = cur >= 0 ? cur : Math.min(active, n - 1)
     if (keep !== wrap(Math.round(pos.get()), n) || keep !== active) {
@@ -229,7 +258,7 @@ export default function App() {
   const empty = !loading && shelf.length === 0
 
   return (
-    <div className={`app${detailId ? ' has-detail' : ''}`} style={{ ['--accent' as string]: accent }}>
+    <div className={`app${detailId ? ' has-detail' : ''}${lite ? ' perf-lite' : ''}`} style={{ ['--accent' as string]: accent }}>
       {all && all.length > 0 && (
         <div className="backdrop-wrap">
           <Backdrop movie={activeMovie} index={activeSlot} palette={palette} pos={pos} layout={layout} glareX={glareX} glareY={glareY} />
