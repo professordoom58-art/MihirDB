@@ -11,15 +11,17 @@ A personal movie catalog for iPhone: a PS5-style cover-flow of CD jewel cases, s
 ```bash
 npm install
 cp .env.example .env      # then paste your TMDB key
-npm run seed              # one-time: builds src/data/seed.json from the old ILOVEMOVIES repo
+npm run import:old        # one-time: builds src/data/seed.json from the old ILOVEMOVIES repo
 ```
 
 - **TMDB:** `VITE_TMDB_API_KEY` (v3 key) **or** `VITE_TMDB_READ_TOKEN` (v4 token) from https://www.themoviedb.org/settings/api. The app never asks for a key.
-- **OMDb (optional, critic scores):** `VITE_OMDB_KEY` from https://www.omdbapi.com/apikey.aspx.
+- **OMDb (optional, critic scores):** `VITE_OMDB_API_KEY` from https://www.omdbapi.com/apikey.aspx.
 
 **The shelf doesn't need the API.** Every entry stores its poster/backdrop paths, palette, rating, review and tag, and images come from `image.tmdb.org` (no key). On first launch the bundled `seed.json` (your old catalog) is loaded, so browsing works offline and without a key. The key is only used when you **add** a movie. If it's missing, the add sheet shows "Search is offline — key missing".
 
-`npm run seed` reads `favoriteMovies.ts`, `mihirRatings.ts` and `customGenres.ts` from the old repo (it clones it, or pass a local path: `npm run seed -- C:\path	o\ILOVEMOVIES`), calls TMDB once per entry, extracts each poster's palette, and writes `src/data/seed.json`. Commit that file.
+`npm run import:old` clones the old repo to `../ilovemovies-old` (or `--repo <path>`) and *executes* its `favoriteMovies.ts`, `mihirRatings.ts` and `customGenres.ts` (Node's built-in TypeScript support, so values are exact). It fetches TMDB details for all 179 entries, plus every film inside the 24 collections, extracts poster palettes, and writes `src/data/seed.json`. Responses are cached in `scripts/.cache`, so re-runs take about a second (`--fresh` clears the cache). It prints a summary and lists anything that failed to resolve.
+
+In the app: Settings → **Re-import seed** merges the catalog back in without wiping your edits or additions. Settings → **Import old reviews** takes the JSON from the old site's browser storage (the snippet to run there is shown in that panel).
 
 ### If TMDB "can't be reached" (Jio / some Indian ISPs)
 
@@ -146,3 +148,5 @@ capacitor.config.ts       app id/name; CAP_LIVE=1 → live-reload server.url
 .github/workflows/ios.yml unsigned IPA on macOS
 proxy/tmdb-worker.js      optional TMDB proxy for blocked networks
 ```
+#   M i h i r D B  
+ 
